@@ -1,0 +1,11 @@
+split avec charset qui dit combien de sous-tableaux il a cree ok
+si i = 1 && argv [i]
+variable qui commence a 1.
+faire un join des tableaux precedent 
+check letters apres si ca a fonctionne si return 0 on free tout le
+double tableau.
+
+creer split charset. 
+
+
+main dans le split
