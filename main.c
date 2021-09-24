@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/24 19:13:38 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/09/24 23:33:51 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,35 @@ void	ft_lstadd_back_p(t_list **alst, t_list *new)
 	last->next = new;
 }
 
-void	push_swap(int argc, char **argv)
+void	push_swap(int argc, char **argv, t_list *list, t_container *n_argus)
 {
 	int			i;
 	void		(*f)(int, int);
-	t_list		*list;
-	t_container	n_argus;
+	char		*tmp;
+	char		**d_tab;
 
 	f = &ft_putnbr_fd;
 	i = 1;
-	//list = ft_lstnew_p(argv[i++]);
+	tmp = ft_strdup("");
 	while (i < argc)
 	{
-		ft_lstadd_back_p(&list, ft_lstnew_p(argv[i++]));
+		d_tab = ft_split(argv[i], " \t\v\n\f\r", n_argus); //work
+		tmp = strjoin_double_tab(tmp, d_tab, n_argus);
+		//printf("%s\n", tmp);
+		i++;
 	}
-	ft_lstiter(list, f);
+	//printf("%s\n", tmp);
+	//ft_lstadd_back_p(&list, ft_lstnew_p(argv[i++]));
+	//ft_lstiter(list, f);
+	list = NULL;
 }
 
 int	main(int argc, char **argv)
 {
-	if (argc < 2 || !errors_main(argc, argv))
-		return (0);
-	push_swap(argc, argv);
+	t_list		list;
+	t_container	n_argus;
+
+	//if (argc < 2 || !errors_main(argc, argv))
+	//	return (0);
+	push_swap(argc, argv, &list, &n_argus);
 }

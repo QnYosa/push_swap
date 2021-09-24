@@ -6,13 +6,13 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:06:23 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/24 18:22:11 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/09/24 23:16:59 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "includes/push_swap.h"
 
-t_list	*ft_lstnew(int n, int *i)
+t_list	*ft_lstnew_counter(int n, int *i)
 {
 	t_list	*new;
 
