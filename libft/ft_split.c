@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:57:44 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/24 19:09:16 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/09/25 18:12:20 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,24 +95,3 @@ char	**ft_split(char const *s, char *ch, t_container *container)
 	}
 	return (split);
 }
-
-/*
-#include <stdio.h>
-
-int main (void)
-{
-	char **yo;
-	int i;
-	int j;
-	char charset [] = {9, 10, 11, 12, 13, 32, 127};
-
-	i = 0;
-	j = 0;
-	yo = ft_split("15 24 36 32", charset);
-	while (i < 5)
-	{
-		printf("%s\n", yo[i]);
-		i++;
-	}
-}
-*/

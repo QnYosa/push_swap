@@ -6,39 +6,44 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 19:18:34 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/24 18:00:48 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/09/25 18:18:39 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int	letters_here(int argc, char **argv)
+int	is_space_or_digit(char c)
 {
 	int	i;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (SPACESDIGITS[i])
 	{
-		while (argv[i])
-		{
-			if ((*argv[i] < '0' || *argv[i] > '9' || (*argv[i] < 9)
-					|| *argv[i] > 13 || *argv[i] != 32) && *argv[i] != '-'
-				&& *argv[i] != '+')
-			{
-				printf("on a une lettre");
-				return (0);
-			}
-			argv[i]++;
-		}
+		if (SPACESDIGITS[i] == c)
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	errors_main(int argc, char **argv)
 {
-	// faire split
-	if (!letters_here(argc, argv))
-		return (0);
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if (!is_space_or_digit(argv[i][j]))
+			{
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
 	return (1);
 }
