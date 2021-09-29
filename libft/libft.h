@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:26:35 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/25 18:35:50 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/09/29 18:22:20 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ typedef struct s_list
 	int				number;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_list
+{
+	struct s_list	*first;
+}	t_first;
 
 typedef struct s_container
 {
