@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/25 18:35:42 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/09/30 18:02:44 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ char	*strjoin_double_tab(char *tmp, char **d_tab, t_container *n_argus);
 void	ft_lstadd_back_p(t_list **alst, t_list *new);
 void	arg_split_to_list(char **d_tab, t_list *list, t_container *n_argus);
 t_list	*ft_lstnew_p(char *content);
+t_list	init_list(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/29 19:13:24 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/09/30 19:40:52 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,15 @@ int	main(int argc, char **argv)
 }
 */
 
-t_list	init_list()
+void	arg_management()
 {
 	
 }
 
-void	arg_management()
+int	main(int argc, char **argv)
 {
-	
+	t_list	*list;
+
+	list = NULL;
+	list = init_list();
 }

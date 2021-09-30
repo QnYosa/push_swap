@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRCS	= main.c errors.c parsing.c utils.c
+SRCS	= main.c errors.c parsing.c utils.c c_list.c
 
 OBJS	= ${SRCS:.c=.o}
 

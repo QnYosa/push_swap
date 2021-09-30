@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:26:35 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/29 18:22:20 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/09/30 19:43:50 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,20 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-typedef struct s_list
+typedef struct s_node
 {
 	int				number;
 	struct s_list	*next;
-}	t_list;
+	struct s_list	*previous;
+//	int				index;
+}	t_node;
 
 typedef struct s_list
 {
-	struct s_list	*first;
-}	t_first;
+	unsigned int	length;
+	struct t_node	*head;
+	struct t_node	*tail;
+}	t_list;
 
 typedef struct s_container
 {
