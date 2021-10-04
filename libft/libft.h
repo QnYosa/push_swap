@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:26:35 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/29 18:22:20 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/04 14:15:39 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-typedef struct s_list
+typedef struct s_node
 {
 	int				number;
-	struct s_list	*next;
-}	t_list;
+	struct s_node	*next;
+	struct s_node	*previous;
+}	t_node;
 
 typedef struct s_list
 {
-	struct s_list	*first;
-}	t_first;
+	unsigned int	length;
+	struct s_node	*head;
+	struct s_node	*tail;
+}	t_list;
 
 typedef struct s_container
 {
@@ -70,11 +73,11 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(char *content);
 void	ft_lstadd_front(t_list **alst, t_list *new);
-//int	ft_lstsize(t_list *lst);
+void	ft_lstiter(t_list *lst, void (*f)(int, int));
 t_list	*ft_lstlast(t_list *lst);
+//int	ft_lstsize(t_list *lst);
 //void	ft_lstdelone(t_list *lst, void (*del)(void *));
 //void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(int, int));
 //t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
