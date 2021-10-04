@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/04 15:07:29 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/04 17:28:24 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	push_swap(int argc, char **argv, t_list *list)
 	if (!errors_main(argc, argv))
 		return ;
 	list_display(list);
-	swap(list->head, list->head->next);
+	swap_a(list->head, list->head->next);
 	list_display(list);
 }
 

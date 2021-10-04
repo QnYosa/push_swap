@@ -6,7 +6,10 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:53 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/21 15:01:54 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/04 17:25:31 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "includes/libft.h"
+#include "includes/push_swap.h"
 

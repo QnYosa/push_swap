@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/04 15:07:17 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/04 17:29:00 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ t_list	*list_end(t_list *list, char *content);
 t_list	*list_start(t_list *list, char *content);
 t_node	*new_node(t_node *new, t_node *tmp, char *content, t_list *list);
 void	list_display(t_list *list);
-void	swap(t_node *first, t_node *second);
+void	swap_a(t_node *first, t_node *second);
 #endif
