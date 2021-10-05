@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:58 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/04 17:28:01 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/05 23:24:14 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	swap_a(t_node *first, t_node *second)
 	write(1, "sa\n", 3);
 }
 
-void	swap_a(t_node *first, t_node *second)
+void	swap_b(t_node *first, t_node *second)
 {
 	int	tmp;
 
@@ -39,15 +39,15 @@ void	swap_a(t_node *first, t_node *second)
 
 void	double_swap(t_list *list_1, t_list *list_2)
 {
-	swap(list_1->head, list_1->head->next);
-	swap(list_2->head, list_2->head->next);
+	swap_a(list_1->head, list_1->head->next);
+	swap_b(list_2->head, list_2->head->next);
 }
 
 void	push_first(t_list *sender, t_list *receiver)
 {
 	t_node	*tmp;
 
-	if (!sender)
+	if (!sender || !sender->head)
 		return ;
 	receiver = list_start(receiver, ft_itoa(sender->head->number));
 	tmp = sender->head;

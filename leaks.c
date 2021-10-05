@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:37:33 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/04 17:30:35 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/05 22:56:13 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 
 void	delete_list(t_list **list)
 {
-	t_node	*tmp;
-	t_node	*del;
+	t_node				*tmp;
+	t_node				*del;
+	unsigned int		i;
 
-	if (list == NULL)
+	i = 0;
+	if (*list == NULL)
 		return ;
-	tmp = list->head;
-	while (tmp != NULL)
+	tmp = (*list)->head;
+	while (tmp != NULL && i <= (*list)->length)
 	{
 		del = tmp;
+		free (del);
 		tmp = tmp->next;
-		free(del);
+		i++;
 	}
-	free(*list);
-	list = NULL;
+	free(*list), list = NULL;
 }
+
+// breakpoint in malloc_error_break to debug

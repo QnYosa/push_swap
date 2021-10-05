@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 18:02:59 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/04 13:45:52 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/05 23:25:26 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 t_node	*new_node(t_node *new, t_node *tmp, char *content, t_list *list)
 {
+	new = (t_node *)malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
 	new->number = ft_atoi(content);
 	tmp->next->previous = new;
 	tmp->previous->next = new;

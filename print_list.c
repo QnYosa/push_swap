@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   print_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 19:14:29 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/05 15:19:35 by dyoula           ###   ########.fr       */
+/*   Created: 2021/10/05 15:21:55 by dyoula            #+#    #+#             */
+/*   Updated: 2021/10/05 16:34:31 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
+#include "includes/push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(int, int))
+void	list_display(t_list *list, t_list *listb)
 {
 	t_node	*tmp;
+	t_node	*tmp_b;
 
-	(void)f;
-	if (!lst || !f)
+	if (!list || !listb)
 		return ;
-	tmp = lst->head;
-	if (lst)
+	tmp = list->head;
+	tmp_b = listb->head;
+	while (tmp != NULL || tmp_b != NULL)
 	{
-		while (tmp)
+		ft_putstr_fd("||\t", 1);
+		if (tmp)
 		{
 			ft_putnbr_fd(tmp->number, 1);
-			write(1, "\n", 1);
 			tmp = tmp->next;
 		}
+		ft_putstr_fd("\t||\t", 1);
+		if (tmp_b)
+		{
+			ft_putnbr_fd(tmp_b->number, 1);
+			tmp_b = tmp_b->next;
+		}
+		ft_putstr_fd("\t||\t\n", 1);
 	}
+	write(1, "====================================\n", 38);
 }

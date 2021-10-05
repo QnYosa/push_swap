@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/04 17:28:24 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/05 23:26:45 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@
 void	push_swap(int argc, char **argv, t_list *list)
 {
 	int			i;
-	void		(*f)(int, int);
+	t_list		*stack_b;
 
-	f = &ft_putnbr_fd;
+	stack_b = init_list();
 	i = 1;
 	if (!errors_main(argc, argv))
 		return ;
-	list_display(list);
-	swap_a(list->head, list->head->next);
-	list_display(list);
+	push_first(list, stack_b);
+	list_display(list, stack_b);
+	push_first(list, stack_b);
+	list_display(list, stack_b);
+	//delete_list(&list);
+	//delete_list(&stack_b);
 }
 
 int	list_filler(int argc, char **argv, t_list *list)
@@ -50,8 +53,7 @@ int	main(int argc, char **argv)
 
 	list = NULL;
 	list = init_list();
-	if (argc < 2 || !errors_main(argc, argv))
+	if (argc < 3 || !errors_main(argc, argv))
 		return (0);
 	list_filler(argc, argv, list);
-	free(list);
 }

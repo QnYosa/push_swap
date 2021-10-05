@@ -8,9 +8,5 @@ main dans le split
 TOP = chiffre le plus a gauche;
 Bottom = end
 
-
-Vous avez évoqué 2 pistes :
-- Votre lien avec la Guadeloupe
-- Votre passion pour le football 
-Je vous laisse réfléchir à un troisième sujet.
+faire un is_empty()
 
