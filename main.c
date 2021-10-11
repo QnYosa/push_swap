@@ -15,19 +15,17 @@
 
 void	push_swap(int argc, char **argv, t_list *list)
 {
-	int			i;
 	t_list		*stack_b;
 
 	stack_b = init_list();
-	i = 1;
 	if (!errors_main(argc, argv))
 		return ;
 	push_first(list, stack_b);
 	list_display(list, stack_b);
 	push_first(list, stack_b);
 	list_display(list, stack_b);
-	//delete_list(&list);
-	//delete_list(&stack_b);
+	delete_list(&list);
+	delete_list(&stack_b);
 }
 
 int	list_filler(int argc, char **argv, t_list *list)
@@ -54,6 +52,11 @@ int	main(int argc, char **argv)
 	list = NULL;
 	list = init_list();
 	if (argc < 3 || !errors_main(argc, argv))
+	{
+		delete_list(&list);
 		return (0);
+	}
 	list_filler(argc, argv, list);
+	free(list);
+	return (0);
 }

@@ -6,7 +6,7 @@ SRCS	= main.c errors.c parsing.c utils.c c_list.c \
 
 OBJS	= ${SRCS:.c=.o}
 
-CFLAGS	= -Wall  -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra -g3 -fsanitize=address
 
 CC		= gcc
 
@@ -15,7 +15,7 @@ RM		= rm -f
 all:	${NAME}
 
 $(NAME):	libft ${OBJS}
-			${CC} ${CFLAGS} ${OBJS} libft.a -o ${NAME} 
+			${CC} ${CFLAGS} ${OBJS} libft.a -o ${NAME}
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}

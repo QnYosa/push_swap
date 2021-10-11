@@ -31,7 +31,7 @@ t_list	*init_list(void)
 {
 	t_list	*list;
 
-	list = malloc(sizeof(t_list));
+	list = (t_list *)malloc(sizeof(t_list));
 	if (!list)
 		return (NULL);
 	list->length = 0;

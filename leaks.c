@@ -26,11 +26,9 @@ void	delete_list(t_list **list)
 	while (tmp != NULL && i <= (*list)->length)
 	{
 		del = tmp;
-		free (del);
 		tmp = tmp->next;
+		free(del);
 		i++;
 	}
-	free(*list), list = NULL;
+	free(*list), *list = NULL;
 }
-
-// breakpoint in malloc_error_break to debug
