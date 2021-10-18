@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/05 17:04:13 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/18 23:14:29 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ void	swap_a(t_node *first, t_node *second);
 void	swap_b(t_node *first, t_node *second);
 void	push_first(t_list *sender, t_list *receiver);
 void	delete_list(t_list **list);
+void	ra_list(t_list *list);
+void	rra_list(t_list *list);
 
 #endif
