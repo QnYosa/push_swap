@@ -2,7 +2,7 @@ NAME = push_swap
 
 SRCS	= main.c errors.c parsing.c utils.c c_list.c \
 	c_list_norm.c leaks.c ope_1.c ope_2.c ope_3.c \
-	print_list.c
+	print_list.c checking.c 
 
 OBJS	= ${SRCS:.c=.o}
 

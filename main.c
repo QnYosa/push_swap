@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/18 23:15:06 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/19 14:56:22 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	list_filler(int argc, char **argv, t_list *list)
 		arg_split_to_list(d_tab, list, &n_argus);
 		i++;
 	}
+	if (!is_sorted(list))
+		return (0);
 	push_swap(argc, argv, list);
 	return (1);
 }
@@ -55,6 +57,10 @@ int	main(int argc, char **argv)
 		return (0);
 	list = NULL;
 	list = init_list();
-	list_filler(argc, argv, list);
+	if (!list_filler(argc, argv, list))
+	{
+		ft_putstr_fd("Nothing to do.\n", 1);
+		return (0);
+	}
 	return (0);
 }
