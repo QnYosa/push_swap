@@ -1,7 +1,4 @@
-split avec charset qui dit combien de sous-tableaux il a cree ok
 variable qui commence a 1.
-check letters apres si ca a fonctionne si return 0 on free tout le
-double tableau.
 
 main dans le split
 
@@ -10,3 +7,15 @@ Bottom = end
 
 faire un is_empty()
 
+https://stackoverflow.com/questions/38164849/sorting-a-stack-in-ascending-order-in-c-using-two-stacks
+
+
+checker ceux dans le bon ordre-> cree une premiere liste pré-établie.
+
+mettre un indicateur de position max-> min 
+
+
+
+moves surs 
+
+[top->stack_a  > stack_btail->previous] => push_first => rra 

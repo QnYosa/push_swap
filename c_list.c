@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 18:02:59 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/05 23:25:26 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/19 16:55:45 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ t_list	*list_start(t_list *list, char *content)
 		new_node->next = NULL;
 		list->head = new_node;
 		list->tail = new_node;
+		new_node->index = 0;
 	}
 	else
 	{

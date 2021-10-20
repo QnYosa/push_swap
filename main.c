@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/19 14:56:22 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/19 18:15:15 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ void	push_swap(int argc, char **argv, t_list *list)
 	if (!errors_main(argc, argv))
 		return ;
 	list_display(list, stack_b);
-	rra_list(list);
-	list_display(list, stack_b);
-	push_first(list, stack_b);
-	push_first(list, stack_b);
 	list_display(list, stack_b);
 	delete_list(&list);
 	delete_list(&stack_b);
@@ -43,8 +39,9 @@ int	list_filler(int argc, char **argv, t_list *list)
 		arg_split_to_list(d_tab, list, &n_argus);
 		i++;
 	}
-	if (!is_sorted(list))
-		return (0);
+	add_index(list);
+	// if (!is_sorted(list))
+	// 	return (0);
 	push_swap(argc, argv, list);
 	return (1);
 }

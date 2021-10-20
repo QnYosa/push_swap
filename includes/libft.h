@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:26:35 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/04 16:25:05 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/19 17:44:24 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_node
 {
 	int				number;
+	int				index;
 	struct s_node	*next;
 	struct s_node	*previous;
 }	t_node;
@@ -30,6 +31,7 @@ typedef struct s_list
 	unsigned int	length;
 	struct s_node	*head;
 	struct s_node	*tail;
+	int				moves;
 }	t_list;
 
 typedef struct s_container
