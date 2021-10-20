@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 17:37:55 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/20 22:02:50 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/20 23:05:58 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,25 @@ t_trio *podium)
 	while (++i < 4)
 	{
 		if (i == 0)
-		{
-			malloc_tab(podium->up, tab);
-			tab_filler(tab);
-		}
+			if (podium->up != 0)
+				malloc_tab(podium->up, tab);
 		if (i == 1)
-			malloc_tab(podium->mid_up, tab);
+			if (podium->mid_up != 0)
+				malloc_tab(podium->mid_up, tab);
 		if (i == 2)
-			malloc_tab(podium->md_down, tab);
+			if (podium->down != 0)
+				malloc_tab(podium->mid_down, tab);
 		if (i == 3)
-			malloc_tab(podium->down, tab);
+			if (podium->down != 0)
+				malloc_tab(podium->down, tab);
+		tab_filler(tab);
 	}
 	free(tab);
 }
 
 int	chose_best_to_pop(t_list *stack_a, t_list *stack_b)
 {
-	int		*tab;
+	//int		*tab;
 	t_trio	*podium;
 
 	init_podium_main(podium, stack_a, stack_b);
