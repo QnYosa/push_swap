@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 17:37:55 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/20 23:05:58 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/21 23:35:18 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 #include "includes/libft.h"
 
 /*          POP AND PLACE            */
-
-void	chose_operation(int *tab, t_list *stack_a, t_list *stack_b, \
-t_trio *podium)
+void	index_op(int n, int *tab, t_list *stack_a, t_list *stack_b)
 {
-	int	*tab;
+	if (n == 0)
+		up_to_do(n, tab, stack_a, stack_b);
+	if (n == 1)
+		middup_to_do(n, tab, stack_a, stack_b);
+	if (n == 2)
+		midlow_to_go(n, tab, stack_a, stack_b);
+	if (n == 4)
+		down_to_do(n, tab, stack_a, stack_b);
+}
+
+void	chose_operation(t_list *stack_a, t_list *stack_b, t_trio *podium)
+{
 	int	i;
+	int	*tab;
 
 	i = -1;
 	while (++i < 4)
@@ -31,27 +41,27 @@ t_trio *podium)
 			if (podium->mid_up != 0)
 				malloc_tab(podium->mid_up, tab);
 		if (i == 2)
-			if (podium->down != 0)
+			if (podium->mid_down != 0)
 				malloc_tab(podium->mid_down, tab);
 		if (i == 3)
 			if (podium->down != 0)
 				malloc_tab(podium->down, tab);
 		tab_filler(tab);
+		index_op(i, tab, stack_a, stack_b);
+		free(tab);
 	}
-	free(tab);
 }
 
 int	chose_best_to_pop(t_list *stack_a, t_list *stack_b)
 {
-	//int		*tab;
 	t_trio	*podium;
 
 	init_podium_main(podium, stack_a, stack_b);
-	translate_podium()
-	tab = init_tab(tab);
-	count_moves_head(tab, stack_a, stack_b);
-	count_moves(tab, stack_a, stack_b);
-	free(tab);
+	chose_operation(tab, stack_a, stack_b);
+	// tab = init_tab(tab);
+	// count_moves_head(tab, stack_a, stack_b);
+	// count_moves(tab, stack_a, stack_b);
+	//free(tab);
 }
 
 /*

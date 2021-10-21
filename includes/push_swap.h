@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/20 22:14:21 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/21 23:40:23 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,15 @@ void	up_fill(int *tab, t_list *stack_a, t_list *stack_b);
 void	midup_fill(int *tab, t_list *stack_a, t_list *stack_b);
 void	midlow_fill(int *tab, t_list *stack_a, t_list *stack_b);
 void	down_fill(int *tab, t_list *stack_a, t_list *stack_b);
+
+/*		CHOSE OPERATION       */
+void	up_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
+void	down_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
+void	midlow_to_go(int n, int *tab, t_list *stack_a, t_list *stack_b);
+void	tab_filler(int n, int *tab, t_list *stack_a, t_list *stack_b);
+
+
+/* ALGO */
+int		chose_best_to_pop(t_list *stack_a, t_list *stack_b);
 
 #endif
