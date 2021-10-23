@@ -22,10 +22,10 @@ void	push_swap(int argc, char **argv, t_list *list)
 	stack_b = init_list();
 	if (!errors_main(argc, argv))
 		return ;
+	push_first(list, stack_b);
+	push_first(list, stack_b);
 	list_display(list, stack_b);
-	push_first(list, stack_b);
-	push_first(list, stack_b);
-	while (++i < 4)
+	while (++i < 2)
 		chose_best_to_pop(list, stack_b);
 	list_display(list, stack_b);
 	delete_list(&list);
@@ -45,7 +45,7 @@ int	list_filler(int argc, char **argv, t_list *list)
 		arg_split_to_list(d_tab, list, &n_argus);
 		i++;
 	}
-	add_index(list);
+	//add_index(list);
 	// if (!is_sorted(list))
 	// 	return (0);
 	push_swap(argc, argv, list);

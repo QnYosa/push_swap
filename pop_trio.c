@@ -29,10 +29,8 @@ void	index_op(int n, t_trio *podium, t_list *stack_a, t_list *stack_b)
 void	chose_operation(t_list *stack_a, t_list *stack_b, t_trio *podium)
 {
 	int	i;
-	int	*tab;
 
 	i = -1;
-	tab = NULL;
 	while (++i < 4)
 	{
 		if (i == 0)
