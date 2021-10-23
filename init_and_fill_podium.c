@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 19:17:30 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/23 16:52:30 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/23 18:47:47 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 void	set_to_zero(t_trio *podium)
 {
+	podium = malloc(sizeof(t_trio));
+	if (!podium)
+		exit(3);
 	podium->up = 0;
 	podium->mid_up = 0;
 	podium->mid_down = 0;
