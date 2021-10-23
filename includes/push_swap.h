@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/21 23:40:23 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/23 18:09:32 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_trio
 	int	mid_up;
 	int	mid_down;
 	int	down;
+	int	*tab;
 }	t_trio;
 
 /* ERRORS */
@@ -47,7 +48,7 @@ void	delete_list(t_list **list);
 char	*strjoin_double_tab(char *tmp, char **d_tab, t_container *n_argus);
 void	arg_split_to_list(char **d_tab, t_list *list, t_container *n_argus);
 
-/* LIST IMPLEMENTATION */
+/* 	LIST IMPLEMENTATION */
 t_list	*ft_lstnew_p(char *content);
 t_list	*init_list(void);
 t_list	*list_insert_norm(t_node *tmp, t_list *list, char *content);
@@ -59,26 +60,30 @@ t_list	*list_start(t_list *list, char *content);
 t_node	*new_node(t_node *new, t_node *tmp, char *content, t_list *list);
 void	add_index(t_list *list);
 
-/* AFFICHAGE */
+/* 	AFFICHAGE */
 void	list_display(t_list *list, t_list *listb);
+
+/*			PODIUM				*/
+void	init_podium_main(t_trio *podium, t_list *stack_a, t_list *stack_b);
 
 /* TABS */
 void	ft_swap(int *tab, int i, int j);
 void	ft_sort_int_tab(int *tab, int size);
 void	ft_rev_int_tab(int *tab, int size);
+void	malloc_tab(int n, int *tab);
 
-/* FILL TAB */
+/*			 FILL TAB 			*/
 void	up_fill(int *tab, t_list *stack_a, t_list *stack_b);
 void	midup_fill(int *tab, t_list *stack_a, t_list *stack_b);
 void	midlow_fill(int *tab, t_list *stack_a, t_list *stack_b);
 void	down_fill(int *tab, t_list *stack_a, t_list *stack_b);
 
-/*		CHOSE OPERATION       */
+/*			CHOSE OPERATION       */
 void	up_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
 void	down_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
+void	middup_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
 void	midlow_to_go(int n, int *tab, t_list *stack_a, t_list *stack_b);
-void	tab_filler(int n, int *tab, t_list *stack_a, t_list *stack_b);
-
+void	tab_filler(int n, t_trio *podium, t_list *stack_a, t_list *stack_b);
 
 /* ALGO */
 int		chose_best_to_pop(t_list *stack_a, t_list *stack_b);

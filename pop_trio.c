@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 17:37:55 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/21 23:35:18 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/23 18:29:51 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 #include "includes/libft.h"
 
 /*          POP AND PLACE            */
-void	index_op(int n, int *tab, t_list *stack_a, t_list *stack_b)
+void	index_op(int n, t_trio *podium, t_list *stack_a, t_list *stack_b)
 {
 	if (n == 0)
-		up_to_do(n, tab, stack_a, stack_b);
+		up_to_do(podium->up, podium->tab, stack_a, stack_b);
 	if (n == 1)
-		middup_to_do(n, tab, stack_a, stack_b);
+		middup_to_do(podium->mid_up, podium->tab, stack_a, stack_b);
 	if (n == 2)
-		midlow_to_go(n, tab, stack_a, stack_b);
+		midlow_to_go(podium->mid_down, podium->tab, stack_a, stack_b);
 	if (n == 4)
-		down_to_do(n, tab, stack_a, stack_b);
+		down_to_do(podium->down, podium->tab, stack_a, stack_b);
 }
 
 void	chose_operation(t_list *stack_a, t_list *stack_b, t_trio *podium)
@@ -32,36 +32,43 @@ void	chose_operation(t_list *stack_a, t_list *stack_b, t_trio *podium)
 	int	*tab;
 
 	i = -1;
+	tab = NULL;
 	while (++i < 4)
 	{
 		if (i == 0)
 			if (podium->up != 0)
-				malloc_tab(podium->up, tab);
+				malloc_tab(podium->up, podium->tab);
 		if (i == 1)
 			if (podium->mid_up != 0)
-				malloc_tab(podium->mid_up, tab);
+				malloc_tab(podium->mid_up, podium->tab);
 		if (i == 2)
 			if (podium->mid_down != 0)
-				malloc_tab(podium->mid_down, tab);
+				malloc_tab(podium->mid_down, podium->tab);
 		if (i == 3)
 			if (podium->down != 0)
-				malloc_tab(podium->down, tab);
-		tab_filler(tab);
-		index_op(i, tab, stack_a, stack_b);
-		free(tab);
+				malloc_tab(podium->down, podium->tab);
+		tab_filler(i, podium, stack_a, stack_b);
+		index_op(i, podium, stack_a, stack_b);
+		free(podium->tab);
 	}
+}
+
+void	malloc_tab(int n, int *tab)
+{
+	tab = malloc(sizeof(int) * n);
+	if (!tab)
+		return ;
 }
 
 int	chose_best_to_pop(t_list *stack_a, t_list *stack_b)
 {
 	t_trio	*podium;
 
+	podium = NULL;
 	init_podium_main(podium, stack_a, stack_b);
-	chose_operation(tab, stack_a, stack_b);
-	// tab = init_tab(tab);
-	// count_moves_head(tab, stack_a, stack_b);
-	// count_moves(tab, stack_a, stack_b);
+	chose_operation(stack_a, stack_b, podium);
 	//free(tab);
+	return (1);
 }
 
 /*
