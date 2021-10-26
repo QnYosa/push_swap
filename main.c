@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/23 18:53:29 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/24 17:25:17 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,15 @@ int	list_filler(int argc, char **argv, t_list *list)
 		i++;
 	}
 	add_index(list);
-	// if (!is_sorted(list))
-	// 	return (0);
-	push_swap(argc, argv, list);
 	return (1);
+}
+
+void	chose_algo(int argc, t_list *stack)
+{
+	if (argc == 4)
+		three_arg_maestro(stack);
+	if (argc == 5)
+		small_insertion(stack);
 }
 
 int	main(int argc, char **argv)
@@ -60,10 +65,14 @@ int	main(int argc, char **argv)
 		return (0);
 	list = NULL;
 	list = init_list();
-	if (!list_filler(argc, argv, list))
+	if (!list_filler(argc, argv, list)/* || is_sorted(list)*/)
 	{
 		ft_putstr_fd("Nothing to do.\n", 1);
 		return (0);
 	}
+	one_list_display(list);
+	chose_algo(argc, list);
+	//push_swap(argc, argv, list);
+	delete_list(&list);
 	return (0);
 }

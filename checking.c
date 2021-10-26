@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:17:44 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/19 14:56:15 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/24 17:13:52 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	is_sorted(t_list *stack)
 	{
 		if (iterator->next != NULL && iterator->number < iterator->next->number)
 		{
-			ft_putstr_fd("Je ne suis pas triée.\n", 1);
+			//ft_putstr_fd("Je ne suis pas triée.\n", 1);
 			return (0);
 		}
 		iterator = iterator->next;
 	}
-	ft_putstr_fd("Je suis triée.\n", 1);
+	//ft_putstr_fd("Je suis triée.\n", 1);
 	return (1);
 }

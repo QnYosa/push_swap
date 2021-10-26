@@ -6,14 +6,14 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:36:14 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/23 18:23:34 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/24 14:24:51 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-/* 						ON FAIT LES OPERATIONS  */
+/* 						ON FAIT LES OPERATIONS 								   */
 void	up_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b)
 {
 	int	i;

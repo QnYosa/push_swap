@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/23 18:09:32 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/24 17:25:33 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	add_index(t_list *list);
 
 /* 	AFFICHAGE */
 void	list_display(t_list *list, t_list *listb);
+void	one_list_display(t_list *list);
 
 /*			PODIUM				*/
 void	init_podium_main(t_trio *podium, t_list *stack_a, t_list *stack_b);
@@ -79,6 +80,7 @@ void	midlow_fill(int *tab, t_list *stack_a, t_list *stack_b);
 void	down_fill(int *tab, t_list *stack_a, t_list *stack_b);
 
 /*			CHOSE OPERATION       */
+void	chose_algo(int argc, t_list *stack);
 void	up_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
 void	down_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
 void	middup_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
@@ -87,5 +89,8 @@ void	tab_filler(int n, t_trio *podium, t_list *stack_a, t_list *stack_b);
 
 /* ALGO */
 int		chose_best_to_pop(t_list *stack_a, t_list *stack_b);
+/* 			3 - ARGS    */
+void	three_arg_maestro(t_list *stack_a);
+void	small_insertion(t_list *stack_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:58 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/21 22:33:19 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/24 18:02:56 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ void	push_first(t_list *sender, t_list *receiver)
 	sender->head = sender->head->next;
 	sender->head->previous = NULL;
 	sender->length--;
+	if (sender->length == 0)
+	{
+		sender->head = NULL;
+		sender->tail = NULL;
+	}
 	receiver->length++;
+	write(1, "pa\n", 3);
 	free(tmp);
 }

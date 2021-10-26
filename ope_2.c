@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:53 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/19 14:49:41 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/24 16:20:12 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ra_list(t_list *list)
 		i++;
 	}
 	list->tail->number = value_head;
+	write(1, "ra\n", 3);
 }
 
 void	rra_list(t_list *list)
@@ -49,6 +50,7 @@ void	rra_list(t_list *list)
 		i++;
 	}
 	list->head->number = value_tail;
+	write(1, "rra\n", 4);
 }
 
 void	rrr(t_list *stack_a, t_list *stack_b)
