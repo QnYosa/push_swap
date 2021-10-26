@@ -52,20 +52,26 @@ void	double_swap(t_list *list_1, t_list *list_2)
 void	push_first(t_list *sender, t_list *receiver)
 {
 	t_node	*tmp;
+	char	*str;
 
+	str = ft_itoa(sender->head->number);
 	if (!sender || !sender->head)
 		return ;
-	receiver = list_start(receiver, ft_itoa(sender->head->number));
+	receiver = list_start(receiver, str);
 	tmp = sender->head;
-	sender->head = sender->head->next;
-	sender->head->previous = NULL;
-	sender->length--;
 	if (sender->length == 0)
 	{
 		sender->head = NULL;
 		sender->tail = NULL;
 	}
+	else
+	{
+		sender->head = sender->head->next;
+		//sender->head->previous = NULL;
+		sender->length--;
+	}
 	receiver->length++;
 	write(1, "pa\n", 3);
 	free(tmp);
+	free(str);
 }

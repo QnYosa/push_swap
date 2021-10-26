@@ -42,7 +42,13 @@ int	list_filler(int argc, char **argv, t_list *list)
 	while (i < argc)
 	{
 		d_tab = ft_split(argv[i], " \t\v\n\f\r", &n_argus);
+		if (!d_tab)
+		{
+			ft_putstr_fd("RAUS FDP\n", 1);
+			exit(0);
+		}
 		arg_split_to_list(d_tab, list, &n_argus);
+		delete_d_tab(n_argus.n_tabs, d_tab);
 		i++;
 	}
 	add_index(list);
@@ -65,9 +71,10 @@ int	main(int argc, char **argv)
 		return (0);
 	list = NULL;
 	list = init_list();
-	if (!list_filler(argc, argv, list)/* || is_sorted(list)*/)
+	if (!list_filler(argc, argv, list) || is_sorted(list))
 	{
 		ft_putstr_fd("Nothing to do.\n", 1);
+		delete_list(&list);
 		return (0);
 	}
 	one_list_display(list);

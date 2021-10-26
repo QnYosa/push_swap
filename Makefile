@@ -8,7 +8,7 @@ SRCS	= main.c errors.c parsing.c utils.c c_list.c \
 
 OBJS	= ${SRCS:.c=.o}
 
-CFLAGS	= -Wall -Werror -Wextra -g3 -fsanitize=address
+CFLAGS	= -Wall -Werror -Wextra -g
 
 CC		= gcc
 

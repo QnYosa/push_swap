@@ -32,3 +32,21 @@ void	delete_list(t_list **list)
 	}
 	free(*list), *list = NULL;
 }
+
+void	delete_d_tab(int argc, char **d_tab)
+{
+	int	i;
+
+	i = 0;
+	while (i < argc)
+	{
+		// ft_putstr_fd("delete d_tab", 1);
+		// ft_putnbr_fd(i, 1);
+		// ft_putchar_fd('\n', 1);
+		// ft_putstr_fd(d_tab[i], 1);
+		// ft_putchar_fd('\n', 1);
+		free(d_tab[i]);
+		i++;
+	}
+	free(d_tab);
+}

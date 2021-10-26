@@ -43,6 +43,7 @@ void	push_first(t_list *sender, t_list *receiver);
 
 /* LEAKS */
 void	delete_list(t_list **list);
+void	delete_d_tab(int argc, char **d_tab);
 
 /* ARGUMENTS */
 char	*strjoin_double_tab(char *tmp, char **d_tab, t_container *n_argus);
