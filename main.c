@@ -6,7 +6,7 @@
 /*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/24 17:25:17 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/26 14:55:13 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	push_swap(int argc, char **argv, t_list *list)
 	stack_b = init_list();
 	if (!errors_main(argc, argv))
 		return ;
+	push_first(list, stack_b);
+	push_first(list, stack_b);
 	list_display(list, stack_b);
-	push_first(list, stack_b);
-	push_first(list, stack_b);
-	while (++i < 4)
+	while (++i < 2)
 		chose_best_to_pop(list, stack_b);
 	list_display(list, stack_b);
 	delete_list(&list);
