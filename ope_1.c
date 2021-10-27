@@ -31,13 +31,11 @@ void	swap(t_node *first, t_node *second, char c)
 		write(1, "sb\n", 3);
 }
 
-
 void	double_swap(t_list *list_1, t_list *list_2)
 {
 	swap(list_1->head, list_1->head->next, 'a');
 	swap(list_2->head, list_2->head->next, 'b');
 	list_display(list_1, list_2);
-
 }
 
 void	push_first(t_list *sender, t_list *receiver)

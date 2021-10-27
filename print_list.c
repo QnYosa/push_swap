@@ -61,5 +61,4 @@ void	one_list_display(t_list *list)
 	}
 	write(1, "====================================\n", 38);
 	write(1, "^^^^ONE LIST ^^^^\n", ft_strlen("^^^^ONE LIST ^^^^\n"));
-
 }

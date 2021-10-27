@@ -21,12 +21,8 @@ int	is_sorted(t_list *stack)
 	while (iterator != NULL)
 	{
 		if (iterator->next != NULL && iterator->number < iterator->next->number)
-		{
-			//ft_putstr_fd("Je ne suis pas triée.\n", 1);
 			return (0);
-		}
 		iterator = iterator->next;
 	}
-	//ft_putstr_fd("Je suis triée.\n", 1);
 	return (1);
 }

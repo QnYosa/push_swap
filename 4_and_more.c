@@ -38,7 +38,7 @@ void	chose_op(t_list *stack_a, t_list *stack_b)
 	else if (stack_b->head->number < stack_a->head->number)
 		push_first(stack_b, stack_a);
 	else if (stack_b->head->number > stack_a->head->number && \
-		stack_b->head->number < stack_a->head->next->number)
+	stack_b->head->number < stack_a->head->next->number)
 		{
 			push_first(stack_b, stack_a);
 			swap(stack_a->head, stack_a->head->next, 'a');

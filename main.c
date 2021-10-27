@@ -79,6 +79,7 @@ int	main(int argc, char **argv)
 		delete_list(&list);
 		return (0);
 	}
+	
 	one_list_display(list);
 	chose_algo(argc, list);
 	one_list_display(list);
