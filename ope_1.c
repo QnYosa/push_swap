@@ -13,7 +13,7 @@
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-void	swap_a(t_node *first, t_node *second)
+void	swap(t_node *first, t_node *second, char c)
 {
 	int	tmp;
 
@@ -25,28 +25,19 @@ void	swap_a(t_node *first, t_node *second)
 	tmp = first->index;
 	first->index = second->index;
 	second->index = tmp;
-	write(1, "sa\n", 3);
+	if (c == 'a')
+		write(1, "sa\n", 3);
+	else
+		write(1, "sb\n", 3);
 }
 
-void	swap_b(t_node *first, t_node *second)
-{
-	int	tmp;
-
-	if (!first || !second)
-		return ;
-	tmp = first->number;
-	first->number = second->number;
-	second->number = tmp;
-	tmp = first->index;
-	first->index = second->index;
-	second->index = tmp;
-	write(1, "sb\n", 3);
-}
 
 void	double_swap(t_list *list_1, t_list *list_2)
 {
-	swap_a(list_1->head, list_1->head->next);
-	swap_b(list_2->head, list_2->head->next);
+	swap(list_1->head, list_1->head->next, 'a');
+	swap(list_2->head, list_2->head->next, 'b');
+	list_display(list_1, list_2);
+
 }
 
 void	push_first(t_list *sender, t_list *receiver)
@@ -54,11 +45,12 @@ void	push_first(t_list *sender, t_list *receiver)
 	t_node	*tmp;
 	char	*str;
 
-	str = ft_itoa(sender->head->number);
 	if (!sender || !sender->head)
 		return ;
+	str = ft_itoa(sender->head->number);
 	receiver = list_start(receiver, str);
 	tmp = sender->head;
+	sender->length--;
 	if (sender->length == 0)
 	{
 		sender->head = NULL;
@@ -67,10 +59,8 @@ void	push_first(t_list *sender, t_list *receiver)
 	else
 	{
 		sender->head = sender->head->next;
-		//sender->head->previous = NULL;
-		sender->length--;
+		sender->head->previous = NULL;
 	}
-	receiver->length++;
 	write(1, "pa\n", 3);
 	free(tmp);
 	free(str);

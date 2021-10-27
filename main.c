@@ -27,7 +27,6 @@ void	push_swap(int argc, char **argv, t_list *list)
 	list_display(list, stack_b);
 	while (++i < 2)
 		chose_best_to_pop(list, stack_b);
-	list_display(list, stack_b);
 	delete_list(&list);
 	delete_list(&stack_b);
 }
@@ -55,12 +54,16 @@ int	list_filler(int argc, char **argv, t_list *list)
 	return (1);
 }
 
-void	chose_algo(int argc, t_list *stack)
+void	chose_algo(int argc, /*char **argv,*/ t_list *stack)
 {
 	if (argc == 4)
 		three_arg_maestro(stack);
-	if (argc == 5)
+	else if (argc == 5)
 		small_insertion(stack);
+	/*
+	else
+		push_swap(argc, argv, list);
+	*/
 }
 
 int	main(int argc, char **argv)
@@ -73,13 +76,12 @@ int	main(int argc, char **argv)
 	list = init_list();
 	if (!list_filler(argc, argv, list) || is_sorted(list))
 	{
-		ft_putstr_fd("Nothing to do.\n", 1);
 		delete_list(&list);
 		return (0);
 	}
 	one_list_display(list);
 	chose_algo(argc, list);
-	//push_swap(argc, argv, list);
+	one_list_display(list);
 	delete_list(&list);
 	return (0);
 }

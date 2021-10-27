@@ -35,10 +35,9 @@ int		errors_main(int argc, char **argv);
 int		is_sorted(t_list *stack);
 
 /* OPERATIONS */
-void	ra_list(t_list *list);
-void	rra_list(t_list *list);
-void	swap_a(t_node *first, t_node *second);
-void	swap_b(t_node *first, t_node *second);
+void	ra_list(t_list *list, char c);
+void	rra_list(t_list *list, char c);
+void	swap(t_node *first, t_node *second, char c);
 void	push_first(t_list *sender, t_list *receiver);
 
 /* LEAKS */

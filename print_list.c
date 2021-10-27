@@ -39,6 +39,7 @@ void	list_display(t_list *list, t_list *listb)
 		ft_putstr_fd("\t||\t\n", 1);
 	}
 	write(1, "====================================\n", 38);
+	write(1, "^^^^TWO LISTS ^^^^\n", ft_strlen("^^^^TWO LISTS ^^^^\n"));
 }
 
 void	one_list_display(t_list *list)
@@ -59,4 +60,6 @@ void	one_list_display(t_list *list)
 		ft_putstr_fd("\t||\t\n", 1);
 	}
 	write(1, "====================================\n", 38);
+	write(1, "^^^^ONE LIST ^^^^\n", ft_strlen("^^^^ONE LIST ^^^^\n"));
+
 }

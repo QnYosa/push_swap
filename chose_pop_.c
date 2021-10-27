@@ -25,12 +25,12 @@ void	up_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b)
 			push_first(stack_a, stack_b);
 		else if (tab[i] == stack_a->head->next->number)
 		{
-			swap_a(stack_a->head, stack_a->head->next);
+			swap(stack_a->head, stack_a->head->next, 'a');
 			push_first(stack_a, stack_b);
 		}
 		else if (tab[i] == stack_a->tail->number)
 		{
-			rra_list(stack_a);
+			rra_list(stack_a, 'a');
 			push_first(stack_a, stack_b);
 		}
 	}
@@ -46,20 +46,20 @@ void	down_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b)
 		if (tab[i] == stack_a->head->number)
 		{
 			push_first(stack_a, stack_b);
-			ra_list(stack_b);
+			ra_list(stack_b, 'b');
 		}
 		else if (tab[i] == stack_a->head->next->number)
 		{
 			if (stack_a->head->previous != NULL)
-				swap_a(stack_a->head, stack_a->head->next);
+				swap(stack_a->head, stack_a->head->next, 'a');
 			push_first(stack_a, stack_b);
-			ra_list(stack_b);
+			ra_list(stack_b, 'b');
 		}
 		else if (tab[i] == stack_a->tail->number)
 		{
-			rra_list(stack_a);
+			rra_list(stack_a, 'a');
 			push_first(stack_a, stack_b);
-			ra_list(stack_b);
+			ra_list(stack_b, 'b');
 		}
 	}
 }
@@ -76,21 +76,21 @@ void	middup_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b)
 		if (tab[i] == stack_a->head->number)
 		{
 			push_first(stack_a, stack_b);
-			swap_b(stack_b->head, stack_b->head->next);
+			swap(stack_b->head, stack_b->head->next, 'b');
 			headless += 1;
 		}
 		else if (tab[i] == stack_a->head->next->number)
 		{
 			if (headless == 0)
-				swap_a(stack_a->head, stack_a->head->next);
+				swap(stack_a->head, stack_a->head->next, 'a');
 			push_first(stack_a, stack_b);
-			swap_b(stack_b->head, stack_b->head->next);
+			swap(stack_b->head, stack_b->head->next, 'b');
 		}
 		else if (tab[i] == stack_a->tail->number)
 		{
-			rra_list(stack_a);
+			rra_list(stack_a, 'a');
 			push_first(stack_a, stack_b);
-			swap_b(stack_b->head, stack_b->head->next);
+			swap(stack_b->head, stack_b->head->next, 'b');
 		}
 	}
 }
@@ -107,30 +107,30 @@ void	midlow_to_go(int n, int *tab, t_list *stack_a, t_list *stack_b)
 		if (tab[i] == stack_a->head->number)
 		{
 			push_first(stack_a, stack_b);
-			rra_list(stack_b);
-			swap_b(stack_b->head, stack_b->head->next);
-			ra_list(stack_b);
-			ra_list(stack_b);
+			rra_list(stack_b, 'b');
+			swap(stack_b->head, stack_b->head->next, 'b');
+			ra_list(stack_b, 'b');
+			ra_list(stack_b, 'b');
 			headless += 1;
 		}
 		else if (tab[i] == stack_a->head->next->number)
 		{
 			if (headless == 0)
-				swap_a(stack_a->head, stack_a->head->next);
+				swap(stack_a->head, stack_a->head->next, 'a');
 			push_first(stack_a, stack_b);
-			rra_list(stack_b);
-			swap_b(stack_b->head, stack_b->head->next);
-			ra_list(stack_b);
-			ra_list(stack_b);
+			rra_list(stack_b, 'b');
+			swap(stack_b->head, stack_b->head->next, 'b');
+			ra_list(stack_b, 'b');
+			ra_list(stack_b, 'b');
 		}
 		else if (tab[i] == stack_a->tail->number)
 		{
-			rra_list(stack_a);
+			rra_list(stack_a, 'a');
 			push_first(stack_a, stack_b);
-			rra_list(stack_b);
-			swap_b(stack_b->head, stack_b->head->next);
-			ra_list(stack_b);
-			ra_list(stack_b);
+			rra_list(stack_b, 'b');
+			swap(stack_b->head, stack_b->head->next, 'b');
+			ra_list(stack_b, 'b');
+			ra_list(stack_b, 'b');
 		}
 	}
 }

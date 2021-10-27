@@ -51,9 +51,9 @@ int	find_index_max(t_list *stack, int max)
 void	which_op_max(int index, t_list *stack)
 {
 	if (index == 0)
-		ra_list(stack);
+		ra_list(stack, 'a');
 	else if (index == 1)
-		rra_list(stack);
+		rra_list(stack, 'a');
 }
 
 void	three_arg_maestro(t_list *stack_a)
@@ -65,6 +65,5 @@ void	three_arg_maestro(t_list *stack_a)
 	index = find_index_max(stack_a, max);
 	which_op_max(index, stack_a);
 	if (stack_a->head->number > stack_a->head->next->number)
-		swap_a(stack_a->head, stack_a->head->next);
-	one_list_display(stack_a);
+		swap(stack_a->head, stack_a->head->next, 'a');
 }

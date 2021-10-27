@@ -13,7 +13,7 @@
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-void	ra_list(t_list *list)
+void	ra_list(t_list *list, char c)
 {
 	t_node				*iterator;
 	int					value_head;
@@ -30,10 +30,13 @@ void	ra_list(t_list *list)
 		i++;
 	}
 	list->tail->number = value_head;
-	write(1, "ra\n", 3);
+	if (c == 'a')
+		write(1, "ra\n", 3);
+	else
+		write(1, "rb\n", 3);
 }
 
-void	rra_list(t_list *list)
+void	rra_list(t_list *list, char c)
 {
 	t_node			*iterator;
 	int				value_tail;
@@ -50,17 +53,20 @@ void	rra_list(t_list *list)
 		i++;
 	}
 	list->head->number = value_tail;
-	write(1, "rra\n", 4);
+	if (c == 'a')
+		write(1, "ra\n", 3);
+	else
+		write(1, "rb\n", 3);
 }
 
 void	rrr(t_list *stack_a, t_list *stack_b)
 {
-	rra_list(stack_a);
-	rra_list(stack_b);
+	rra_list(stack_a, 'a');
+	rra_list(stack_b, 'b');
 }
 
 void	rr(t_list *stack_a, t_list *stack_b)
 {
-	ra_list(stack_a);
-	ra_list(stack_b);
+	ra_list(stack_a, 'a');
+	ra_list(stack_b, 'a');
 }
