@@ -27,38 +27,74 @@ int	is_max(t_list *stack_a, int n)
 	return (1);
 }
 
-void	chose_op(t_list *stack_a, t_list *stack_b)
+int	find_min(t_list *stack_a)
 {
-	list_display(stack_a, stack_b);
-	if (is_max(stack_a, stack_b->head->number))
+	int		min;
+	t_node	*tmp;
+
+	tmp = stack_a->head;
+	min = stack_a->head->number;
+	while (tmp->next != NULL)
 	{
-		push_first(stack_b, stack_a);
+		if (min > tmp->next->number && tmp->next)
+			min = tmp->next->number;
+		tmp = tmp->next;
+	}
+	return (min);
+}
+
+int	find_index_min(t_list *stack, int min)
+{
+	t_node	*tmp;
+	int		index;
+
+	if (!stack)
+		exit(0);
+	tmp = stack->head;
+	index = 0;
+	while (tmp)
+	{
+		if (tmp->number == min)
+			return (index);
+		index++;
+		tmp = tmp->next;
+	}
+	return (index);
+}
+
+void	find_op_min(t_list *stack_a, int index, t_list *stack_b)
+{
+	if (index == 0)
+		push_first(stack_a, stack_b);
+	else if (index == 1)
+	{
+		swap(stack_a->head, stack_a->head->next, 'a');
+		push_first(stack_a, stack_b);		
+	}
+	else if (index == 2)
+	{
+		ra_list(stack_a, 'a');
 		ra_list(stack_a, 'a');
 	}
-	else if (stack_b->head->number < stack_a->head->number)
-		push_first(stack_b, stack_a);
-	else if (stack_b->head->number > stack_a->head->number && \
-	stack_b->head->number < stack_a->head->next->number)
-		{
-			push_first(stack_b, stack_a);
-			swap(stack_a->head, stack_a->head->next, 'a');
-		}
 	else
 	{
 		rra_list(stack_a, 'a');
-		push_first(stack_b, stack_a);
-		ra_list(stack_a, 'a');
+		push_first(stack_a, stack_b);
 	}
 }
 
 void	small_insertion(t_list *stack_a)
 {
 	t_list	*stack_b;
+	int min;
+	int	index;
 
 	stack_b = init_list();
-	push_first(stack_a, stack_b);
+	min = find_min(stack_a);
+	index = find_index_min(stack_a, min);
+	find_op_min(stack_a, index, stack_b);
 	three_arg_maestro(stack_a);
-	chose_op(stack_a, stack_b);
+	push_first(stack_b, stack_a);
 	one_list_display(stack_a);
 	delete_list(&stack_b);
 }

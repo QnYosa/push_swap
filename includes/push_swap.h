@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/24 17:25:33 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/10/28 18:16:45 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,12 @@ void	tab_filler(int n, t_trio *podium, t_list *stack_a, t_list *stack_b);
 
 /* ALGO */
 int		chose_best_to_pop(t_list *stack_a, t_list *stack_b);
+int		find_index_max(t_list *stack, int max);
+int		find_index_min(t_list *stack, int min);
+int		find_min(t_list *stack_a);
+void	small_insertion(t_list *stack_a);
+void	five_arg_maestro(t_list *stack_a);
+
 /* 			3 - ARGS    */
 void	three_arg_maestro(t_list *stack_a);
 void	small_insertion(t_list *stack_a);
