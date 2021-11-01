@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/28 18:17:28 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/01 15:09:57 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	chose_algo(int argc, /*char **argv,*/ t_list *stack)
 		small_insertion(stack);
 	else if (argc == 6)
 		five_arg_maestro(stack);
+	else
+		big_algo_maestro(stack);
 }
 
 int	main(int argc, char **argv)

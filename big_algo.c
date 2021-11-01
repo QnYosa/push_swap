@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_list_norm.c                                      :+:      :+:    :+:   */
+/*   big_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/02 17:18:32 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/30 20:17:25 by dyoula           ###   ########.fr       */
+/*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
+/*   Updated: 2021/11/01 18:53:25 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
 
-t_list	*list_insert_norm(t_node *tmp, t_list *list, char *content)
+void	big_algo_maestro(t_list *stack_a)
 {
-	if (tmp->next == NULL)
-		list = list_end(list, content);
-	else if (tmp->previous == NULL)
-		list = list_start(list, content);
-	return (list);
-}
+	t_list	*stack_b;
+	int		mid;
 
-t_node	*malloc_node_norm(t_node *tmp, t_node *new, t_list *list, char *content)
-{
-	new = (t_node *)malloc(sizeof(t_node *));
-	if (!new)
-		return (NULL);
-	new = new_node(new, tmp, content, list);
-	return (new);
+	stack_b = init_list();
+	mid = find_mid(stack_a);
+	push_under_mid(stack_a, stack_b, mid);
+	list_display(stack_a, stack_b);
 }

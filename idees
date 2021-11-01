@@ -1,0 +1,19 @@
+Quicksort + insertion sort
+
+On prend un pivot. on place derriere tout ce qui va au dessus
+
+on move les elements plus grands
+on change de pivot
+on recommence jusqua arrive en bas 
+
+etape de tri 
+
+But vider la dans la stack a dans la b.
+
+j'ai trie tout ce qui va sous mon point pivot 
+je change de pivot et je recommence
+
+
+pile A vide ?
+
+utiliser algo de base pour les 3 

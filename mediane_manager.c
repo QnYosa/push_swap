@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_list_norm.c                                      :+:      :+:    :+:   */
+/*   mediane_manager.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/02 17:18:32 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/30 20:17:25 by dyoula           ###   ########.fr       */
+/*   Created: 2021/11/01 18:53:10 by dyoula            #+#    #+#             */
+/*   Updated: 2021/11/01 18:58:41 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
 
-t_list	*list_insert_norm(t_node *tmp, t_list *list, char *content)
+t_mediane_nodes	*fill_med_nodes(int mid, t_list *stack)
 {
-	if (tmp->next == NULL)
-		list = list_end(list, content);
-	else if (tmp->previous == NULL)
-		list = list_start(list, content);
-	return (list);
-}
-
-t_node	*malloc_node_norm(t_node *tmp, t_node *new, t_list *list, char *content)
-{
-	new = (t_node *)malloc(sizeof(t_node *));
+	t_mediane_nodes	*new;
+	new = (t_node *)malloc(sizeof(t_mediane_nodes));
 	if (!new)
 		return (NULL);
-	new = new_node(new, tmp, content, list);
+	new->mediane = mid;
+	new->length = stack->length;
+	tmp->next->previous = new;
+	tmp->previous->next = new;
+	new->previous = tmp->previous;
+	new->next = tmp;
+	list->length++;
 	return (new);
 }

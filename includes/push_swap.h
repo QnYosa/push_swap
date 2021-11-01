@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/28 18:16:45 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/01 18:51:53 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,22 @@
 # include "libft.h"
 
 # define SPACESDIGITS "0123456789-+ \t\v\n\f\r"
+
+typedef	struct s_saved_mediane
+{
+	t_node	*first;
+	t_node	*last;
+} t_saved_mediane;
+
+typedef struct s_mediane_nodes
+{
+	t_node	*previous;
+	int		max;
+	int		min;
+	int		mediane;
+	int		length;
+	t_node	*next;
+}	t_mediane_nodes;
 
 typedef struct s_trio
 {
@@ -94,9 +110,15 @@ int		find_index_min(t_list *stack, int min);
 int		find_min(t_list *stack_a);
 void	small_insertion(t_list *stack_a);
 void	five_arg_maestro(t_list *stack_a);
+void	big_algo_maestro(t_list *stack_a);
+
 
 /* 			3 - ARGS    */
 void	three_arg_maestro(t_list *stack_a);
 void	small_insertion(t_list *stack_a);
+
+/* 			MATHS		*/
+int		find_mid(t_list *stack);
+void	push_under_mid(t_list *sender, t_list *receiver, int mid);
 
 #endif
