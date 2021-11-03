@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:32:25 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/28 18:19:13 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/03 21:10:49 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	five_arg_maestro(t_list *stack_a)
 	find_op_five(stack_a, index, stack_b);
 	small_insertion(stack_a);
 	push_first(stack_b, stack_a);
-	one_list_display(stack_a);
+	//one_list_display(stack_a);
 	delete_list(&stack_b);
 }

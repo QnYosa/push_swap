@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/01 15:09:57 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/03 23:27:12 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	
-	one_list_display(list);
+	//one_list_display(list);
 	chose_algo(argc, list);
-	one_list_display(list);
+	//one_list_display(list);
 	delete_list(&list);
 	return (0);
 }

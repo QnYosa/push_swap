@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/01 18:51:53 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/03 20:55:17 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,25 @@
 
 # define SPACESDIGITS "0123456789-+ \t\v\n\f\r"
 
-typedef	struct s_saved_mediane
-{
-	t_node	*first;
-	t_node	*last;
-} t_saved_mediane;
-
 typedef struct s_mediane_nodes
 {
-	t_node	*previous;
-	int		max;
-	int		min;
-	int		mediane;
-	int		length;
-	t_node	*next;
+	int				mediane;
+	int				max;
+	int				min;
+	int				index;
+	int				b_side;
+	int				a_side;
+	
+	struct s_mediane_nodes	*previous;
+	struct s_mediane_nodes	*next;
 }	t_mediane_nodes;
+
+typedef	struct s_saved_mediane
+{
+	struct s_mediane_nodes	*head;
+	struct s_mediane_nodes	*tail;
+	int				length;
+} t_saved_mediane;
 
 typedef struct s_trio
 {
@@ -79,6 +83,7 @@ void	add_index(t_list *list);
 /* 	AFFICHAGE */
 void	list_display(t_list *list, t_list *listb);
 void	one_list_display(t_list *list);
+void	mediane_display(t_saved_mediane *mid);
 
 /*			PODIUM				*/
 void	init_podium_main(t_trio *podium, t_list *stack_a, t_list *stack_b);
@@ -118,7 +123,11 @@ void	three_arg_maestro(t_list *stack_a);
 void	small_insertion(t_list *stack_a);
 
 /* 			MATHS		*/
-int		find_mid(t_list *stack);
-void	push_under_mid(t_list *sender, t_list *receiver, int mid);
+int				find_mid(t_list *stack);
+void			push_under_mid(t_list *sender, t_list *receiver, int mid, t_mediane_nodes *median);
+t_saved_mediane	*init_list_mediane(void);
+t_saved_mediane	*list_mediane_start(t_saved_mediane *list, t_list *stack);
+int				find_max(t_list *stack_a);
+void			add_mid_index(t_saved_mediane *mid);
 
 #endif

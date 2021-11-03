@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   4_and_more.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:07:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/24 18:12:00 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/03 21:10:45 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ void	small_insertion(t_list *stack_a)
 	find_op_min(stack_a, index, stack_b);
 	three_arg_maestro(stack_a);
 	push_first(stack_b, stack_a);
-	one_list_display(stack_a);
+	//one_list_display(stack_a);
 	delete_list(&stack_b);
 }
