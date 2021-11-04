@@ -8,3 +8,5 @@
 2
 
 valgrind --leak-check=full  --show-leak-kinds=all --track-origins=yes  --verbose ./push_swap 465 323 23 265 65 353 53 46 46 97 54 64 85 4 
+
+10 nombres 33 ope

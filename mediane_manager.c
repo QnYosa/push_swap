@@ -6,12 +6,31 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:10 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/03 22:26:25 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/04 12:16:23 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
+
+int		find_max_mid(t_list *stack, int length)
+{
+	int		max;
+	int		i;
+	t_node	*iter;
+
+	i = 0;
+	max = stack->head->number;
+	iter = stack->head;
+	while (i < length)
+	{
+		if (max < iter->next->number && iter->next)
+			max = iter->next->number;
+		i++;
+		iter = iter->next;
+	}
+	return (max);
+}
 
 t_saved_mediane	*init_list_mediane(void)
 {
@@ -53,6 +72,7 @@ t_saved_mediane	*list_mediane_start(t_saved_mediane *list, t_list *stack)
 	new_node->mediane = find_mid(stack);
 	new_node->min = find_min(stack);
 	new_node->max = find_max(stack);
+	// ajouter stack b a la fonction et envoyer length; 
 	new_node->previous = NULL;
 	if (list->tail == NULL)
 	{
