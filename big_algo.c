@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/04 18:43:35 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/05 20:16:00 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void	big_algo_maestro(t_list *stack_a)
 		list_mediane_start(mid, stack_a);
 		middle = mid->head->mediane;
 		push_under_mid(stack_a, stack_b, middle, mid->head);
+		list_display(stack_a, stack_b);
+
 		//printf("HOLA MIDDLE %d\n b_side %d\n", middle, mid->head->b_side);
 		add_mid_index(mid);
 	}

@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/04 19:30:37 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/05 20:03:10 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ void	push_under_mid(t_list *sender, t_list *receiver, int mid, \
 			median->b_side++;
 			if (receiver->head->next != NULL)
 			{
-				if (receiver->head->number < receiver->head->next->number)
+				if (receiver->head->number < receiver->tail->number)
+					rra_list(receiver, 'b');
+				else if (receiver->head->number < receiver->head->next->number)
 					swap(receiver->head, receiver->head->next, 'b');
 			}
 			i++;
@@ -77,6 +79,9 @@ int		find_mid(t_list *stack)
 		iterator = iterator->next;
 	}
 	ft_sort_int_tab(tab, stack->length);
+	if (stack->length % 2 == 0)
 		mid = tab[(stack->length / 2) - 1];
+	else
+		mid = tab[(stack->length / 2)];
 	return (mid);
 }

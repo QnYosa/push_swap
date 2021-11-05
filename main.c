@@ -6,12 +6,16 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/03 23:27:12 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/05 16:23:49 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
+
+// int count;
+
+// count = 0;
 
 void	push_swap(int argc, char **argv, t_list *list)
 {
@@ -82,7 +86,7 @@ int	main(int argc, char **argv)
 	
 	//one_list_display(list);
 	chose_algo(argc, list);
-	//one_list_display(list);
+	one_list_display(list);
 	delete_list(&list);
 	return (0);
 }
