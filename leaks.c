@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   leaks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:37:33 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/05 22:56:13 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/06 19:42:51 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,26 @@ void	delete_list(t_list **list)
 		return ;
 	tmp = (*list)->head;
 	while (tmp != NULL && i <= (*list)->length)
+	{
+		del = tmp;
+		tmp = tmp->next;
+		free(del);
+		i++;
+	}
+	free(*list), *list = NULL;
+}
+
+void	delete_mid(t_saved_mediane **list)
+{
+	t_mediane_nodes				*tmp;
+	t_mediane_nodes				*del;
+	unsigned int		i;
+
+	i = 0;
+	if (*list == NULL)
+		return ;
+	tmp = (*list)->head;
+	while (tmp != NULL /* && i <= (*list)->length*/)
 	{
 		del = tmp;
 		tmp = tmp->next;

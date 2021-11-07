@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/03 20:55:17 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/07 23:21:00 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	push_first(t_list *sender, t_list *receiver);
 /* LEAKS */
 void	delete_list(t_list **list);
 void	delete_d_tab(int argc, char **d_tab);
+void	delete_mid(t_saved_mediane **list);
 
 /* ARGUMENTS */
 char	*strjoin_double_tab(char *tmp, char **d_tab, t_container *n_argus);
@@ -125,9 +126,12 @@ void	small_insertion(t_list *stack_a);
 /* 			MATHS		*/
 int				find_mid(t_list *stack);
 void			push_under_mid(t_list *sender, t_list *receiver, int mid, t_mediane_nodes *median);
+void			push_above_mid(t_list *sender, t_list *receiver, int mid, \
+	t_saved_mediane *median);
 t_saved_mediane	*init_list_mediane(void);
 t_saved_mediane	*list_mediane_start(t_saved_mediane *list, t_list *stack);
 int				find_max(t_list *stack_a);
 void			add_mid_index(t_saved_mediane *mid);
+int			to_empty_unsorted_top(int b_side, t_list *sender, t_list *receiver);
 
 #endif

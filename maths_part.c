@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/05 20:03:10 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/07 17:53:54 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,45 @@ void	push_under_mid(t_list *sender, t_list *receiver, int mid, \
 			median->a_side++;
 		}
 	}
+}
+
+void	push_above_mid(t_list *sender, t_list *receiver, int mid, \
+	t_saved_mediane *median)
+{
+	int	i;
+	//int	under;
+	//under = count_under_mid(sender, mid);
+	i = 0;
+		printf("%d", median->head->b_side);
+	while (i < median->head->b_side)
+	{
+		push_first(sender, receiver);
+		i++;
+	}
+	printf("%d\n", mid);
+	/*
+	while (i < under)
+	{
+		if (sender->head->number >= mid)
+		{
+			push_first(sender, receiver);
+			median->b_side++;
+			if (receiver->head->next != NULL)
+			{
+				if (receiver->head->number > receiver->tail->number)
+					rra_list(receiver, 'b');
+				else if (receiver->head->number > receiver->head->next->number)
+					swap(receiver->head, receiver->head->next, 'b');
+			}
+			i++;
+		}
+		else
+		{
+			ra_list(sender, 'a');
+			median->a_side++;
+		}
+	}
+	*/
 }
 
 int		find_mid(t_list *stack)

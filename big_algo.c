@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/05 20:16:00 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/07 23:30:32 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "includes/libft.h"
 
 //b_size
+//void	order_three(t_list *stack_a)
 int	find_index_tab(int *tab, int number, int length)
 {
 	int	i;
@@ -28,7 +29,7 @@ int	find_index_tab(int *tab, int number, int length)
 	return (i);
 }
 
-void	empty_mid(t_list *stack_b, t_list *stack_a, int length)
+void	empty_mid(t_list *stack_b, int length)
 {
 	int	i;
 	int	*sorted;
@@ -49,6 +50,47 @@ void	empty_mid(t_list *stack_b, t_list *stack_a, int length)
 	ft_sort_int_tab(sorted, length);
 	iter = stack_b->head;
 	i = 0;
+	if (stack_b->head->number < stack_b->head->next->number)
+		swap(stack_b->head, stack_b->head->next, 'b');
+	free(sorted);
+}
+
+
+
+void	big_algo_maestro(t_list *stack_a)
+{
+	int		middle;
+	t_list	*stack_b;
+	t_saved_mediane	*mid;
+
+	//printf("LENGTH %d\n", stack_a->length);
+	stack_b = init_list();
+	mid = init_list_mediane();
+	while (stack_a->length > 4)
+	{
+		list_mediane_start(mid, stack_a);
+		middle = mid->head->mediane;
+		push_under_mid(stack_a, stack_b, middle, mid->head);
+		list_display(stack_a, stack_b);
+		//ft_putstr_fd("PASSAGE_MEDIANE\n", 1);
+
+		//printf("HOLA MIDDLE %d\n b_side %d\n", middle, mid->head->b_side);
+		add_mid_index(mid);
+		mediane_display(mid);
+		three_arg_maestro(stack_a);
+		empty_mid(stack_b, mid->head->b_side);
+		list_display(stack_a, stack_b);
+	}
+	//if (mid->head->b_side > 3)
+	//	push_above_mid(stack_b, stack_a, middle, mid);
+	//push_under_mid(stack_a, stack_b, middle, mid->head);
+	mid->head->b_side = to_empty_unsorted_top(mid->head->b_side, stack_b, stack_a);
+	list_display(stack_a, stack_b);
+	ft_putnbr_fd(mid->head->b_side, 1);
+	delete_mid(&mid);
+}
+
+/*
 	while (i < length && iter->next)
 	{
 		//index tab, number
@@ -69,7 +111,7 @@ void	empty_mid(t_list *stack_b, t_list *stack_a, int length)
 		if (stack_a->head->number > stack_a->head->next->number && stack_a->head->next)
 			swap(stack_a->head, stack_a->head->next, 'a');
 		i++;
-		/*iter = iter->next;*/
+		iter = iter->next;
 	}
 		rra_list(stack_b, 'b');
 		rra_list(stack_b, 'b');
@@ -81,29 +123,4 @@ void	empty_mid(t_list *stack_b, t_list *stack_a, int length)
 			swap(stack_a->head, stack_a->head->next, 'a');
 		rra_list(stack_a, 'a');
 }
-
-void	big_algo_maestro(t_list *stack_a)
-{
-	int		middle;
-	t_list	*stack_b;
-	t_saved_mediane	*mid;
-
-	//printf("LENGTH %d\n", stack_a->length);
-	stack_b = init_list();
-	mid = init_list_mediane();
-	while (stack_a->length > 6)
-	{
-		list_mediane_start(mid, stack_a);
-		middle = mid->head->mediane;
-		push_under_mid(stack_a, stack_b, middle, mid->head);
-		list_display(stack_a, stack_b);
-
-		//printf("HOLA MIDDLE %d\n b_side %d\n", middle, mid->head->b_side);
-		add_mid_index(mid);
-	}
-	mediane_display(mid);
-	five_arg_maestro(stack_a);
-	empty_mid(stack_b, stack_a, mid->head->b_side);
-	list_display(stack_a, stack_b);
-	//printf("%d\n", stack_a->length + stack_b->length);
-}
+		*/
