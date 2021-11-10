@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 18:09:44 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/08 00:09:35 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/08 11:28:00 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,20 @@ int	to_empty_unsorted_top(int b_side, t_list *sender, t_list *receiver)
 		{
 			if (receiver->head->number > receiver->head->next->number)
 				swap(receiver->head, receiver->head->next, 'b');
-			ft_putstr_fd("push: ",1);
-			ft_putnbr_fd(sender->head->number, 1);
-			ft_putstr_fd("\n", 1);
+			// ft_putstr_fd("push: ",1);
+			// ft_putnbr_fd(sender->head->number, 1);
+			// ft_putstr_fd("\n", 1);
 			push_first(sender, receiver);
 		}			
 		else
 		{
-			ft_putstr_fd("ra:", 1);
-			ft_putnbr_fd(sender->head->number, 1);
-			ft_putstr_fd("\n", 1);	
+			// ft_putstr_fd("ra:", 1);
+			// ft_putnbr_fd(sender->head->number, 1);
+			// ft_putstr_fd("\n", 1);	
 			ra_list(sender, 'a');
 			ra++;
 		}
-		list_display(receiver, sender);
+		//list_display(receiver, sender);
 		i++;
 	}
 	i = -1;
@@ -85,10 +85,16 @@ int	to_empty_unsorted_top(int b_side, t_list *sender, t_list *receiver)
 			if (sender->head->number < sender->head->next->number)
 				swap(sender->head, sender->head->next, 'b');
 			if (receiver->head->number > receiver->head->next->number)
-				swap(receiver->head, receiver->head->next, 'b');		
+				swap(receiver->head, receiver->head->next, 'b');
 		}
+		// ft_putstr_fd("push:", 1);
+		// ft_putnbr_fd(sender->head->number, 1);
+		// ft_putstr_fd("\n", 1);
 		push_first(sender,receiver);
+		if (receiver->head->number > receiver->head->next->number)
+			swap(receiver->head, receiver->head->next, 'b');		
 	}
+	// tout a ete push.
 	free(tab);
-	return (index_b_side(tab, mid,b_side));
-}
+	return (index_b_side(tab, mid, b_side));
+}//tout fonctionne bien.

@@ -5,7 +5,7 @@ SRCS	= main.c errors.c parsing.c utils.c c_list.c \
 	print_list.c checking.c pop_trio.c mediane_manager.c \
 	init_and_fill_podium.c chose_pop_.c tab_sort_rev.c \
 	3_arg.c 4_and_more.c 5_arg.c big_algo.c maths_part.c \
-	unsorted_above_a.c 
+	unsorted_above_a.c recursive_algo.c stack_b_to_a.c \
 
 OBJS	= ${SRCS:.c=.o}
 

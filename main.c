@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/05 16:23:49 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/10 19:02:40 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ int	list_filler(int argc, char **argv, t_list *list)
 
 void	chose_algo(int argc, /*char **argv,*/ t_list *stack)
 {
+	if (argc == 3)
+		if (stack->head->number < stack->head->next->number)
+			swap(stack->head, stack->head->next, 'a');
 	if (argc == 4)
 		three_arg_maestro(stack);
 	else if (argc == 5)
@@ -84,7 +87,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	
-	//one_list_display(list);
+	one_list_display(list);
 	chose_algo(argc, list);
 	one_list_display(list);
 	delete_list(&list);

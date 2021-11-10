@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:10 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/04 12:16:23 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/08 14:28:46 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	mediane_display(t_saved_mediane *mid)
 		printf("||index %d||\n", iterator->index);
 		printf("||a_side = %d||\n", iterator->a_side);
 		printf("||b_side = %d||\n", iterator->b_side);
+		printf("||length = %d||\n", iterator->length);
 		printf("\n");
 		iterator = iterator->next;
 	}

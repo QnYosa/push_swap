@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/07 17:53:54 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/10 23:00:37 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,22 @@ int	count_under_mid(t_list *sender, int mid)
 	return (under);
 }
 
+int	count_above_mid(t_list *sender, int mid)
+{
+	int	above;
+	t_node	*iterator;
+
+	above = 0;
+	iterator = sender->head;
+	while (iterator != NULL)
+	{
+		if (iterator->number >= mid)
+			above++;
+		iterator = iterator->next;
+	}
+	return (above);
+}
+
 void	push_under_mid(t_list *sender, t_list *receiver, int mid, \
 	t_mediane_nodes *median)
 {
@@ -45,6 +61,7 @@ void	push_under_mid(t_list *sender, t_list *receiver, int mid, \
 		{
 			push_first(sender, receiver);
 			median->b_side++;
+			median->length++;
 			if (receiver->head->next != NULL)
 			{
 				if (receiver->head->number < receiver->tail->number)
@@ -58,48 +75,39 @@ void	push_under_mid(t_list *sender, t_list *receiver, int mid, \
 		{
 			ra_list(sender, 'a');
 			median->a_side++;
+			median->length++;
 		}
 	}
 }
 
-void	push_above_mid(t_list *sender, t_list *receiver, int mid, \
-	t_saved_mediane *median)
+int	push_bajo_mid(t_list *sender, t_list *receiver, int mid)
 {
 	int	i;
-	//int	under;
-	//under = count_under_mid(sender, mid);
+	int	under;
+
+	under = count_under_mid(sender, mid);
 	i = 0;
-		printf("%d", median->head->b_side);
-	while (i < median->head->b_side)
-	{
-		push_first(sender, receiver);
-		i++;
-	}
-	printf("%d\n", mid);
-	/*
 	while (i < under)
 	{
-		if (sender->head->number >= mid)
+		if (sender->head->number <= mid)
 		{
 			push_first(sender, receiver);
-			median->b_side++;
 			if (receiver->head->next != NULL)
 			{
-				if (receiver->head->number > receiver->tail->number)
+				if (receiver->head->number < receiver->tail->number)
 					rra_list(receiver, 'b');
-				else if (receiver->head->number > receiver->head->next->number)
+				else if (receiver->head->number < receiver->head->next->number)
 					swap(receiver->head, receiver->head->next, 'b');
 			}
 			i++;
 		}
 		else
-		{
 			ra_list(sender, 'a');
-			median->a_side++;
-		}
 	}
-	*/
+	return (under);
 }
+
+
 
 int		find_mid(t_list *stack)
 {

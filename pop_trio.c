@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pop_trio.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 17:37:55 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/23 18:29:51 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/10 19:20:37 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "includes/libft.h"
 
 /*          POP AND PLACE            */
+
+
 void	index_op(int n, t_trio *podium, t_list *stack_a, t_list *stack_b)
 {
 	if (n == 0)

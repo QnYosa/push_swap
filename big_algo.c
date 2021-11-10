@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/07 23:30:32 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/10 23:09:00 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,25 +55,121 @@ void	empty_mid(t_list *stack_b, int length)
 	free(sorted);
 }
 
+int		find_tab_mid(int *tab, int b_side)
+{
+	int	mid;
 
+	if (b_side % 2 == 0)
+		mid = tab[(b_side/ 2) - 1];
+	else
+		mid = tab[(b_side / 2)];
+	return (mid);	
+}
+
+int	*create_tab( int size, t_list *stack)
+{
+	int i;
+	int	*tab;
+	t_node	*node;
+
+	tab = malloc(sizeof(int) * size);
+	node = stack->head;
+	i = -1;
+	tab = malloc (sizeof(int) * size);
+	while (++i < size && node)
+	{
+		tab[i] = node->number;
+		node = node->next;
+	}
+	ft_sort_int_tab(tab, size);
+	return (tab);
+}
+
+void	mid_voyager(t_saved_mediane *mid, t_list *stack_a, t_list *stack_b)
+{
+	t_mediane_nodes *iter;
+	int				*tab;
+	int				i;
+	int				ra;
+
+	ra = 0;
+	iter = mid->head->next;
+	//ft_putnbr_fd(iter->mediane, 1);
+	tab = create_tab(iter->b_side, stack_b);
+	i = -1;
+	iter->mediane = find_tab_mid(tab, iter->b_side);
+	//push_above_mid_a(stack_b, stack_a, iter->mediane, iter);
+	while (++i < iter->b_side)
+	{
+		//ft_putstr_fd("KENXI", 1);
+		if (stack_b->head->number > iter->mediane)
+		{
+			push_first(stack_b, stack_a);
+		}
+		else
+		{
+			ft_putstr_fd("yokai: ", 1);
+			ft_putnbr_fd(stack_b->head->number, 1);
+			ft_putstr_fd("\n", 1);
+			ra_list(stack_b, 'b');
+			ra++;
+		}
+	}
+	i = -1;
+	while (++i < ra)
+		rra_list(stack_b, 'b');
+	sort_three_non_empty(stack_b, stack_a, 15, 'b', 'a');
+	list_display(stack_a, stack_b);
+	free(tab);
+
+}
+
+
+void	recursive_sort(t_list *stack_a, t_list *stack_b)
+{
+	int med_a;
+	int	x;
+
+	med_a = find_mid(stack_a);
+	x = push_bajo_mid(stack_a, stack_b, med_a);
+	//list_display(stack_a, stack_b);
+	if (stack_a->length > 5)
+		recursive_sort(stack_a, stack_b);
+	else if(stack_a->length <= 5)
+		chose_algo(stack_a->length + 1, stack_a);
+	if (x <= 5)
+		find_algo_rec(stack_a, stack_b, x);
+	else if (x <= 10)
+	{
+		send_b_to_a(stack_b, stack_a);
+	}
+	//list_display(stack_a, stack_b);
+	//if (x <= 10)
+		
+}
 
 void	big_algo_maestro(t_list *stack_a)
 {
-	int		middle;
+	//int		middle;
 	t_list	*stack_b;
-	t_saved_mediane	*mid;
+	//t_saved_mediane	*mid;
 
 	//printf("LENGTH %d\n", stack_a->length);
 	stack_b = init_list();
-	mid = init_list_mediane();
+	recursive_sort(stack_a, stack_b);
+	//mid = init_list_mediane();
+	/*
 	while (stack_a->length > 4)
 	{
 		list_mediane_start(mid, stack_a);
 		middle = mid->head->mediane;
 		push_under_mid(stack_a, stack_b, middle, mid->head);
-		list_display(stack_a, stack_b);
+		mid->head->max = find_max(stack_b);
+		ft_putstr_fd("SDR: ", 1);
+		ft_putnbr_fd(mid->head->max, 1);
+		ft_putstr_fd("\n", 1);
+		//list_display(stack_a, stack_b);
 		//ft_putstr_fd("PASSAGE_MEDIANE\n", 1);
-
 		//printf("HOLA MIDDLE %d\n b_side %d\n", middle, mid->head->b_side);
 		add_mid_index(mid);
 		mediane_display(mid);
@@ -86,8 +182,12 @@ void	big_algo_maestro(t_list *stack_a)
 	//push_under_mid(stack_a, stack_b, middle, mid->head);
 	mid->head->b_side = to_empty_unsorted_top(mid->head->b_side, stack_b, stack_a);
 	list_display(stack_a, stack_b);
-	ft_putnbr_fd(mid->head->b_side, 1);
+	// ft_putstr_fd("remains: ", 1);
+	// ft_putnbr_fd(mid->head->b_side, 1);
+	// ft_putstr_fd("\n", 1);
+	mid_voyager(mid, stack_a, stack_b);
 	delete_mid(&mid);
+	*/
 }
 
 /*
@@ -123,4 +223,4 @@ void	big_algo_maestro(t_list *stack_a)
 			swap(stack_a->head, stack_a->head->next, 'a');
 		rra_list(stack_a, 'a');
 }
-		*/
+*/

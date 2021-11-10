@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:07:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/03 21:10:45 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/10 19:02:49 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,23 +64,21 @@ int	find_index_min(t_list *stack, int min)
 
 void	find_op_min(t_list *stack_a, int index, t_list *stack_b)
 {
-	if (index == 0)
-		push_first(stack_a, stack_b);
-	else if (index == 1)
+	if (index == 1)
 	{
 		swap(stack_a->head, stack_a->head->next, 'a');
-		push_first(stack_a, stack_b);		
 	}
 	else if (index == 2)
 	{
 		ra_list(stack_a, 'a');
 		ra_list(stack_a, 'a');
+		ft_putstr_fd("yo", 1);
 	}
-	else
+	else if (index == 3)
 	{
 		rra_list(stack_a, 'a');
-		push_first(stack_a, stack_b);
 	}
+		push_first(stack_a, stack_b);
 }
 
 void	small_insertion(t_list *stack_a)
@@ -95,6 +93,5 @@ void	small_insertion(t_list *stack_a)
 	find_op_min(stack_a, index, stack_b);
 	three_arg_maestro(stack_a);
 	push_first(stack_b, stack_a);
-	//one_list_display(stack_a);
 	delete_list(&stack_b);
 }

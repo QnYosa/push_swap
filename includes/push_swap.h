@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/07 23:21:00 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/10 23:06:24 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_mediane_nodes
 	int				index;
 	int				b_side;
 	int				a_side;
+	int				length;
 	
 	struct s_mediane_nodes	*previous;
 	struct s_mediane_nodes	*next;
@@ -94,6 +95,7 @@ void	ft_swap(int *tab, int i, int j);
 void	ft_sort_int_tab(int *tab, int size);
 void	ft_rev_int_tab(int *tab, int size);
 void	malloc_tab(int n, int *tab);
+int		*create_tab( int size, t_list *stack);
 
 /*			 FILL TAB 			*/
 void	up_fill(int *tab, t_list *stack_a, t_list *stack_b);
@@ -126,12 +128,17 @@ void	small_insertion(t_list *stack_a);
 /* 			MATHS		*/
 int				find_mid(t_list *stack);
 void			push_under_mid(t_list *sender, t_list *receiver, int mid, t_mediane_nodes *median);
-void			push_above_mid(t_list *sender, t_list *receiver, int mid, \
-	t_saved_mediane *median);
+int			push_above_mid_a(t_list *sender, t_list *receiver, int mid);
 t_saved_mediane	*init_list_mediane(void);
 t_saved_mediane	*list_mediane_start(t_saved_mediane *list, t_list *stack);
 int				find_max(t_list *stack_a);
 void			add_mid_index(t_saved_mediane *mid);
-int			to_empty_unsorted_top(int b_side, t_list *sender, t_list *receiver);
-
+int				to_empty_unsorted_top(int b_side, t_list *sender, t_list *receiver);
+void			sort_three_non_empty(t_list *sender, t_list *receiver, int x, char s, char r);
+int				count_above_mid(t_list *sender, int mid);
+/*			RECURSIVE		*/
+int				push_bajo_mid(t_list *sender, t_list *receiver, int mid);
+void			find_algo_rec(t_list *stack_a, t_list *stack_b, int x);
+int				push_arriba_mid(t_list *sender, t_list *receiver, int mid);
+void			send_b_to_a(t_list *sender, t_list *receiver);
 #endif
