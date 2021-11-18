@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/21 15:01:53 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/04 18:56:08 by dyoula           ###   ########.fr       */
+/*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
+/*   Updated: 2021/11/14 20:17:31 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	ra_list(t_list *list, char c)
 	}
 	list->tail->number = value_head;
 	if (c == 'a')
-		write(1, "ra\n", 0);//3
+		write(1, "ra\n", 0);//0
 	else
-		write(1, "rb\n", 0);//3
+		write(1, "rb\n", 0);//0
 }
 
 void	rra_list(t_list *list, char c)
@@ -54,9 +54,9 @@ void	rra_list(t_list *list, char c)
 	}
 	list->head->number = value_tail;
 	if (c == 'a')
-		write(1, "ra\n", 0);//3
+		write(1, "ra\n", 0);//0
 	else
-		write(1, "rb\n", 0);//3
+		write(1, "rb\n", 0);//0
 }
 
 void	rrr(t_list *stack_a, t_list *stack_b)

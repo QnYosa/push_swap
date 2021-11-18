@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:07:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/10 19:02:49 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/17 23:33:09 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	find_op_min(t_list *stack_a, int index, t_list *stack_b)
 	{
 		ra_list(stack_a, 'a');
 		ra_list(stack_a, 'a');
-		ft_putstr_fd("yo", 1);
 	}
 	else if (index == 3)
 	{

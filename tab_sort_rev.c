@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tab_sort_rev.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 22:11:09 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/20 22:12:30 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/17 23:32:10 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ void	ft_swap(int *tab, int i, int j)
 
 	t_tab = tab[i];
 	tab[i] = tab[j];
+	//printf("SALUT tab[j] = %d\n", tab[j]);
 	tab[j] = t_tab;
 }
 
-void	ft_sort_int_tab(int *tab, int size)
+int 	*ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
 	int	j;
@@ -31,7 +32,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	while (i < size - 1)
 	{
 		j = i + 1;
-		if (tab[i] > tab[i + 1])
+		if (tab[i] > tab[j])
 		{
 			ft_swap(tab, i, j);
 			i = 0;
@@ -39,6 +40,8 @@ void	ft_sort_int_tab(int *tab, int size)
 		else
 			i++;
 	}
+	i = -1;
+	return (tab);
 }
 
 void	ft_rev_int_tab(int *tab, int size)

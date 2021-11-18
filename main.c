@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/10 19:02:40 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/18 13:25:36 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,6 @@
 // int count;
 
 // count = 0;
-
-void	push_swap(int argc, char **argv, t_list *list)
-{
-	t_list		*stack_b;
-	int			i;
-
-	i = -1;
-	stack_b = init_list();
-	if (!errors_main(argc, argv))
-		return ;
-	push_first(list, stack_b);
-	push_first(list, stack_b);
-	list_display(list, stack_b);
-	while (++i < 2)
-		chose_best_to_pop(list, stack_b);
-	delete_list(&list);
-	delete_list(&stack_b);
-}
-
 int	list_filler(int argc, char **argv, t_list *list)
 {
 	t_container	n_argus;
@@ -73,6 +54,21 @@ void	chose_algo(int argc, /*char **argv,*/ t_list *stack)
 		big_algo_maestro(stack);
 }
 
+// void	chose_algo_b(int argc, /*char **argv,*/ t_list *stack)
+// {
+// 	if (argc == 3)
+// 		if (stack->head->number < stack->head->next->number)
+// 			swap(stack->head, stack->head->next, 'b');
+// 	if (argc == 4)
+// 		three_arg_maestro(stack);
+// 	else if (argc == 5)
+// 		small_insertion(stack);
+// 	else if (argc == 6)
+// 		five_arg_maestro(stack);
+// 	else
+// 		big_algo_maestro(stack);
+// }
+
 int	main(int argc, char **argv)
 {
 	t_list	*list;
@@ -87,9 +83,9 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	
-	one_list_display(list);
+	//one_list_display(list);
 	chose_algo(argc, list);
-	one_list_display(list);
+	//one_list_display(list);
 	delete_list(&list);
 	return (0);
 }

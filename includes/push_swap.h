@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/10 23:06:24 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/18 15:24:59 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	init_podium_main(t_trio *podium, t_list *stack_a, t_list *stack_b);
 
 /* TABS */
 void	ft_swap(int *tab, int i, int j);
-void	ft_sort_int_tab(int *tab, int size);
+int		*ft_sort_int_tab(int *tab, int size);
 void	ft_rev_int_tab(int *tab, int size);
 void	malloc_tab(int n, int *tab);
 int		*create_tab( int size, t_list *stack);
@@ -105,14 +105,9 @@ void	down_fill(int *tab, t_list *stack_a, t_list *stack_b);
 
 /*			CHOSE OPERATION       */
 void	chose_algo(int argc, t_list *stack);
-void	up_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
-void	down_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
-void	middup_to_do(int n, int *tab, t_list *stack_a, t_list *stack_b);
-void	midlow_to_go(int n, int *tab, t_list *stack_a, t_list *stack_b);
 void	tab_filler(int n, t_trio *podium, t_list *stack_a, t_list *stack_b);
 
 /* ALGO */
-int		chose_best_to_pop(t_list *stack_a, t_list *stack_b);
 int		find_index_max(t_list *stack, int max);
 int		find_index_min(t_list *stack, int min);
 int		find_min(t_list *stack_a);
@@ -128,7 +123,7 @@ void	small_insertion(t_list *stack_a);
 /* 			MATHS		*/
 int				find_mid(t_list *stack);
 void			push_under_mid(t_list *sender, t_list *receiver, int mid, t_mediane_nodes *median);
-int			push_above_mid_a(t_list *sender, t_list *receiver, int mid);
+int				push_above_mid_a(t_list *sender, t_list *receiver, int mid);
 t_saved_mediane	*init_list_mediane(void);
 t_saved_mediane	*list_mediane_start(t_saved_mediane *list, t_list *stack);
 int				find_max(t_list *stack_a);
@@ -136,9 +131,15 @@ void			add_mid_index(t_saved_mediane *mid);
 int				to_empty_unsorted_top(int b_side, t_list *sender, t_list *receiver);
 void			sort_three_non_empty(t_list *sender, t_list *receiver, int x, char s, char r);
 int				count_above_mid(t_list *sender, int mid);
+int				find_mid_x(t_list *stack, int length);
+int				push_above_mid_x(t_list *sender, t_list *receiver, int mid, int x);
 /*			RECURSIVE		*/
+void				recursive_sort(t_list *stack_a, t_list *stack_b, int len);
 int				push_bajo_mid(t_list *sender, t_list *receiver, int mid);
 void			find_algo_rec(t_list *stack_a, t_list *stack_b, int x);
 int				push_arriba_mid(t_list *sender, t_list *receiver, int mid);
-void			send_b_to_a(t_list *sender, t_list *receiver);
+void			send_b_to_a(t_list *sender, t_list *receiver, int x);
+void			find_algo_top_rec(t_list *stack_a, t_list *stack_b, int x);
+/* 			OPTI			*/
+int				is_next(t_list *stack_a, t_list *stack_b);
 #endif

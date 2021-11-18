@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/10 23:09:00 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/18 17:20:40 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,36 @@
 
 //b_size
 //void	order_three(t_list *stack_a)
+int is_next(t_list *stack_a, t_list *stack_b)
+{
+	int i;
+
+	i = 0;
+	while (stack_a->tab[i] != stack_a->head->number)
+		i++;
+	if (i < (int)(stack_b->length + stack_a->length) - 2)
+	{
+		if (stack_a->tab[i + 1] == stack_b->head->number)
+		{
+			printf("PUSH FIRST\n");
+			push_first(stack_b, stack_a);
+			return (1);
+		}
+		else if (stack_a->tab[i + 1] == stack_b->head->next->number)
+		{
+			printf("SWAP PUSH\n");
+			swap(stack_b->head, stack_b->head->next, 'b');
+			push_first(stack_b, stack_a);
+			return (1);
+		}
+		// else if (tab[i + 1] == stack_b->tail->number)
+		// {
+		// 	rra
+		// }
+	}
+	return (0);
+}
+
 int	find_index_tab(int *tab, int number, int length)
 {
 	int	i;
@@ -55,16 +85,6 @@ void	empty_mid(t_list *stack_b, int length)
 	free(sorted);
 }
 
-int		find_tab_mid(int *tab, int b_side)
-{
-	int	mid;
-
-	if (b_side % 2 == 0)
-		mid = tab[(b_side/ 2) - 1];
-	else
-		mid = tab[(b_side / 2)];
-	return (mid);	
-}
 
 int	*create_tab( int size, t_list *stack)
 {
@@ -75,75 +95,61 @@ int	*create_tab( int size, t_list *stack)
 	tab = malloc(sizeof(int) * size);
 	node = stack->head;
 	i = -1;
-	tab = malloc (sizeof(int) * size);
 	while (++i < size && node)
 	{
 		tab[i] = node->number;
 		node = node->next;
 	}
-	ft_sort_int_tab(tab, size);
+	tab = ft_sort_int_tab(tab, size);
 	return (tab);
 }
 
-void	mid_voyager(t_saved_mediane *mid, t_list *stack_a, t_list *stack_b)
-{
-	t_mediane_nodes *iter;
-	int				*tab;
-	int				i;
-	int				ra;
-
-	ra = 0;
-	iter = mid->head->next;
-	//ft_putnbr_fd(iter->mediane, 1);
-	tab = create_tab(iter->b_side, stack_b);
-	i = -1;
-	iter->mediane = find_tab_mid(tab, iter->b_side);
-	//push_above_mid_a(stack_b, stack_a, iter->mediane, iter);
-	while (++i < iter->b_side)
-	{
-		//ft_putstr_fd("KENXI", 1);
-		if (stack_b->head->number > iter->mediane)
-		{
-			push_first(stack_b, stack_a);
-		}
-		else
-		{
-			ft_putstr_fd("yokai: ", 1);
-			ft_putnbr_fd(stack_b->head->number, 1);
-			ft_putstr_fd("\n", 1);
-			ra_list(stack_b, 'b');
-			ra++;
-		}
-	}
-	i = -1;
-	while (++i < ra)
-		rra_list(stack_b, 'b');
-	sort_three_non_empty(stack_b, stack_a, 15, 'b', 'a');
-	list_display(stack_a, stack_b);
-	free(tab);
-
-}
 
 
-void	recursive_sort(t_list *stack_a, t_list *stack_b)
+void	recursive_sort(t_list *stack_a, t_list *stack_b, int len)
 {
 	int med_a;
 	int	x;
+	//int med_x;
 
-	med_a = find_mid(stack_a);
+	med_a = find_mid_x(stack_a, len);
 	x = push_bajo_mid(stack_a, stack_b, med_a);
-	//list_display(stack_a, stack_b);
-	if (stack_a->length > 5)
-		recursive_sort(stack_a, stack_b);
-	else if(stack_a->length <= 5)
-		chose_algo(stack_a->length + 1, stack_a);
-	if (x <= 5)
-		find_algo_rec(stack_a, stack_b, x);
-	else if (x <= 10)
+	printf("recursive sort, med_a = %d, len = %d, x = %d\n", med_a, len, x);
+	list_display(stack_a, stack_b);
+	if (len - x <= 5)
 	{
-		send_b_to_a(stack_b, stack_a);
+		printf("recursive_sort, len - x <= 5, len - x = %d\n", len - x);
+		// while (is_next(stack_a, stack_b))
+		// 	x--;
+		if (len - x == (int)stack_a->length)
+		{
+			// while (is_next(stack_a, stack_b))
+			// 	x--;
+			printf("IF\n");
+			chose_algo(x + 1, stack_a);
+		}
+		else
+		{
+			// while (is_next(stack_a, stack_b))
+			// 	x--;
+			//printf("ELSE\n");
+			find_algo_top_rec(stack_a, stack_b, len - x);
+		}
 	}
-	//list_display(stack_a, stack_b);
+	else
+	{
+		recursive_sort(stack_a, stack_b, len - x);
+	}
+	if (x <= 5)
+	{
+		printf("recursive_sort, x <= 5, x = %d\n", x);
+		find_algo_rec(stack_a, stack_b, x);
+	}
+	else
+	{
+		send_b_to_a(stack_b, stack_a, x);
+	}
+
 	//if (x <= 10)
 		
 }
@@ -156,7 +162,10 @@ void	big_algo_maestro(t_list *stack_a)
 
 	//printf("LENGTH %d\n", stack_a->length);
 	stack_b = init_list();
-	recursive_sort(stack_a, stack_b);
+	stack_a->tab = create_tab(stack_a->length, stack_a);
+	recursive_sort(stack_a, stack_b, stack_a->length);
+	//list_display(stack_a, stack_b);
+	delete_list(&stack_b);
 	//mid = init_list_mediane();
 	/*
 	while (stack_a->length > 4)
