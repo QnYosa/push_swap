@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 21:59:08 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/18 17:20:10 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/18 18:29:32 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,21 @@ void	send_b_to_a(t_list *sender, t_list *receiver, int x)
 
 	med_x = find_mid_x(sender, x);
 	above = push_above_mid_x(sender, receiver, med_x, x);
-	printf("send_b_to_a, med_x = %d, x = %d, above = %d\n", med_x, x, above);
+	printf("send_b_to_a, x = %d, above = %d\n", x, above);
 	list_display(receiver, sender);
 	if (above <= 5)
 	{
-		printf("send_b_to_a, above <= 5, above = %d\n", above);
+		printf("\tsend_b_to_a, if above <= 5, x = %d, above = %d\n", x, above);
 		find_algo_top_rec(receiver, sender, above);
+		list_display(receiver, sender);
 	}
 	else
-	{
 		recursive_sort(receiver, sender, above);
-	}
 	if (x - above <= 5)
 	{
-		printf("send_b_to_a, x - above <= 5, x - above = %d\n", x - above);
+		printf("\tsend_b_to_a, if x - above <= 5, x = %d, above = %d\n", x, above);
 		find_algo_rec(receiver, sender, x - above);
+		list_display(receiver, sender);
 	}
 	else
 		send_b_to_a(sender, receiver, x - above);

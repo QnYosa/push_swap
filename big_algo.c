@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/18 17:20:40 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/18 18:30:29 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,32 +118,20 @@ void	recursive_sort(t_list *stack_a, t_list *stack_b, int len)
 	list_display(stack_a, stack_b);
 	if (len - x <= 5)
 	{
-		printf("recursive_sort, len - x <= 5, len - x = %d\n", len - x);
-		// while (is_next(stack_a, stack_b))
-		// 	x--;
+		printf("\trecursive_sort, if len - x <= 5, len - x = %d\n", len - x);
 		if (len - x == (int)stack_a->length)
-		{
-			// while (is_next(stack_a, stack_b))
-			// 	x--;
-			printf("IF\n");
 			chose_algo(x + 1, stack_a);
-		}
 		else
-		{
-			// while (is_next(stack_a, stack_b))
-			// 	x--;
-			//printf("ELSE\n");
 			find_algo_top_rec(stack_a, stack_b, len - x);
-		}
+		list_display(stack_a, stack_b);
 	}
 	else
-	{
 		recursive_sort(stack_a, stack_b, len - x);
-	}
 	if (x <= 5)
 	{
-		printf("recursive_sort, x <= 5, x = %d\n", x);
+		printf("\trecursive_sort, if x <= 5, x = %d\n", x);
 		find_algo_rec(stack_a, stack_b, x);
+		list_display(stack_a, stack_b);
 	}
 	else
 	{
@@ -164,7 +152,7 @@ void	big_algo_maestro(t_list *stack_a)
 	stack_b = init_list();
 	stack_a->tab = create_tab(stack_a->length, stack_a);
 	recursive_sort(stack_a, stack_b, stack_a->length);
-	//list_display(stack_a, stack_b);
+	list_display(stack_a, stack_b);
 	delete_list(&stack_b);
 	//mid = init_list_mediane();
 	/*

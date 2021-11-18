@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/18 17:04:27 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/18 17:48:32 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int	push_bajo_mid(t_list *sender, t_list *receiver, int mid)
 			k++;
 		}
 	}
-	//list_display(sender, receiver);
 	un_ra_list(sender, k, 'b');
 	return (under);
 }
@@ -118,7 +117,6 @@ int	push_above_mid_x(t_list *sender, t_list *receiver, int mid, int x)
 		}
 	}
 	un_ra_list(sender, under, 'a');
-	//list_display(receiver, sender);
 	return (above);
 }
 

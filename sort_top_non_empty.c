@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:01:44 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/18 17:43:19 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/18 18:43:56 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	sort_three_top_non_empty(t_list *stack, int x)
 		rra_list(stack, 'a');
 		swap(stack->head, stack->head->next, 'a');		
 	}
-	one_list_display(stack);
+	//one_list_display(stack);
 	free(tab);
 }
 
@@ -87,14 +87,14 @@ void	sort_four_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 			push_first(sender, receiver);
 	}
 	if (receiver->head->number < receiver->head->next->number)
-		swap(receiver->head, receiver->head, r);
+		swap(receiver->head, receiver->head->next, r);
 	push_first(receiver, sender);
 	push_first(receiver, sender);
 	rra_list(sender, s);
 	rra_list(sender, s);
 	if (sender->head->number > sender->head->next->number)
-		swap(sender->head, sender->head, s);
-	list_display(sender, receiver);
+		swap(sender->head, sender->head->next, s);
+	//list_display(sender, receiver);
 	free(tab);
 }
 
@@ -102,7 +102,7 @@ void	sort_five_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 {
 	int *tab;
 	int i;
-	printf("sort_five_non_empty\n");
+	printf("sort_five_top_non_empty\n");
 // doutes sur le ra_list sur receiver
 	tab = create_tab(x, sender);
 	if (!tab)
@@ -111,7 +111,9 @@ void	sort_five_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 	while (++i < x)
 	{
 		if (sender->head->number == tab[0])
+		{
 			ra_list(sender, s);
+		}
 		else if (sender->head->number == tab[1])
 			ra_list(sender, s);
 		else if (sender->head->number == tab[2])
@@ -124,21 +126,23 @@ void	sort_five_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 		else if (sender->head->number == tab[4])
 			push_first(sender, receiver);
 	}
-	if (receiver->head->number > receiver->head->next->number)
-		swap(receiver->head, receiver->head, r);
+	if (receiver->head->number < receiver->head->next->number)
+		swap(receiver->head, receiver->head->next, r);
+	push_first(receiver, sender);
+	push_first(receiver, sender);
 	rra_list(receiver, r);
+	push_first(receiver, sender);
 	rra_list(sender, s);
 	rra_list(sender, s);
-	if (receiver->head->number > receiver->head->next->number)
-		swap(receiver->head, receiver->head, s);
-	push_first(sender, receiver);
-	push_first(sender, receiver);
+	if (sender->head->number > sender->head->next->number)
+		swap(sender->head, sender->head->next, s);
+	//list_display(sender, receiver);
 	free(tab);
 }
 
 void	find_algo_top_rec(t_list *stack_a, t_list *stack_b, int x)
 {
-	printf("find_algo_rec, x = %d\n", x);
+	printf("find_algo_top_rec, x = %d\n", x);
 	if (x == 2)
 	{
 		if (stack_a->head->number > stack_a->head->next->number)
