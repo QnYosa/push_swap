@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/18 15:24:59 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/19 15:52:53 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,4 +142,5 @@ void			send_b_to_a(t_list *sender, t_list *receiver, int x);
 void			find_algo_top_rec(t_list *stack_a, t_list *stack_b, int x);
 /* 			OPTI			*/
 int				is_next(t_list *stack_a, t_list *stack_b);
+int				find_quarter(t_list *stack);
 #endif

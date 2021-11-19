@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:01:44 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/18 18:43:56 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/18 19:09:57 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,22 @@
 void	sort_three_top_non_empty(t_list *stack, int x)
 {
 	int *tab;
-	printf("sort_three_top_non_empty\n");
 
 	tab = create_tab(x, stack);
 	if (stack->head->number == tab[0] && stack->head->next->number == tab[1] && stack->head->next->next->number == tab[2])
 		return ;
 	else if (stack->head->number == tab[0] && stack->head->next->number == tab[2] && stack->head->next->next->number == tab[1])
 	{
-		printf("cas uno \n");
 		ra_list(stack, 'a');
 		swap(stack->head, stack->head->next, 'a');
 		rra_list(stack, 'a');
 	}
 	else if (stack->head->number == tab[1] && stack->head->next->number == tab[0] && stack->head->next->next->number == tab[2])
 	{
-		printf("cas 2\n");
 		swap(stack->head, stack->head->next, 'a');
 	}
 	else if (stack->head->number == tab[1] && stack->head->next->number == tab[2] && stack->head->next->next->number == tab[0])
 	{
-		printf("cas 3 \n");
 		ra_list(stack, 'a');
 		swap(stack->head, stack->head->next, 'a');
 		rra_list(stack, 'a');
@@ -43,7 +39,6 @@ void	sort_three_top_non_empty(t_list *stack, int x)
 	}
 	else if (stack->head->number == tab[2] && stack->head->next->number == tab[0] && stack->head->next->next->number == tab[1])
 	{
-		printf("cas 4 \n");
 		swap(stack->head, stack->head->next, 'a');
 		ra_list(stack, 'a');
 		swap(stack->head, stack->head->next, 'a');
@@ -51,14 +46,12 @@ void	sort_three_top_non_empty(t_list *stack, int x)
 	}
 	else if (stack->head->number == tab[2] && stack->head->next->number == tab[1] && stack->head->next->next->number == tab[0])
 	{
-		printf("cas 5 \n");
 		swap(stack->head, stack->head->next, 'a');
 		ra_list(stack, 'a');
 		swap(stack->head, stack->head->next, 'a');
 		rra_list(stack, 'a');
 		swap(stack->head, stack->head->next, 'a');		
 	}
-	//one_list_display(stack);
 	free(tab);
 }
 
@@ -66,13 +59,9 @@ void	sort_four_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 {
 	int *tab;
 	
-	printf("sort_four_top_non_empty\n");
 	tab = create_tab(x, sender);
 	int i;
 	i = -1;
-	// while (++i < x)
-	// 	printf("tab[%d] = %d\n", i, tab[i]);
-	// printf("STOOP\n");
 	if (sender->head->number > sender->head->next->number)
 		swap(sender->head, sender->head, s);
 	while (++i < x)
@@ -94,7 +83,6 @@ void	sort_four_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 	rra_list(sender, s);
 	if (sender->head->number > sender->head->next->number)
 		swap(sender->head, sender->head->next, s);
-	//list_display(sender, receiver);
 	free(tab);
 }
 
@@ -102,8 +90,7 @@ void	sort_five_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 {
 	int *tab;
 	int i;
-	printf("sort_five_top_non_empty\n");
-// doutes sur le ra_list sur receiver
+
 	tab = create_tab(x, sender);
 	if (!tab)
 		return ;
@@ -136,13 +123,11 @@ void	sort_five_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 	rra_list(sender, s);
 	if (sender->head->number > sender->head->next->number)
 		swap(sender->head, sender->head->next, s);
-	//list_display(sender, receiver);
 	free(tab);
 }
 
 void	find_algo_top_rec(t_list *stack_a, t_list *stack_b, int x)
 {
-	printf("find_algo_top_rec, x = %d\n", x);
 	if (x == 2)
 	{
 		if (stack_a->head->number > stack_a->head->next->number)

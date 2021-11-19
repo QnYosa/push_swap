@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/14 20:17:31 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/19 20:40:36 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,15 @@ void	ra_list(t_list *list, char c)
 	}
 	list->tail->number = value_head;
 	if (c == 'a')
-		write(1, "ra\n", 0);//0
+		write(1, "ra\n", 3);
 	else
-		write(1, "rb\n", 0);//0
+	 	write(1, "rb\n", 3);
+	/*
+	if (c == 'a')
+		write(1, "ra\n", 0);
+	else
+		write(1, "rb\n", 0);
+	*/
 }
 
 void	rra_list(t_list *list, char c)
@@ -54,9 +60,15 @@ void	rra_list(t_list *list, char c)
 	}
 	list->head->number = value_tail;
 	if (c == 'a')
-		write(1, "ra\n", 0);//0
+		write(1, "ra\n", 3);
 	else
-		write(1, "rb\n", 0);//0
+		write(1, "rb\n", 3);
+	/*
+	if (c == 'a')
+		write(1, "ra\n", 0);
+	else
+		write(1, "rb\n", 0);
+	*/
 }
 
 void	rrr(t_list *stack_a, t_list *stack_b)

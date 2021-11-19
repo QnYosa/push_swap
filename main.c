@@ -6,16 +6,14 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/18 18:12:51 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/18 19:07:40 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
 
-// int count;
 
-// count = 0;
 int	list_filler(int argc, char **argv, t_list *list)
 {
 	t_container	n_argus;
@@ -28,7 +26,6 @@ int	list_filler(int argc, char **argv, t_list *list)
 		d_tab = ft_split(argv[i], " \t\v\n\f\r", &n_argus);
 		if (!d_tab)
 		{
-			ft_putstr_fd("RAUS FDP\n", 1);
 			exit(0);
 		}
 		arg_split_to_list(d_tab, list, &n_argus);
@@ -54,21 +51,6 @@ void	chose_algo(int argc, /*char **argv,*/ t_list *stack)
 		big_algo_maestro(stack);
 }
 
-// void	chose_algo_b(int argc, /*char **argv,*/ t_list *stack)
-// {
-// 	if (argc == 3)
-// 		if (stack->head->number < stack->head->next->number)
-// 			swap(stack->head, stack->head->next, 'b');
-// 	if (argc == 4)
-// 		three_arg_maestro(stack);
-// 	else if (argc == 5)
-// 		small_insertion(stack);
-// 	else if (argc == 6)
-// 		five_arg_maestro(stack);
-// 	else
-// 		big_algo_maestro(stack);
-// }
-
 int	main(int argc, char **argv)
 {
 	t_list	*list;
@@ -82,10 +64,7 @@ int	main(int argc, char **argv)
 		delete_list(&list);
 		return (0);
 	}
-	
-	//one_list_display(list);
 	chose_algo(argc, list);
-	//one_list_display(list);
 	delete_list(&list);
 	return (0);
 }

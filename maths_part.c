@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/18 17:48:32 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/19 20:44:53 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,23 @@ int	push_bajo_mid(t_list *sender, t_list *receiver, int mid)
 	int	i;
 	int	k;
 	int	under;
-
+	int	pushed;
+	
 	under = count_under_mid(sender, mid);
 	i = 0;
 	k = 0;
-	while (i < under)
+	pushed = 0;
+	while (i < under && pushed <= under)
 	{
 		if (sender->head->number <= mid)
 		{
 			push_first(sender, receiver);
-			if (receiver->head->next != NULL)
+			if (receiver->head->number <= sender->quarter && sender->first_mid == 0 && receiver->head->next != NULL)
 			{
-				if (receiver->head->number < receiver->head->next->number)
-					swap(receiver->head, receiver->head->next, 'b');
+				ra_list(receiver, 'b');
+				//printf("HOL\n");
 			}
+			pushed++;
 			i++;
 		}
 		else
@@ -83,7 +86,11 @@ int	push_bajo_mid(t_list *sender, t_list *receiver, int mid)
 			k++;
 		}
 	}
-	un_ra_list(sender, k, 'b');
+	//list_display(sender, receiver);
+	if (sender->first_mid == 1)
+		un_ra_list(sender, k, 'b');
+	if (sender->first_mid == 0)
+		sender->first_mid = 1;
 	return (under);
 }
 
@@ -92,23 +99,19 @@ int	push_above_mid_x(t_list *sender, t_list *receiver, int mid, int x)
 	int	i;
 	int	under;
 	int above;
-
+	int	pushed;
+	
 	i = -1;
 	under = 0;
 	above = 0;
-	while (++i < x)
+	pushed = 0;
+	while (++i < x && pushed <= above)
 	{
-		if (sender->head->number <= sender->head->next->number)
-			swap(sender->head, sender->head->next, 'b');
 		if (sender->head->number > mid)
 		{
 			push_first(sender, receiver);
 			above++;
-			if (receiver->head->next != NULL)
-			{
-				if (receiver->head->number > receiver->head->next->number)
-					swap(receiver->head, receiver->head->next, 'b');
-			}
+			pushed++;
 		}
 		else
 		{
@@ -116,6 +119,7 @@ int	push_above_mid_x(t_list *sender, t_list *receiver, int mid, int x)
 			under++;
 		}
 	}
+	//list_display(receiver, sender);
 	un_ra_list(sender, under, 'a');
 	return (above);
 }
@@ -147,6 +151,7 @@ int		find_mid(t_list *stack)
 	return (mid);
 }
 
+
 int		find_mid_x(t_list *stack, int length)
 {
 	int 				mid;
@@ -168,6 +173,33 @@ int		find_mid_x(t_list *stack, int length)
 		mid = tab[(length / 2) - 1];
 	else
 		mid = tab[(length / 2)];
+	free(tab);
+	return (mid);
+}
+
+int		find_quarter(t_list *stack)
+{
+	int 				mid;
+	int					*tab;
+	t_node				*iterator;
+	unsigned int		i;
+
+	tab = malloc(sizeof(int) * stack->length);
+	if (!tab)
+		return (0);
+	i = 0;
+	iterator = stack->head;
+	while (iterator != NULL)
+	{
+		tab[i] = iterator->number;
+		i++;
+		iterator = iterator->next;
+	}
+	ft_sort_int_tab(tab, stack->length);
+	if (stack->length % 4 == 0)
+		mid = tab[(stack->length / 4) - 1];
+	else
+		mid = tab[(stack->length / 4)];
 	free(tab);
 	return (mid);
 }

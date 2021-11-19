@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c_list.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 18:02:59 by dyoula            #+#    #+#             */
-/*   Updated: 2021/10/19 16:55:45 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/19 15:50:48 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ t_list	*init_list(void)
 	list = (t_list *)malloc(sizeof(t_list));
 	if (!list)
 		return (NULL);
-	list->length = 0;
 	list->head = NULL;
 	list->tail = NULL;
+	list->length = 0;
+	list->first_mid = 0;
 	return (list);
 }
 
