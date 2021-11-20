@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/19 20:45:07 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/20 15:36:35 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,5 +133,6 @@ void	big_algo_maestro(t_list *stack_a)
 	//printf("quarter = %d", stack_a->quarter);
 	recursive_sort(stack_a, stack_b, stack_a->length);
 	//list_display(stack_a, stack_b);
+	free(stack_a->tab);
 	delete_list(&stack_b);
 }

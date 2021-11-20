@@ -1,5 +1,7 @@
 NAME = push_swap
 
+LIBFT = ../libft.a
+
 SRCS	= main.c errors.c parsing.c utils.c c_list.c \
 	c_list_norm.c leaks.c ope_1.c ope_2.c \
 	print_list.c checking.c \
@@ -11,19 +13,19 @@ OBJS	= ${SRCS:.c=.o}
 
 CFLAGS	= -Wall -Werror -Wextra -g
 
-CC		= gcc
+CC		= clang
 
 RM		= rm -f
 
 all:	${NAME}
 
-$(NAME):	libft ${OBJS}
+$(NAME):	${LIBFT} ${OBJS}
 			${CC} ${CFLAGS} ${OBJS} libft.a -o ${NAME}
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-libft:
+$(LIBFT):
 		make -C libft
 		@cp libft/*.h ./includes
 		@mv libft/libft.a .

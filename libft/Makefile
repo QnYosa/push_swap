@@ -15,7 +15,7 @@ AR		= ar rcs
 
 CFLAGS	= -Wall -Werror -Wextra
 
-CC 		= gcc
+CC 		= clang
 
 RM		= rm -f
 
