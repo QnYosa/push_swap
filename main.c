@@ -6,13 +6,12 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/18 19:07:40 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/23 23:47:35 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
-
 
 int	list_filler(int argc, char **argv, t_list *list)
 {
@@ -36,7 +35,8 @@ int	list_filler(int argc, char **argv, t_list *list)
 	return (1);
 }
 
-void	chose_algo(int argc, /*char **argv,*/ t_list *stack)
+/*char **argv,*/
+void	chose_algo(int argc, t_list *stack)
 {
 	if (argc == 3)
 		if (stack->head->number < stack->head->next->number)

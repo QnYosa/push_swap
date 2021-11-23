@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/20 15:36:50 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/23 23:14:18 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ void	rra_list(t_list *list, char c)
 
 void	rrr(t_list *stack_a, t_list *stack_b)
 {
-	rra_list(stack_a, 'a');
-	rra_list(stack_b, 'b');
+	rra_list(stack_a, stack_a->c);
+	rra_list(stack_b, stack_b->c);
 }
 
 void	rr(t_list *stack_a, t_list *stack_b)
 {
-	ra_list(stack_a, 'a');
-	ra_list(stack_b, 'a');
+	ra_list(stack_a, stack_a->c);
+	ra_list(stack_b, stack_b->c);
 }

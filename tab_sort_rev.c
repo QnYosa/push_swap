@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 22:11:09 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/17 23:32:10 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/23 23:32:44 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ void	ft_swap(int *tab, int i, int j)
 
 	t_tab = tab[i];
 	tab[i] = tab[j];
-	//printf("SALUT tab[j] = %d\n", tab[j]);
 	tab[j] = t_tab;
 }
 
-int 	*ft_sort_int_tab(int *tab, int size)
+int	*ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
 	int	j;

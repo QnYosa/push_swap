@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:26:35 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/19 15:49:57 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/20 16:34:21 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_list
 	int				*tab;
 	int				first_mid;
 	int				quarter;
+	char			c;
 }	t_list;
 
 typedef struct s_container

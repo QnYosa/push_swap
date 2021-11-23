@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:58 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/20 15:37:05 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/23 23:14:09 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	swap(t_node *first, t_node *second, char c)
 
 void	double_swap(t_list *list_1, t_list *list_2)
 {
-	swap(list_1->head, list_1->head->next, 'a');
-	swap(list_2->head, list_2->head->next, 'b');
+	swap(list_1->head, list_1->head->next, list_1->c);
+	swap(list_2->head, list_2->head->next, list_2->c);
 }
 
 void	push_first(t_list *sender, t_list *receiver)
@@ -64,11 +64,16 @@ void	push_first(t_list *sender, t_list *receiver)
 		sender->head = sender->head->next;
 		sender->head->previous = NULL;
 	}
-	write(1, "pa\n", 3);//0
 	/*
-	write(1, "pa\n", 0);//0
+	if (sender->c == 'a')
+		write(1, "pa\n", 0);//0
+	else
+		write(1, "pb\n", 0);// 
 	*/
-
+	if (sender->c == 'a')
+		write(1, "pa\n", 3);//0
+	else
+		write(1, "pb\n", 3);// 
 	free(tmp);
 	free(str);
 }

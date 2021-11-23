@@ -19,13 +19,13 @@ CC 		= clang
 
 RM		= rm -f
 
+all:		${NAME}
+
 .c.o:	
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 			${AR} ${NAME} ${OBJS}
-
-all:		${NAME}
 
 clean:	
 			${RM} ${OBJS}
