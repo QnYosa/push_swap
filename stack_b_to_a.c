@@ -6,65 +6,61 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 21:59:08 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/23 23:36:15 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/26 19:33:18 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
 
-int	is_in_tab(int n, int *tab)
+int	push_above_mid_x(t_list *sender, t_list *receiver, int mid, int x)
 {
 	int	i;
+	int	under;
+	int	pushed;
+	int	stop;
 
+	stop = 0;
 	i = -1;
-	while (++i < 5)
+	under = 0;
+	pushed = 0;
+	while (++i < x)
 	{
-		if (n == tab[i])
-			return (1);
-	}
-	return (0);
-}
-
-int	push_above_mid_a(t_list *sender, t_list *receiver, int mid)
-{
-	int				i;
-	int				arriba;
-	t_node			*iter;
-
-	arriba = 0;
-	iter = sender->head;
-	i = -1;
-	while (++i < (int)sender->length && iter->next)
-	{
-		arriba -= is_next(sender, receiver);
-		if (iter->number > mid)
+		if (sender->head->number > mid)
 		{
 			push_first(sender, receiver);
-			if (receiver->head->number > receiver->head->next->number)
-				swap(receiver->head, receiver->head->next, 'a');
-			arriba++;
+			pushed++;
 		}
-		else if (iter->number <= mid)
-			ra_list(sender, 'b');
-		iter = sender->head;
+		else
+		{
+			ra_list(sender, sender->c, receiver->l_co);
+			under++;
+		}
 	}
-	return (arriba);
+	un_ra_list(sender, under, sender->c, receiver->l_co);
+	return (pushed);
 }
 
 void	send_b_to_a(t_list *sender, t_list *receiver, int x)
 {
 	int	med_x;
 	int	above;
+	int	under;
 
 	med_x = find_mid_x(sender, x);
 	above = push_above_mid_x(sender, receiver, med_x, x);
+	under = x - above;
 	if (above <= 5)
 		find_algo_top_rec(receiver, sender, above);
 	else
-		recursive_sort(receiver, sender, above);
-	if (x - above <= 5)
-		find_algo_rec(receiver, sender, x - above);
+	{
+		while (above && is_next_from(receiver, above))
+			above--;
+		if (above)
+			recursive_sort(receiver, sender, above);
+	}
+	if (under <= 5)
+		find_algo_rec(receiver, sender, under);
 	else
-		send_b_to_a(sender, receiver, x - above);
+		send_b_to_a(sender, receiver, under);
 }

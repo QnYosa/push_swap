@@ -1,34 +1,23 @@
-Quicksort + insertion sort
+annulations
 
-On prend un pivot. on place derriere tout ce qui va au dessus
+sa sa  -done 
+sb sb -done 
 
-on move les elements plus grands
-on change de pivot
-on recommence jusqua arrive en bas 
+rb rrb -done
+ra rra -done
 
-etape de tri 
+ x * rb + x * rrb = vide -done
 
-But vider la dans la stack a dans la b.
+optimisations
 
-j'ai trie tout ce qui va sous mon point pivot 
-je change de pivot et je recommence
+rr + rb = ra
+rr + ra = rb
 
+rrr + rrb = rra
+rrr + rra = rrb 
 
-pile A vide ?
+ss + sa = sb 
+ss + sb = sa 
 
-utiliser algo de base pour les 3 
-
-index.
-
-int is_next(t_list *stack_a, t_list *stack_b)
-{
-	if(stack_b->head->number == is_next)
-		push_first
-	else if (stack_b->head->number == is_next)
-		swap;
-		push_first;
-}
-
-36 42 2 99 61 29 98 95 60 24 69 80 88 100 85 28 11 66 18 26 15 76 5 62 65 67 35 89 7 1 81 10 37 77 72 63 6 30 59 75 21 32 82 90 96 14 52 92 94 87 34 97 47 17 91 39 20 4 84 50 12 56 45 31 51 16 19 57 86 44 55 41 9 43 40 33 22 54 73 49 79 68 93 58 83 78 25 8 48 23 64 70 38 46 74 27 71 53 3 13
 
 ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`; ./push_swap $(echo $ARG) | wc -l

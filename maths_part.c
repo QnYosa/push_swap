@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/23 23:52:17 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/26 19:32:15 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@ int	count_under_mid(t_list *sender, int mid)
 	iterator = sender->head;
 	while (iterator != NULL)
 	{
-		if (iterator->number <=  mid)
+		if (iterator->number <= mid)
 			under++;
 		iterator = iterator->next;
 	}
 	return (under);
 }
 
-void	un_ra_list(t_list *stack, int x, char c)
+void	un_ra_list(t_list *stack, int x, char c, t_write *l)
 {
 	int	i;
 
 	i = -1;
 	while (++i < x)
-		rra_list(stack, c);
+		rra_list(stack, c, l);
 }
 
 int	push_bajo_mid(t_list *sender, t_list *receiver, int mid)
@@ -44,7 +44,7 @@ int	push_bajo_mid(t_list *sender, t_list *receiver, int mid)
 	int	k;
 	int	under;
 	int	pushed;
-	
+
 	under = count_under_mid(sender, mid);
 	i = 0;
 	k = 0;
@@ -55,55 +55,26 @@ int	push_bajo_mid(t_list *sender, t_list *receiver, int mid)
 		{
 			push_first(sender, receiver);
 			if (receiver->head->number <= sender->quarter && sender->first_mid == 0 && receiver->head->next != NULL)
-				ra_list(receiver, receiver->c);
+				ra_list(receiver, receiver->c, sender->l_co);
 			pushed++;
 			i++;
 		}
 		else
 		{
-			ra_list(sender, sender->c);
+			ra_list(sender, sender->c, sender->l_co);
 			k++;
 		}
 	}
 	if (sender->first_mid == 1)
-		un_ra_list(sender, k, sender->c);
+		un_ra_list(sender, k, sender->c, sender->l_co);
 	if (sender->first_mid == 0)
 		sender->first_mid = 1;
 	return (under);
 }
 
-int	push_above_mid_x(t_list *sender, t_list *receiver, int mid, int x)
+int	find_mid(t_list *stack)
 {
-	int	i;
-	int	under;
-	int	above;
-	int	pushed;
-	
-	i = -1;
-	under = 0;
-	above = 0;
-	pushed = 0;
-	while (++i < x && pushed <= above)
-	{
-		if (sender->head->number > mid)
-		{
-			push_first(sender, receiver);
-			above++;
-			pushed++;
-		}
-		else
-		{
-			ra_list(sender, sender->c);
-			under++;
-		}
-	}
-	un_ra_list(sender, under, sender->c);
-	return (above);
-}
-
-int		find_mid(t_list *stack)
-{
-	int 				mid;
+	int					mid;
 	int					*tab;
 	t_node				*iterator;
 	unsigned int		i;
@@ -128,7 +99,7 @@ int		find_mid(t_list *stack)
 	return (mid);
 }
 
-int		find_mid_x(t_list *stack, int length)
+int	find_mid_x(t_list *stack, int length)
 {
 	int					mid;
 	int					*tab;

@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:26:35 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/20 16:34:21 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/24 17:08:18 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+
+typedef struct s_commands
+{
+	struct	s_commands	*previous;
+	struct	s_commands	*next;
+	char	*command;
+} t_commands;
+
+typedef struct s_write
+{
+	struct	s_commands	*head;
+	struct	s_commands	*tail;
+}	t_write;
 
 typedef struct s_node
 {
@@ -36,6 +49,7 @@ typedef struct s_list
 	int				first_mid;
 	int				quarter;
 	char			c;
+	struct	s_write *l_co;
 }	t_list;
 
 typedef struct s_container

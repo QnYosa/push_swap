@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 18:58:54 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/23 23:45:57 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/26 19:23:47 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,31 @@ int	is_next(t_list *stack_a, t_list *stack_b)
 		return (1);
 	}
 	return (0);
+}
+
+int	is_next_from(t_list *stack_a, int above)
+{
+	int		i;
+	t_node	*tmp;
+
+	tmp = stack_a->head;
+	i = 0;
+	while (i < above - 1)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	i = 0;
+	while (stack_a->tab[i] != tmp->number)
+		i++;
+	while (tmp && tmp->number == stack_a->tab[i])
+	{
+		i--;
+		tmp = tmp->next;
+	}
+	if (tmp)
+		return (0);
+	return (1);
 }
 
 int	*do_tab(int size, t_list *stack)

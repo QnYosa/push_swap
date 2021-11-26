@@ -6,14 +6,14 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/23 23:14:18 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/26 19:30:36 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-void	ra_list(t_list *list, char c)
+void	ra_list(t_list *list, char c, t_write *l_com)
 {
 	t_node				*iterator;
 	int					value_head;
@@ -31,18 +31,12 @@ void	ra_list(t_list *list, char c)
 	}
 	list->tail->number = value_head;
 	if (c == 'a')
-		write(1, "ra\n", 3);
+		add_commands_start(l_com, "ra\n");
 	else
-	 	write(1, "rb\n", 3);
-	/*
-	if (c == 'a')
-		write(1, "ra\n", 0);
-	else
-		write(1, "rb\n", 0);
-	*/
+		add_commands_start(l_com, "rb\n");
 }
 
-void	rra_list(t_list *list, char c)
+void	rra_list(t_list *list, char c, t_write *l_com)
 {
 	t_node			*iterator;
 	int				value_tail;
@@ -60,25 +54,7 @@ void	rra_list(t_list *list, char c)
 	}
 	list->head->number = value_tail;
 	if (c == 'a')
-		write(1, "ra\n", 3);
+		add_commands_start(l_com, "rra\n");
 	else
-		write(1, "rb\n", 3);
-	/*
-	if (c == 'a')
-		write(1, "ra\n", 0);
-	else
-		write(1, "rb\n", 0);
-	*/
-}
-
-void	rrr(t_list *stack_a, t_list *stack_b)
-{
-	rra_list(stack_a, stack_a->c);
-	rra_list(stack_b, stack_b->c);
-}
-
-void	rr(t_list *stack_a, t_list *stack_b)
-{
-	ra_list(stack_a, stack_a->c);
-	ra_list(stack_b, stack_b->c);
+		add_commands_start(l_com, "rrb\n");
 }

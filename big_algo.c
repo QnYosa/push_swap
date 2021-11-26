@@ -6,13 +6,12 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/23 23:53:43 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/26 19:19:00 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
-
 
 int	find_index_tab(int *tab, int number, int length)
 {
@@ -28,11 +27,10 @@ int	find_index_tab(int *tab, int number, int length)
 	return (i);
 }
 
-
 int	*create_tab(int size, t_list *stack)
 {
-	int i;
-	int	*tab;
+	int		i;
+	int		*tab;
 	t_node	*node;
 
 	tab = malloc(sizeof(int) * size);
@@ -49,7 +47,7 @@ int	*create_tab(int size, t_list *stack)
 
 void	recursive_sort(t_list *stack_a, t_list *stack_b, int len)
 {
-	int med_a;
+	int	med_a;
 	int	x;
 
 	med_a = find_mid_x(stack_a, len);
@@ -80,6 +78,9 @@ void	big_algo_maestro(t_list *stack_a)
 	stack_a->c = 'a';
 	stack_b->c = 'b';
 	recursive_sort(stack_a, stack_b, stack_a->length);
+	delete_useless(&stack_a->l_co);
+	delete_useless(&stack_a->l_co);
+	display_commands(stack_a->l_co);
 	is_sorted_end(stack_a);
 	free(stack_a->tab);
 	delete_list(&stack_b);

@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/23 23:47:35 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/24 17:07:37 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	chose_algo(int argc, t_list *stack)
 {
 	if (argc == 3)
 		if (stack->head->number < stack->head->next->number)
-			swap(stack->head, stack->head->next, 'a');
+			swap(stack->head, stack->head->next, 'a', stack->l_co);
 	if (argc == 4)
 		three_arg_maestro(stack);
 	else if (argc == 5)
@@ -64,6 +64,7 @@ int	main(int argc, char **argv)
 		delete_list(&list);
 		return (0);
 	}
+	list->l_co = init_write();
 	chose_algo(argc, list);
 	delete_list(&list);
 	return (0);
