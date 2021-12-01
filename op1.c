@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ope_1.c                                            :+:      :+:    :+:   */
+/*   op1.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:58 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/29 21:08:40 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/30 22:08:56 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-void	swap(t_node *first, t_node *second, char c, t_write *l_com)
+void	g_swap(t_node *first, t_node *second, char c)
 {
 	int	tmp;
 
@@ -28,19 +28,12 @@ void	swap(t_node *first, t_node *second, char c, t_write *l_com)
 	if (c == 's')
 		return ;
 	else if (c == 'a')
-		add_commands_start(l_com, "sa\n");
+		write(1, "sa\n", 3);
 	else if (c == 'b')
-		add_commands_start(l_com, "sb\n");
+		write(1, "sb\n", 3);
 }
 
-void	double_swap(t_list *list_1, t_list *list_2)
-{
-	swap(list_1->head, list_1->head->next, 's', list_1->l_co);
-	swap(list_2->head, list_2->head->next, 's', list_2->l_co);
-	add_commands_start(list_1->l_co, "ss\n");
-}
-
-void	push_first(t_list *sender, t_list *receiver)
+void	g_push_first(t_list *sender, t_list *receiver)
 {
 	t_node	*tmp;
 	char	*str;
@@ -62,9 +55,9 @@ void	push_first(t_list *sender, t_list *receiver)
 		sender->head->previous = NULL;
 	}
 	if (sender->c == 'a')
-		sender->l_co = add_commands_start(sender->l_co, "pb\n");
+		write(1, "pb\n", 3);
 	else if (sender->c == 'b')
-		receiver->l_co = add_commands_start(receiver->l_co, "pa\n");
+		write(1, "pa\n", 3);
 	free(tmp);
 	free(str);
 }

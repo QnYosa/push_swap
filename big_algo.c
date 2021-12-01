@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/26 19:19:00 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/30 23:45:41 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	recursive_sort(t_list *stack_a, t_list *stack_b, int len)
 	if (len - x <= 5)
 	{
 		if (len - x == (int)stack_a->length)
-			chose_algo(x + 1, stack_a);
+			chose_algo_via_big(x + 1, stack_a);
 		else
 			find_algo_top_rec(stack_a, stack_b, len - x);
 	}
@@ -75,12 +75,14 @@ void	big_algo_maestro(t_list *stack_a)
 	stack_a->tab = create_tab(stack_a->length, stack_a);
 	ft_rev_int_tab(stack_a->tab, stack_a->length);
 	stack_a->quarter = find_quarter(stack_a);
-	stack_a->c = 'a';
+	//stack_a->c = 'a';
 	stack_b->c = 'b';
+	//list_display(stack_a, stack_b);
 	recursive_sort(stack_a, stack_b, stack_a->length);
 	delete_useless(&stack_a->l_co);
 	delete_useless(&stack_a->l_co);
-	display_commands(stack_a->l_co);
+	//list_display(stack_a, stack_b);
+	//display_commands(stack_a->l_co);
 	is_sorted_end(stack_a);
 	free(stack_a->tab);
 	delete_list(&stack_b);

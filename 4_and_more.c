@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:07:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/24 17:02:44 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/30 22:23:49 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,15 @@ int	find_index_min(t_list *stack, int min)
 void	find_op_min(t_list *stack_a, int index, t_list *stack_b)
 {
 	if (index == 1)
-		swap(stack_a->head, stack_a->head->next, stack_a->c, stack_a->l_co);
+		g_swap(stack_a->head, stack_a->head->next, stack_a->c);
 	else if (index == 2)
 	{
-		ra_list(stack_a, stack_a->c, stack_a->l_co);
-		ra_list(stack_a, stack_a->c, stack_a->l_co);
+		g_ra_list(stack_a, stack_a->c);
+		g_ra_list(stack_a, stack_a->c);
 	}
 	else if (index == 3)
-		rra_list(stack_a, stack_a->c, stack_a->l_co);
-	push_first(stack_a, stack_b);
+		g_rra_list(stack_a, stack_a->c);
+	g_push_first(stack_a, stack_b);
 }
 
 void	small_insertion(t_list *stack_a)
@@ -83,10 +83,11 @@ void	small_insertion(t_list *stack_a)
 	int		index;
 
 	stack_b = init_list();
+	stack_b->c = 'b';
 	min = find_min(stack_a);
 	index = find_index_min(stack_a, min);
 	find_op_min(stack_a, index, stack_b);
 	three_arg_maestro(stack_a);
-	push_first(stack_b, stack_a);
+	g_push_first(stack_b, stack_a);
 	delete_list(&stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/25 15:30:08 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/11/30 23:14:11 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,13 @@ void			rra_list(t_list *list, char c, t_write *l_com);
 void			swap(t_node *first, t_node *second, char c, t_write *l_com);
 void			push_first(t_list *sender, t_list *receiver);
 void			un_ra_list(t_list *stack, int x, char c, t_write *l_com);
+void			rr_91(t_list *a, t_list *b);
+void 			rrr(t_list *a, t_list *b);
+void			double_swap(t_list *list_1, t_list *list_2);
 
 /* LEAKS */
 void			delete_list(t_list **list);
 void			delete_d_tab(int argc, char **d_tab);
-
-/* ARGUMENTS */
-char			*strjoin_double_tab(char *tmp, char **d_tab, t_container *n_argus);
-void			arg_split_to_list(char **d_tab, t_list *list, t_container *n_argus);
 
 /* 	LIST IMPLEMENTATION */
 t_list			*ft_lstnew_p(char *content);
@@ -81,12 +80,12 @@ void			small_insertion(t_list *stack_a);
 void			five_arg_maestro(t_list *stack_a);
 void			big_algo_maestro(t_list *stack_a);
 
-
 /* 			3 - ARGS    */
 void			three_arg_maestro(t_list *stack_a);
 void			small_insertion(t_list *stack_a);
 
 /* 			MATHS		*/
+int				is_max(t_list *stack_a, int n);
 int				find_mid(t_list *stack);
 int				find_max(t_list *stack_a);
 int				to_empty_unsorted_top(int b_side, t_list *sender, t_list *receiver);
@@ -109,5 +108,16 @@ t_write			*add_commands_start(t_write *write_, char *content);
 t_write			*init_write(void);
 void			display_commands(t_write *l);
 void			delete_useless(t_write **l);
-int	is_next_from(t_list *stack_a, int above);
+int				is_next_from(t_list *stack_a, int above);
+
+/*			FIX					*/
+void			g_swap(t_node *first, t_node *second, char c);
+void			g_push_first(t_list *sender, t_list *receiver);
+void			g_ra_list(t_list *list, char c);
+void			g_rra_list(t_list *list, char c);
+
+void			b_three_arg(t_list *stack_a);
+void			b_insertion(t_list *stack_a);
+void			b_five(t_list *stack_a);
+void	chose_algo_via_big(int argc, t_list *stack);
 #endif
