@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:37:33 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/23 23:37:12 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/03 22:06:20 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,22 @@ void	delete_list(t_list **list)
 	}
 	free(*list);
 	*list = NULL;
+}
+
+void	free_commands(t_write **l)
+{
+	t_commands	*tmp;
+	t_commands	*del;
+
+	tmp = (*l)->head;
+	while (tmp)
+	{	
+		del = tmp;
+		tmp = tmp->next;
+		free(del);
+	}
+	free(*l);
+	*l = NULL;
 }
 
 void	delete_d_tab(int argc, char **d_tab)

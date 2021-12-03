@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:32:56 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/26 19:29:42 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/01 23:38:06 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ t_write	*init_write(void)
 	return (write);
 }
 
-t_write	*add_commands_start(t_write *write_, char *content)
+void	add_commands_start(t_write *write_, char *content)
 {
 	t_commands	*new_command;
 
 	if (!write_)
-		return (NULL);
+		return ;
 	new_command = malloc(sizeof(t_commands));
 	if (!new_command)
-		return (NULL);
+		return ;
 	new_command->command = content;
 	new_command->next = NULL;
 	if (write_->tail == NULL)
@@ -48,7 +48,7 @@ t_write	*add_commands_start(t_write *write_, char *content)
 		new_command->previous = write_->tail;
 		write_->tail = new_command;
 	}
-	return (write_);
+	//free(new_command);
 }
 
 void	display_commands(t_write *l)

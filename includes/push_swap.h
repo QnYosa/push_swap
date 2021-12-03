@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/30 23:14:11 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/03 21:58:59 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ void			swap(t_node *first, t_node *second, char c, t_write *l_com);
 void			push_first(t_list *sender, t_list *receiver);
 void			un_ra_list(t_list *stack, int x, char c, t_write *l_com);
 void			rr_91(t_list *a, t_list *b);
-void 			rrr(t_list *a, t_list *b);
+void			rrr(t_list *a, t_list *b);
 void			double_swap(t_list *list_1, t_list *list_2);
 
 /* LEAKS */
 void			delete_list(t_list **list);
 void			delete_d_tab(int argc, char **d_tab);
+void			free_commands(t_write **l);
 
 /* 	LIST IMPLEMENTATION */
 t_list			*ft_lstnew_p(char *content);
@@ -49,7 +50,8 @@ char *content);
 void			ft_lstadd_back_p(t_list **alst, t_list *new);
 t_list			*list_end(t_list *list, char *content);
 t_list			*list_start(t_list *list, char *content);
-t_node			*new_node(t_node *new, t_node *tmp, char *content, t_list *list);
+t_node			*new_node(t_node *new, t_node *tmp, char *content, t_list \
+*list);
 void			add_index(t_list *list);
 
 /* 	AFFICHAGE */
@@ -88,11 +90,14 @@ void			small_insertion(t_list *stack_a);
 int				is_max(t_list *stack_a, int n);
 int				find_mid(t_list *stack);
 int				find_max(t_list *stack_a);
-int				to_empty_unsorted_top(int b_side, t_list *sender, t_list *receiver);
-void			sort_three_non_empty(t_list *sender, t_list *receiver, int x, char s, char r);
+int				to_empty_unsorted_top(int b_side, t_list *sender, \
+t_list *receiver);
+void			sort_three_non_empty(t_list *sender, t_list *receiver, \
+char s, char r);
 int				count_above_mid(t_list *sender, int mid);
 int				find_mid_x(t_list *stack, int length);
-int				push_above_mid_x(t_list *sender, t_list *receiver, int mid, int x);
+int				push_above_mid_x(t_list *sender, t_list *receiver, \
+int mid, int x);
 /*			RECURSIVE		*/
 void			recursive_sort(t_list *stack_a, t_list *stack_b, int len);
 int				push_bajo_mid(t_list *sender, t_list *receiver, int mid);
@@ -103,8 +108,9 @@ void			find_algo_top_rec(t_list *stack_a, t_list *stack_b, int x);
 /* 			OPTI			*/
 int				is_next(t_list *stack_a, t_list *stack_b);
 int				find_quarter(t_list *stack);
-int				*is_next_top_a(int *tab, int *touched, int size, t_list *stack_a);
-t_write			*add_commands_start(t_write *write_, char *content);
+int				*is_next_top_a(int *tab, int *touched, int size, \
+t_list *stack_a);
+void			add_commands_start(t_write *write_, char *content);
 t_write			*init_write(void);
 void			display_commands(t_write *l);
 void			delete_useless(t_write **l);
@@ -119,5 +125,5 @@ void			g_rra_list(t_list *list, char c);
 void			b_three_arg(t_list *stack_a);
 void			b_insertion(t_list *stack_a);
 void			b_five(t_list *stack_a);
-void	chose_algo_via_big(int argc, t_list *stack);
+void			chose_algo_via_big(int argc, t_list *stack);
 #endif

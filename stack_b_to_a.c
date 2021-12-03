@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 21:59:08 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/26 19:33:18 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/03 22:19:44 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,12 @@ void	send_b_to_a(t_list *sender, t_list *receiver, int x)
 	int	above;
 	int	under;
 
+	if (!sender->head)
+		return ;
 	med_x = find_mid_x(sender, x);
 	above = push_above_mid_x(sender, receiver, med_x, x);
 	under = x - above;
-	if (above <= 5)
+	if (above <= 4)
 		find_algo_top_rec(receiver, sender, above);
 	else
 	{
@@ -59,8 +61,10 @@ void	send_b_to_a(t_list *sender, t_list *receiver, int x)
 		if (above)
 			recursive_sort(receiver, sender, above);
 	}
-	if (under <= 5)
+	if (under <= 4)
+	{
 		find_algo_rec(receiver, sender, under);
+	}
 	else
 		send_b_to_a(sender, receiver, under);
 }

@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:01:44 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/26 19:39:25 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/03 22:25:26 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sort_three_top_non_empty(t_list *stack, int x)
 		swap(stack->head, stack->head->next, 'a', stack->l_co);
 		ra_list(stack, 'a', stack->l_co);
 		swap(stack->head, stack->head->next, 'a', stack->l_co);
-		rra_list(stack, 'a', stack->l_co);		
+		rra_list(stack, 'a', stack->l_co);
 	}
 	else if (stack->head->number == tab[2] && stack->head->next->number == tab[1] && stack->head->next->next->number == tab[0])
 	{
@@ -56,14 +56,15 @@ void	sort_three_top_non_empty(t_list *stack, int x)
 
 void	sort_four_top_non_empty(t_list *sender, t_list *receiver, int x, char s, char r)
 {
-	int 	*tab;
+	int		*tab;
 	int		*touched;
 	int		i;
 	int		ra;
-	(void)	r;
 
+	(void)r;
 	ra = 0;
 	touched = malloc(sizeof(int) * x);
+	tab = malloc(sizeof(int) * x);
 	tab = create_tab(x, sender);
 	if (!touched || !tab)
 		return ;
@@ -76,7 +77,6 @@ void	sort_four_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 		return ;
 	}
 	else
-	{
 		while (++i < x)
 		{
 			if (sender->head->number == tab[0])
@@ -104,14 +104,13 @@ void	sort_four_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 					swap(sender->head, sender->head->next, sender->c, sender->l_co);
 			}
 		}
-	}
 	if (sender->head->number > sender->head->next->number)
-		swap(sender->head, sender->head->next, r, sender->l_co);
+		swap(sender->head, sender->head->next, s, sender->l_co);
 	if (sender->head->number > sender->head->next->number)
 		swap(sender->head, sender->head->next, s, sender->l_co);
 	if (receiver->head->number == tab[3] || receiver->head->number == tab[2])
 		push_first(receiver, sender);
-	if (receiver->head->number == tab[3] || receiver->head->number == tab[2])
+	if (receiver->head->number == tab[2] || receiver->head->number == tab[3])
 		push_first(receiver, sender);
 	if (sender->head->number > sender->head->next->number)
 		swap(sender->head, sender->head->next, s, sender->l_co);
@@ -145,9 +144,7 @@ void	sort_five_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 		while (++i < x)
 		{
 			if (sender->head->number == tab[0])
-			{
 				ra_list(sender, s, sender->l_co);
-			}
 			else if (sender->head->number == tab[1])
 				ra_list(sender, s, sender->l_co);
 			else if (sender->head->number == tab[2])
@@ -177,10 +174,8 @@ void	sort_five_top_non_empty(t_list *sender, t_list *receiver, int x, char s, ch
 void	find_algo_top_rec(t_list *stack_a, t_list *stack_b, int x)
 {
 	if (x == 2)
-	{
 		if (stack_a->head->number > stack_a->head->next->number)
-			swap(stack_a->head, stack_a->head->next, 'b', stack_a->l_co);
-	}
+			swap(stack_a->head, stack_a->head->next, 'a', stack_a->l_co);
 	if (x == 3)
 		sort_three_top_non_empty(stack_a, x);
 	else if (x == 4)

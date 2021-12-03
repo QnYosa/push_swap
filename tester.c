@@ -6,16 +6,16 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 18:56:03 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/28 19:17:08 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/03 22:24:00 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
 
-void	arg_to_com(int  argc, char **argv, t_write *com)
+void	arg_to_com(int argc, char **argv, t_write *com)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (++i < argc - 1)
@@ -37,9 +37,9 @@ void	translate(t_stack *s_a, t_stack *s_b, t_write *com)
 			rra_list(s_a, 'a', s_a->l_com);
 		else if (compare(com->command, 'rrb\n'))
 			rra_list(s_b, 'b', s_a->l_com);
-		else if (compare(com->command, "sa\n")
+		else if (compare(com->command, "sa\n"))
 			swap(s_a->head, s_a->head->next, 'a', s_a->l_com);
-		else if (compare(com->command, "sb\n")
+		else if (compare(com->command, "sb\n"))
 			swap(s_b->head, s_b->head->next, 'b', s_a->l_com);
 		else if (compare(com->command, "ss\n"))
 			double_swap(s_a, s_b);
@@ -54,12 +54,11 @@ void	translate(t_stack *s_a, t_stack *s_b, t_write *com)
 	}
 }
 
-int parser_tester(int argc, char **argv, t_*list *numbers)
-{
-	
-}
+// int parser_tester(int argc, char **argv, t_*list *numbers)
+// {
+// }
 
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_write	*coms;
 	t_stack	*s_a;

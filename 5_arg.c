@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:32:25 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/30 22:20:15 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/03 22:05:37 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 
 void	find_op_five(t_list *stack_a, int index, t_list *stack_b)
 {
-		if (index == 1)
-			g_swap(stack_a->head, stack_a->head->next, stack_a->c);
-		else if (index == 2)
-		{
-			g_ra_list(stack_a, stack_a->c);
-			g_ra_list(stack_a, stack_a->c);
-		}
-		else if (index == 3)
-		{
-			g_rra_list(stack_a, stack_a->c);
-			g_rra_list(stack_a, stack_a->c);
-		}
-		else if (index == 4)
-			g_rra_list(stack_a, stack_a->c);
-		g_push_first(stack_a, stack_b);
+	if (index == 1)
+		g_swap(stack_a->head, stack_a->head->next, stack_a->c);
+	else if (index == 2)
+	{
+		g_ra_list(stack_a, stack_a->c);
+		g_ra_list(stack_a, stack_a->c);
+	}
+	else if (index == 3)
+	{
+		g_rra_list(stack_a, stack_a->c);
+		g_rra_list(stack_a, stack_a->c);
+	}
+	else if (index == 4)
+		g_rra_list(stack_a, stack_a->c);
+	g_push_first(stack_a, stack_b);
 }
 
 void	five_arg_maestro(t_list *stack_a)

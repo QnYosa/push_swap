@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/26 19:32:15 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/02 17:40:33 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	un_ra_list(t_list *stack, int x, char c, t_write *l)
 	int	i;
 
 	i = -1;
-	while (++i < x)
+	while (++i < x && stack->length > 1)
 		rra_list(stack, c, l);
 }
 

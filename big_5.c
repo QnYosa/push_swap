@@ -15,21 +15,21 @@
 
 void	b_find_op_five(t_list *stack_a, int index, t_list *stack_b)
 {
-		if (index == 1)
-			swap(stack_a->head, stack_a->head->next, stack_a->c, stack_a->l_co);
-		else if (index == 2)
-		{
-			ra_list(stack_a, stack_a->c, stack_a->l_co);
-			ra_list(stack_a, stack_a->c, stack_a->l_co);
-		}
-		else if (index == 3)
-		{
-			rra_list(stack_a, stack_a->c, stack_a->l_co);
-			rra_list(stack_a, stack_a->c, stack_a->l_co);
-		}
-		else if (index == 4)
-			rra_list(stack_a, stack_a->c, stack_a->l_co);
-		push_first(stack_a, stack_b);
+	if (index == 1)
+		swap(stack_a->head, stack_a->head->next, stack_a->c, stack_a->l_co);
+	else if (index == 2)
+	{
+		ra_list(stack_a, stack_a->c, stack_a->l_co);
+		ra_list(stack_a, stack_a->c, stack_a->l_co);
+	}
+	else if (index == 3)
+	{
+		rra_list(stack_a, stack_a->c, stack_a->l_co);
+		rra_list(stack_a, stack_a->c, stack_a->l_co);
+	}
+	else if (index == 4)
+		rra_list(stack_a, stack_a->c, stack_a->l_co);
+	push_first(stack_a, stack_b);
 }
 
 void	b_five(t_list *stack_a)

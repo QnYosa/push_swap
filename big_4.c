@@ -31,13 +31,13 @@ void	b_insertion(t_list *stack_a)
 {
 	t_list	*stack_b;
 	int		min;
-	int		index;
+	int		fuck;
 
 	stack_b = init_list();
 	stack_b->c = 'b';
 	min = find_min(stack_a);
-	index = find_index_min(stack_a, min);
-	b_find_op_min(stack_a, index, stack_b);
+	fuck = find_index_min(stack_a, min);
+	b_find_op_min(stack_a, fuck, stack_b);
 	b_three_arg(stack_a);
 	push_first(stack_b, stack_a);
 	delete_list(&stack_b);

@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:58 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/29 21:08:40 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/03 22:04:21 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	push_first(t_list *sender, t_list *receiver)
 		sender->head->previous = NULL;
 	}
 	if (sender->c == 'a')
-		sender->l_co = add_commands_start(sender->l_co, "pb\n");
-	else if (sender->c == 'b')
-		receiver->l_co = add_commands_start(receiver->l_co, "pa\n");
+		add_commands_start(sender->l_co, "pb\n");
+	else
+		add_commands_start(receiver->l_co, "pa\n");
 	free(tmp);
 	free(str);
 }

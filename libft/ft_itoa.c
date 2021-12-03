@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:53:45 by dyoula            #+#    #+#             */
-/*   Updated: 2021/05/27 16:02:10 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/03 21:57:30 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int 	len(long int nbr)
+static int	len(long int nbr)
 {
 	int					i;
 	unsigned int		j;
@@ -27,7 +27,7 @@ static int 	len(long int nbr)
 	return (j);
 }
 
-static int 	divider(long int nbr)
+static int	divider(long int nbr)
 {
 	int		i;
 

@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/01 22:04:55 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/03 22:09:13 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ra_list(t_list *list, char c, t_write *l_co)
 	int					value_head;
 	unsigned int		i;
 
-	if (!list->head->next)
+	if (!list->head->next || !list->head)
 		return ;
 	i = 0;
 	value_head = list->head->number;
@@ -32,7 +32,7 @@ void	ra_list(t_list *list, char c, t_write *l_co)
 		i++;
 	}
 	list->tail->number = value_head;
-	if ( c == 's')
+	if (c == 's')
 		return ;
 	else if (c == 'a')
 		add_commands_start(l_co, "ra\n");
@@ -46,7 +46,7 @@ void	rra_list(t_list *list, char c, t_write *l_co)
 	int				value_tail;
 	unsigned int	i;
 
-	if (!list->head->next)
+	if (!list->head->next || !list->head)
 		return ;
 	i = 0;
 	value_tail = list->tail->number;
@@ -65,15 +65,14 @@ void	rra_list(t_list *list, char c, t_write *l_co)
 		add_commands_start(l_co, "rrb\n");
 }
 
-void rr_91(t_list *a, t_list *b)
+void	rr_91(t_list *a, t_list *b)
 {
 	ra_list(a, 's', a->l_co);
 	ra_list(b, 's', a->l_co);
 	add_commands_start(a->l_co, "rr\n");
-
 }
 
-void rrr(t_list *a, t_list *b)
+void	rrr(t_list *a, t_list *b)
 {
 	rra_list(a, 's', a->l_co);
 	rra_list(b, 's', a->l_co);
