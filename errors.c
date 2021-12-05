@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 19:18:34 by dyoula            #+#    #+#             */
-/*   Updated: 2021/09/25 18:18:39 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/06 00:13:26 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int	is_space_or_digit(char c)
+long	is_space_or_digit(char c)
 {
-	int	i;
+	long	i;
 
 	i = 0;
 	while (SPACESDIGITS[i])
@@ -26,10 +26,33 @@ int	is_space_or_digit(char c)
 	return (0);
 }
 
-int	errors_main(int argc, char **argv)
+long	twins(t_list *l)
 {
-	int	i;
-	int	j;
+	t_node	*i;
+	t_node	*j;
+
+	i = l->head;
+	while (i)
+	{
+		j = i->next;
+		while (j)
+		{
+			if (j->number == i->number)
+			{
+				write(1, "Error\n", 6);
+				return (0);
+			}
+			j = j->next;
+		}
+		i = i->next;
+	}
+	return (1);
+}
+
+long	errors_main(long argc, char **argv)
+{
+	long	i;
+	long	j;
 
 	i = 1;
 	while (i < argc)
@@ -39,6 +62,7 @@ int	errors_main(int argc, char **argv)
 		{
 			if (!is_space_or_digit(argv[i][j]))
 			{
+				write(1, "Error\n", 6);
 				return (0);
 			}
 			j++;
