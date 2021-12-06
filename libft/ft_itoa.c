@@ -6,16 +6,16 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:53:45 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/03 21:57:30 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 23:34:01 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	len(long int nbr)
+static long	len(long long nbr)
 {
-	int					i;
-	unsigned int		j;
+	long					i;
+	unsigned long		j;
 
 	i = 1;
 	j = 1;
@@ -27,9 +27,9 @@ static int	len(long int nbr)
 	return (j);
 }
 
-static int	divider(long int nbr)
+static long	divider(long long nbr)
 {
-	int		i;
+	long		i;
 
 	i = 1;
 	while (nbr / i > 9)
@@ -37,11 +37,11 @@ static int	divider(long int nbr)
 	return (i);
 }
 
-static void	filler(char *str, int div, long int nbr, int minus)
+static void	filler(char *str, long div, long long nbr, long minus)
 {
-	int		i;
-	int		neg;
-	int		length;
+	long		i;
+	long		neg;
+	long		length;
 
 	length = len(nbr);
 	neg = 1;
@@ -64,13 +64,13 @@ static void	filler(char *str, int div, long int nbr, int minus)
 	str[i] = 0;
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
-	int				minus;
-	int				length;
-	int				div;
+	long				minus;
+	long				length;
+	long				div;
 	char			*str;
-	long int		nb;
+	long long		nb;
 
 	nb = n;
 	if (nb < 0)

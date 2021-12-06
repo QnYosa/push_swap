@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 18:02:59 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/19 15:50:48 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/06 01:11:49 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,15 @@ t_list	*init_list(void)
 {
 	t_list	*list;
 
-	list = (t_list *)malloc(sizeof(t_list));
+	list = malloc(sizeof(t_list));
 	if (!list)
 		return (NULL);
 	list->head = NULL;
 	list->tail = NULL;
 	list->length = 0;
 	list->first_mid = 0;
+	list->first_mid = 0;
+	list->l_co = NULL;
 	return (list);
 }
 
@@ -96,10 +98,10 @@ t_list	*list_start(t_list *list, char *content)
 	return (list);
 }
 
-t_list	*list_insert(t_list *list, char *content, int position)
+t_list	*list_insert(t_list *list, char *content, long position)
 {
 	t_node	*tmp;
-	int		i;
+	long		i;
 	t_node	*new;
 
 	if (!list)

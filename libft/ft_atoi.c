@@ -3,20 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dyoula <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:53:57 by dyoula            #+#    #+#             */
-/*   Updated: 2021/05/31 14:11:23 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/06 00:13:19 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void too_big(long int n)
+{
+	if (n > 2147483648 || n < -2147483649)
+	{
+		write(1, "Error\n", 6);
+		exit(0);
+	}
+}
+
+long	ft_atoi(const char *str)
 {
 	int			i;
-	int			sign;
-	long long	number;
+	long		sign;
+	long		number;
 
 	sign = 1;
 	i = 0;
@@ -34,5 +43,6 @@ int	ft_atoi(const char *str)
 		number = number * 10 + (str[i] - '0');
 		i++;
 	}
+	too_big(number);
 	return ((number * sign));
 }

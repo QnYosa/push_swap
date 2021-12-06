@@ -13,7 +13,7 @@
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-void	b_find_op_min(t_list *stack_a, int index, t_list *stack_b)
+void	b_find_op_min(t_list *stack_a, long index, t_list *stack_b)
 {
 	if (index == 1)
 		swap(stack_a->head, stack_a->head->next, stack_a->c, stack_a->l_co);
@@ -30,8 +30,8 @@ void	b_find_op_min(t_list *stack_a, int index, t_list *stack_b)
 void	b_insertion(t_list *stack_a)
 {
 	t_list	*stack_b;
-	int		min;
-	int		fuck;
+	long		min;
+	long		fuck;
 
 	stack_b = init_list();
 	stack_b->c = 'b';

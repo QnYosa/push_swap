@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:37:33 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/03 22:06:20 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/06 01:00:37 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	free_commands(t_write **l)
 	tmp = (*l)->head;
 	while (tmp)
 	{	
+		//printf("%s\n", tmp->command);
 		del = tmp;
 		tmp = tmp->next;
 		free(del);

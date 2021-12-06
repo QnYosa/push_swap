@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:58 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/03 22:04:21 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 22:31:16 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	swap(t_node *first, t_node *second, char c, t_write *l_com)
 {
-	int	tmp;
+	long	tmp;
 
 	if (!first || !second)
 		return ;

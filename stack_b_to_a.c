@@ -6,19 +6,19 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 21:59:08 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/03 22:19:44 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 23:39:14 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
 
-int	push_above_mid_x(t_list *sender, t_list *receiver, int mid, int x)
+long	push_above_mid_x(t_list *sender, t_list *receiver, long mid, long x)
 {
-	int	i;
-	int	under;
-	int	pushed;
-	int	stop;
+	long	i;
+	long	under;
+	long	pushed;
+	long	stop;
 
 	stop = 0;
 	i = -1;
@@ -41,11 +41,11 @@ int	push_above_mid_x(t_list *sender, t_list *receiver, int mid, int x)
 	return (pushed);
 }
 
-void	send_b_to_a(t_list *sender, t_list *receiver, int x)
+void	send_b_to_a(t_list *sender, t_list *receiver, long x)
 {
-	int	med_x;
-	int	above;
-	int	under;
+	long	med_x;
+	long	above;
+	long	under;
 
 	if (!sender->head)
 		return ;
@@ -53,7 +53,9 @@ void	send_b_to_a(t_list *sender, t_list *receiver, int x)
 	above = push_above_mid_x(sender, receiver, med_x, x);
 	under = x - above;
 	if (above <= 4)
+	{
 		find_algo_top_rec(receiver, sender, above);
+	}
 	else
 	{
 		while (above && is_next_from(receiver, above))

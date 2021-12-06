@@ -6,14 +6,14 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:07:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/03 21:41:21 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 22:08:02 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-int	is_max(t_list *stack_a, int n)
+long	is_max(t_list *stack_a, long n)
 {
 	t_node	*tmp;
 
@@ -27,9 +27,9 @@ int	is_max(t_list *stack_a, int n)
 	return (1);
 }
 
-int	find_min(t_list *stack_a)
+long	find_min(t_list *stack_a)
 {
-	int		min;
+	long	min;
 	t_node	*tmp;
 
 	tmp = stack_a->head;
@@ -43,10 +43,10 @@ int	find_min(t_list *stack_a)
 	return (min);
 }
 
-int	find_index_min(t_list *stack, int min)
+long	find_index_min(t_list *stack, long min)
 {
 	t_node	*tmp;
-	int		index;
+	long		index;
 
 	if (!stack)
 		exit(0);
@@ -62,7 +62,7 @@ int	find_index_min(t_list *stack, int min)
 	return (index);
 }
 
-void	find_op_min(t_list *stack_a, int index, t_list *stack_b)
+void	find_op_min(t_list *stack_a, long index, t_list *stack_b)
 {
 	if (index == 1)
 		g_swap(stack_a->head, stack_a->head->next, stack_a->c);
@@ -79,8 +79,8 @@ void	find_op_min(t_list *stack_a, int index, t_list *stack_b)
 void	small_insertion(t_list *stack_a)
 {
 	t_list	*stack_b;
-	int		min;
-	int		index;
+	long		min;
+	long		index;
 
 	stack_b = init_list();
 	stack_b->c = 'b';

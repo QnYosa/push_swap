@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/03 22:09:13 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 22:31:32 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ra_list(t_list *list, char c, t_write *l_co)
 void	rra_list(t_list *list, char c, t_write *l_co)
 {
 	t_node			*iterator;
-	int				value_tail;
+	long			value_tail;
 	unsigned int	i;
 
 	if (!list->head->next || !list->head)

@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:32:56 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/01 23:38:06 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/06 00:32:26 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ void	add_commands_start(t_write *write_, char *content)
 {
 	t_commands	*new_command;
 
-	if (!write_)
+	if (!write_ || !content)
 		return ;
 	new_command = malloc(sizeof(t_commands));
 	if (!new_command)
 		return ;
 	new_command->command = content;
-	new_command->next = NULL;
+	new_command->previous = NULL;
 	if (write_->tail == NULL)
 	{
-		new_command->previous = NULL;
+		new_command->next = NULL;
 		write_->head = new_command;
 		write_->tail = new_command;
 	}
@@ -48,7 +48,6 @@ void	add_commands_start(t_write *write_, char *content)
 		new_command->previous = write_->tail;
 		write_->tail = new_command;
 	}
-	//free(new_command);
 }
 
 void	display_commands(t_write *l)
@@ -63,144 +62,37 @@ void	display_commands(t_write *l)
 	}
 }
 
-int	compare(char *s1, char *s2)
+long	compare(char *s1, char *s2)
 {
-	int	i;
+	long	i;
 
 	i = 0;
 	while (s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i])
+		{
 			return (0);
+		}
 		i++;
 	}
 	return (1);
 }
 
-int	delete_c(t_commands **s1, t_commands**s2)
+long	comp_max(char *s1, char *s2)
 {
-	if (!*s1 || !*s2)
-		return (0);
-	if (compare((*s1)->command, "sa\n") == 1 \
-		&& compare((*s2)->command, "sa\n") == 1)
-		return (1);
-	else if (compare((*s1)->command, "sb\n") == 1 \
-		&& compare((*s2)->command, "sb\n") == 1)
-		return (1);
-	else if (compare((*s1)->command, "rb\n") == 1 \
-		&& compare((*s2)->command, "rrb\n") == 1)
-		return (1);
-	else if (compare((*s1)->command, "rrb\n") == 1 \
-		&& compare((*s2)->command, "rb\n") == 1)
-		return (1);
-	else if (compare((*s1)->command, "ra\n") == 1 \
-		&& compare((*s2)->command, "rra\n") == 1)
-		return (1);
-	else if (compare((*s1)->command, "rra\n") == 1 \
-		&& compare((*s2)->command, "ra\n") == 1)
-		return (1);
-	return (0);
-}
+	long	i;
 
-int	optimizer(t_commands **s1, t_commands *s2)
-{
-	if (!*s1 || !s2)
-		return (0);
-	if (compare((*s1)->command, "ra\n") == 1 && compare(s2->command, "rb\n") == 1)
+	i = 0;
+	if (ft_strlen(s1) == ft_strlen(s2))
 	{
-		(*s1)->command = "rr\n";
-		return (1);
+		while (s1[i] == s2[i])
+		{
+			if (i == (long)ft_strlen(s2))
+				return (0);
+			i++;
+		}
 	}
-	else if (compare((*s1)->command, "rb\n") == 1 && compare(s2->command, "ra\n") == 1)
-	{
-		(*s1)->command = "rr\n";
-		return (1);
-	}
-	else if (compare((*s1)->command, "rra\n") == 1 && compare(s2->command, "rrb\n") == 1)
-	{
-		(*s1)->command = "rrr\n";
-		return (1);
-	}
-	else if (compare((*s1)->command, "rrb\n") == 1 && compare(s2->command, "rra\n") == 1)
-	{
-		(*s1)->command = "rrr\n";
-		return (1);
-	}
-	else if (compare((*s1)->command, "sa\n") == 1 && compare(s2->command, "sb\n"))
-	{
-		(*s1)->command = "ss\n";
-		return (1);
-	}
-	else if (compare((*s1)->command, "sb\n") == 1 && compare(s2->command, "sa\n"))
-	{
-		(*s1)->command = "ss\n";
-		return (1);
-	}
-	return (0);
-}
-
-int	rotate_b_killer(t_commands **s1)
-{
-	t_commands	*i;
-
-	i = (*s1);
-	if (!compare((*s1)->command, "rb\n"))
-		return (0);
-	while (compare(i->command, "rb\n") && i->next)
-		i = i->next;
-	if (compare(i->command, "rrb\n") && i->next)
-	{
-		return (1);
-	}
-	return (0);
-}
-
-int	rotate_rb_killer(t_commands **s1)
-{
-	t_commands	*i;
-
-	i = (*s1);
-	if (!compare((*s1)->command, "rrb\n"))
-		return (0);
-	while (compare(i->command, "rrb\n") && i->next)
-		i = i->next;
-	if (compare(i->command, "rb\n") && i->next)
-	{
-		return (1);
-	}
-	return (0);
-}
-
-int	rotate_a_killer(t_commands **s1)
-{
-	t_commands	*i;
-
-	i = (*s1);
-	if (!compare((*s1)->command, "rra\n"))
-		return (0);
-	while (compare(i->command, "rra\n") && i->next)
-		i = i->next;
-	if (compare(i->command, "ra\n") && i->next)
-	{
-		return (1);
-	}
-	return (0);
-}
-
-int	rotate_ra_killer(t_commands **s1)
-{
-	t_commands	*i;
-
-	i = (*s1);
-	if (!compare((*s1)->command, "ra\n"))
-		return (0);
-	while (compare(i->command, "ra\n") && i->next)
-		i = i->next;
-	if (compare(i->command, "rra\n") && i->next)
-	{
-		return (1);
-	}
-	return (0);
+	return (1);
 }
 
 void	delete_useless(t_write **l)
@@ -233,7 +125,8 @@ void	delete_useless(t_write **l)
 		}
 		if (rotate_b_killer(&i) || rotate_a_killer(&i) || rotate_ra_killer(&i) || rotate_rb_killer(&i))
 		{
-			del = i->next;
+			del = i;
+			i = i->previous;
 			i->next = del->next;
 			del->next->previous = i;
 			free(del);

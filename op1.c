@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:58 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/30 22:08:56 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 22:29:43 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	g_swap(t_node *first, t_node *second, char c)
 {
-	int	tmp;
+	long	tmp;
 
 	if (!first || !second)
 		return ;

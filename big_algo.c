@@ -6,16 +6,16 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/03 22:03:39 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/06 01:04:46 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
 
-int	find_index_tab(int *tab, int number, int length)
+long	find_index_tab(long *tab, long number, long length)
 {
-	int	i;
+	long	i;
 
 	i = 0;
 	while (i < length)
@@ -27,15 +27,15 @@ int	find_index_tab(int *tab, int number, int length)
 	return (i);
 }
 
-int	*create_tab(int size, t_list *stack)
+long	*create_tab(long size, t_list *stack)
 {
-	int		i;
-	int		*tab;
+	long		i;
+	long		*tab;
 	t_node	*node;
 
 	if (!size || !stack)
 		return (NULL);
-	tab = malloc(sizeof(int) * size);
+	tab = malloc(sizeof(long) * size);
 	if (!tab)
 		return (NULL);
 	node = stack->head;
@@ -49,16 +49,17 @@ int	*create_tab(int size, t_list *stack)
 	return (tab);
 }
 
-void	recursive_sort(t_list *stack_a, t_list *stack_b, int len)
+void	recursive_sort(t_list *stack_a, t_list *stack_b, long len)
 {
-	int	med_a;
-	int	x;
+	long	med_a;
+	long	x;
 
+	x = 0;
 	med_a = find_mid_x(stack_a, len);
 	x = push_bajo_mid(stack_a, stack_b, med_a);
 	if (len - x <= 4)
 	{
-		if (len - x == (int)stack_a->length)
+		if (len - x == (long)stack_a->length)
 			chose_algo_via_big(x + 1, stack_a);
 		else
 			find_algo_top_rec(stack_a, stack_b, len - x);
@@ -66,7 +67,10 @@ void	recursive_sort(t_list *stack_a, t_list *stack_b, int len)
 	else
 		recursive_sort(stack_a, stack_b, len - x);
 	if (x <= 4)
+	{
+		//list_display(stack_a, stack_b);
 		find_algo_rec(stack_a, stack_b, x);
+	}
 	else
 		send_b_to_a(stack_b, stack_a, x);
 }
@@ -74,7 +78,9 @@ void	recursive_sort(t_list *stack_a, t_list *stack_b, int len)
 void	big_algo_maestro(t_list *stack_a)
 {
 	t_list	*stack_b;
+	int		i;
 
+	i = -1;
 	stack_b = init_list();
 	stack_a->tab = create_tab(stack_a->length, stack_a);
 	ft_rev_int_tab(stack_a->tab, stack_a->length);
@@ -83,11 +89,10 @@ void	big_algo_maestro(t_list *stack_a)
 	stack_a->c = 'a';
 	stack_b->c = 'b';
 	recursive_sort(stack_a, stack_b, stack_a->length);
-	//delete_useless(&stack_a->l_co);
-	//delete_useless(&stack_a->l_co);
+	while (++i < 15)
+		delete_useless(&stack_a->l_co);
 	is_sorted_end(stack_a);
-	display_commands(stack_a->l_co);
-	//list_display(stack_a, stack_b);
+	//display_commands(stack_a->l_co);
 	free(stack_a->tab);
 	delete_list(&stack_b);
 }

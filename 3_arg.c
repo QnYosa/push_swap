@@ -6,16 +6,16 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 14:03:53 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/30 21:58:46 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 22:09:04 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-int	find_max(t_list *stack_a)
+long	find_max(t_list *stack_a)
 {
-	int		max;
+	long		max;
 	t_node	*tmp;
 
 	tmp = stack_a->head;
@@ -29,10 +29,10 @@ int	find_max(t_list *stack_a)
 	return (max);
 }
 
-int	find_index_max(t_list *stack, int max)
+long	find_index_max(t_list *stack, long max)
 {
 	t_node	*tmp;
-	int		index;
+	long		index;
 
 	if (!stack)
 		exit(0);
@@ -48,7 +48,7 @@ int	find_index_max(t_list *stack, int max)
 	return (index);
 }
 
-void	which_op_max(int index, t_list *stack)
+void	which_op_max(long index, t_list *stack)
 {
 	if (index == 0)
 		g_ra_list(stack, 'a');
@@ -58,8 +58,8 @@ void	which_op_max(int index, t_list *stack)
 
 void	three_arg_maestro(t_list *stack_a)
 {
-	int	max;
-	int	index;
+	long	max;
+	long	index;
 
 	max = find_max(stack_a);
 	index = find_index_max(stack_a, max);

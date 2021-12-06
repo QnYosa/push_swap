@@ -6,26 +6,26 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 22:11:09 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/01 23:39:07 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 22:34:59 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-void	ft_swap(int *tab, int i, int j)
+void	ft_swap(long *tab, long i, long j)
 {
-	int	t_tab;
+	long	t_tab;
 
 	t_tab = tab[i];
 	tab[i] = tab[j];
 	tab[j] = t_tab;
 }
 
-int	*ft_sort_int_tab(int *tab, int size)
+long	*ft_sort_int_tab(long *tab, long size)
 {
-	int	i;
-	int	j;
+	long	i;
+	long	j;
 
 	i = 0;
 	while (i < size - 1)
@@ -43,13 +43,13 @@ int	*ft_sort_int_tab(int *tab, int size)
 	return (tab);
 }
 
-void	ft_rev_int_tab(int *tab, int size)
+void	ft_rev_int_tab(long *tab, long size)
 {
-	int	i;
-	int	*n_tab;
-	int	j;
+	long	i;
+	long	*n_tab;
+	long	j;
 
-	n_tab = malloc(sizeof(int) * size);
+	n_tab = malloc(sizeof(long) * size);
 	if (!n_tab)
 		return ;
 	j = 0;

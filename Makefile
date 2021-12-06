@@ -2,13 +2,13 @@ NAME = push_swap
 
 LIBFT = libft/libft.a
 
-SRCS	= main.c errors.c c_list.c \
+SRCS	= main.c errors.c c_list.c find.c \
 	c_list_norm.c leaks.c ope_1.c ope_2.c \
 	print_list.c checking.c is_next.c commands.c\
-	tab_sort_rev.c sort_top_non_empty.c \
+	tab_sort_rev.c sort_top_non_empty.c norm_stne.c \
 	3_arg.c 4_and_more.c 5_arg.c big_algo.c maths_part.c \
 	recursive_algo.c stack_b_to_a.c op1.c op2.c \
-	big_3.c big_4.c big_5.c \
+	big_3.c big_4.c big_5.c opti.c rotate.c  delete.c \
 
 OBJS	= $(SRCS:.c=.o)
 

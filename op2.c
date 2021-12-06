@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/30 22:21:35 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 22:30:19 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	g_ra_list(t_list *list, char c)
 {
 	t_node				*iterator;
-	int					value_head;
+	long				value_head;
 	unsigned int		i;
 
 	if (list->length < 2)
@@ -43,7 +43,7 @@ void	g_ra_list(t_list *list, char c)
 void	g_rra_list(t_list *list, char c)
 {
 	t_node			*iterator;
-	int				value_tail;
+	long			value_tail;
 	unsigned int	i;
 
 	if (list->length < 2)

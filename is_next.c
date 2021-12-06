@@ -6,16 +6,16 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 18:58:54 by dyoula            #+#    #+#             */
-/*   Updated: 2021/11/26 19:23:47 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 22:11:18 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-int	is_next(t_list *stack_a, t_list *stack_b)
+long	is_next(t_list *stack_a, t_list *stack_b)
 {
-	int	i;
+	long	i;
 
 	i = 0;
 	while (stack_a->tab[i] != stack_a->head->number)
@@ -29,9 +29,9 @@ int	is_next(t_list *stack_a, t_list *stack_b)
 	return (0);
 }
 
-int	is_next_from(t_list *stack_a, int above)
+long	is_next_from(t_list *stack_a, long above)
 {
-	int		i;
+	long		i;
 	t_node	*tmp;
 
 	tmp = stack_a->head;
@@ -54,13 +54,13 @@ int	is_next_from(t_list *stack_a, int above)
 	return (1);
 }
 
-int	*do_tab(int size, t_list *stack)
+long	*do_tab(long size, t_list *stack)
 {
-	int		i;
-	int		*tab;
+	long		i;
+	long		*tab;
 	t_node	*node;
 
-	tab = malloc(sizeof(int) * size);
+	tab = malloc(sizeof(long) * size);
 	node = stack->head;
 	i = -1;
 	while (++i < size && node)
@@ -71,9 +71,9 @@ int	*do_tab(int size, t_list *stack)
 	return (tab);
 }
 
-int	*correct_touched(int *touched, int size)
+long	*correct_touched(long *touched, long size)
 {
-	int	i;
+	long	i;
 
 	i = -1;
 	while (++i < size - 1)
@@ -84,10 +84,10 @@ int	*correct_touched(int *touched, int size)
 	return (touched);
 }
 
-int	*is_next_top_a(int *tab, int *touched, int size, t_list *stack_a)
+long	*is_next_top_a(long *tab, long *touched, long size, t_list *stack_a)
 {
-	int		i;
-	int		*order;
+	long		i;
+	long		*order;
 	t_node	*tmp;
 
 	tmp = stack_a->head;

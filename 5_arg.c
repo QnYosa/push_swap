@@ -6,14 +6,14 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:32:25 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/03 22:05:37 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/05 22:08:14 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "includes/push_swap.h"
 
-void	find_op_five(t_list *stack_a, int index, t_list *stack_b)
+void	find_op_five(t_list *stack_a, long index, t_list *stack_b)
 {
 	if (index == 1)
 		g_swap(stack_a->head, stack_a->head->next, stack_a->c);
@@ -35,8 +35,8 @@ void	find_op_five(t_list *stack_a, int index, t_list *stack_b)
 void	five_arg_maestro(t_list *stack_a)
 {
 	t_list	*stack_b;
-	int		min;
-	int		index;
+	long		min;
+	long		index;
 
 	stack_b = init_list();
 	stack_b->c = 'b';

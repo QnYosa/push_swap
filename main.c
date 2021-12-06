@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/03 22:19:10 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/06 01:13:00 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	add_index(t_list *list)
 {
 	t_node	*iterator;
-	int		i;
+	long	i;
 
 	if (!list)
 		return ;
@@ -30,9 +30,9 @@ void	add_index(t_list *list)
 	}
 }
 
-int	list_filler(int argc, char **argv, t_list *list)
+long	list_filler(int argc, char **argv, t_list *list)
 {
-	int			i;
+	int	i;
 
 	i = 1;
 	while (i < argc)
@@ -49,12 +49,9 @@ void	chose_algo(int argc, t_list *stack)
 	if (argc == 3)
 	{
 		if (stack->head->number > stack->head->next->number)
-		{
-			swap(stack->head, stack->head->next, 'a', stack->l_co);
 			write(1, "sa\n", 3);
-		}
 	}
-	if (argc == 4)
+	else if (argc == 4)
 		three_arg_maestro(stack);
 	else if (argc == 5)
 		small_insertion(stack);
@@ -67,9 +64,11 @@ void	chose_algo(int argc, t_list *stack)
 void	chose_algo_via_big(int argc, t_list *stack)
 {
 	if (argc == 3)
+	{
 		if (stack->head->number > stack->head->next->number)
 			swap(stack->head, stack->head->next, 'a', stack->l_co);
-	if (argc == 4)
+	}
+	else if (argc == 4)
 		b_three_arg(stack);
 	else if (argc == 5)
 		b_insertion(stack);
@@ -80,13 +79,24 @@ void	chose_algo_via_big(int argc, t_list *stack)
 int	main(int argc, char **argv)
 {
 	t_list	*list;
+	int		i;
 
+	i = 0;
 	if (argc < 3 || !errors_main(argc, argv))
 		return (0);
-	list = NULL;
+	//list = NULL;
 	list = init_list();
 	list->c = 'a';
-	if (!list_filler(argc, argv, list) || is_sorted(list))
+	while (++i < argc)
+	{
+		ft_atoi(argv[i]);
+		if (!comp_max(argv[i], "2147483648") || ft_strlen(argv[i]) > 10)
+		{
+			write(1, "Error\n", 6);
+			return 0;
+		}
+	}
+	if (!list_filler(argc, argv, list) || is_sorted(list) || !twins(list))
 	{
 		delete_list(&list);
 		return (0);
