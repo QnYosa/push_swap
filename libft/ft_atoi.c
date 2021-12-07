@@ -6,13 +6,13 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:53:57 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/06 00:13:19 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:56:03 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void too_big(long int n)
+void	too_big(long int n)
 {
 	if (n > 2147483648 || n < -2147483649)
 	{

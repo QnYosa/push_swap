@@ -29,7 +29,7 @@ void	b_find_op_min(t_list *stack_a, long index, t_list *stack_b)
 
 void	b_insertion(t_list *stack_a)
 {
-	t_list	*stack_b;
+	t_list		*stack_b;
 	long		min;
 	long		fuck;
 

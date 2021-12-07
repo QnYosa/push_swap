@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:32:25 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 22:08:14 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:39:47 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	find_op_five(t_list *stack_a, long index, t_list *stack_b)
 
 void	five_arg_maestro(t_list *stack_a)
 {
-	t_list	*stack_b;
+	t_list		*stack_b;
 	long		min;
 	long		index;
 

@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:53:45 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 23:34:01 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:55:32 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static long	len(long long nbr)
 {
-	long					i;
+	long				i;
 	unsigned long		j;
 
 	i = 1;
@@ -69,8 +69,8 @@ char	*ft_itoa(long n)
 	long				minus;
 	long				length;
 	long				div;
-	char			*str;
-	long long		nb;
+	char				*str;
+	long long			nb;
 
 	nb = n;
 	if (nb < 0)

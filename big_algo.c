@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/06 01:04:46 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 18:34:58 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ long	*create_tab(long size, t_list *stack)
 {
 	long		i;
 	long		*tab;
-	t_node	*node;
+	t_node		*node;
 
 	if (!size || !stack)
 		return (NULL);
@@ -68,7 +68,6 @@ void	recursive_sort(t_list *stack_a, t_list *stack_b, long len)
 		recursive_sort(stack_a, stack_b, len - x);
 	if (x <= 4)
 	{
-		//list_display(stack_a, stack_b);
 		find_algo_rec(stack_a, stack_b, x);
 	}
 	else
@@ -80,7 +79,7 @@ void	big_algo_maestro(t_list *stack_a)
 	t_list	*stack_b;
 	int		i;
 
-	i = -1;
+	i = 0;
 	stack_b = init_list();
 	stack_a->tab = create_tab(stack_a->length, stack_a);
 	ft_rev_int_tab(stack_a->tab, stack_a->length);
@@ -92,7 +91,7 @@ void	big_algo_maestro(t_list *stack_a)
 	while (++i < 15)
 		delete_useless(&stack_a->l_co);
 	is_sorted_end(stack_a);
-	//display_commands(stack_a->l_co);
+	display_commands(stack_a->l_co);
 	free(stack_a->tab);
 	delete_list(&stack_b);
 }

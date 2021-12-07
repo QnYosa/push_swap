@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 21:42:23 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 22:10:31 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:22:19 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ long	find_mid(t_list *stack)
 {
 	long					mid;
 	long					*tab;
-	t_node				*iterator;
-	unsigned long		i;
+	t_node					*iterator;
+	unsigned long			i;
 
 	tab = malloc(sizeof(long) * stack->length);
 	if (!tab)
@@ -44,7 +44,7 @@ long	find_mid_x(t_list *stack, long length)
 {
 	long					mid;
 	long					*tab;
-	t_node				*iterator;
+	t_node					*iterator;
 	long					i;
 
 	tab = malloc(sizeof(long) * length);
@@ -69,8 +69,8 @@ long	find_quarter(t_list *stack)
 {
 	long					mid;
 	long					*tab;
-	t_node				*iterator;
-	unsigned long		i;
+	t_node					*iterator;
+	unsigned long			i;
 
 	tab = malloc(sizeof(long) * stack->length);
 	if (!tab)

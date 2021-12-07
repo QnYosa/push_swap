@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/06 01:13:00 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:42:06 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc < 3 || !errors_main(argc, argv))
 		return (0);
-	//list = NULL;
+	list = NULL;
 	list = init_list();
 	list->c = 'a';
 	while (++i < argc)
@@ -93,7 +93,7 @@ int	main(int argc, char **argv)
 		if (!comp_max(argv[i], "2147483648") || ft_strlen(argv[i]) > 10)
 		{
 			write(1, "Error\n", 6);
-			return 0;
+			return (0);
 		}
 	}
 	if (!list_filler(argc, argv, list) || is_sorted(list) || !twins(list))

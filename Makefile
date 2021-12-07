@@ -3,7 +3,7 @@ NAME = push_swap
 LIBFT = libft/libft.a
 
 SRCS	= main.c errors.c c_list.c find.c \
-	c_list_norm.c leaks.c ope_1.c ope_2.c \
+	c_list_norm.c leaks.c ope_1.c ope_2.c cmd_2.c\
 	print_list.c checking.c is_next.c commands.c\
 	tab_sort_rev.c sort_top_non_empty.c norm_stne.c \
 	3_arg.c 4_and_more.c 5_arg.c big_algo.c maths_part.c \
@@ -12,7 +12,7 @@ SRCS	= main.c errors.c c_list.c find.c \
 
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS	= -Wall -Werror -Wextra -g -g3
+CFLAGS	= -Wall -Werror -Wextra 
 
 CC		= clang
 

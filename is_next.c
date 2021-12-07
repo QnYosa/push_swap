@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 18:58:54 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 22:11:18 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:40:20 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long	is_next(t_list *stack_a, t_list *stack_b)
 long	is_next_from(t_list *stack_a, long above)
 {
 	long		i;
-	t_node	*tmp;
+	t_node		*tmp;
 
 	tmp = stack_a->head;
 	i = 0;
@@ -58,7 +58,7 @@ long	*do_tab(long size, t_list *stack)
 {
 	long		i;
 	long		*tab;
-	t_node	*node;
+	t_node		*node;
 
 	tab = malloc(sizeof(long) * size);
 	node = stack->head;
@@ -88,7 +88,7 @@ long	*is_next_top_a(long *tab, long *touched, long size, t_list *stack_a)
 {
 	long		i;
 	long		*order;
-	t_node	*tmp;
+	t_node		*tmp;
 
 	tmp = stack_a->head;
 	order = do_tab(size, stack_a);

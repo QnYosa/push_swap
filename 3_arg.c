@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 14:03:53 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 22:09:04 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:56:29 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 long	find_max(t_list *stack_a)
 {
 	long		max;
-	t_node	*tmp;
+	t_node		*tmp;
 
 	tmp = stack_a->head;
 	max = stack_a->head->number;
@@ -31,7 +31,7 @@ long	find_max(t_list *stack_a)
 
 long	find_index_max(t_list *stack, long max)
 {
-	t_node	*tmp;
+	t_node		*tmp;
 	long		index;
 
 	if (!stack)

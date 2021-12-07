@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:07:19 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 22:08:02 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:41:07 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ long	find_min(t_list *stack_a)
 
 long	find_index_min(t_list *stack, long min)
 {
-	t_node	*tmp;
+	t_node		*tmp;
 	long		index;
 
 	if (!stack)
@@ -78,7 +78,7 @@ void	find_op_min(t_list *stack_a, long index, t_list *stack_b)
 
 void	small_insertion(t_list *stack_a)
 {
-	t_list	*stack_b;
+	t_list		*stack_b;
 	long		min;
 	long		index;
 

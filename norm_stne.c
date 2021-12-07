@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 22:26:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 22:13:01 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 18:40:22 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	s_f_t_n_e(t_list *sender, t_list *receiver, long *tab, long ra)
 
 long	ra_opt_stne(long ra, t_list *sender, long *tab, long x)
 {
-	//printf("%d, %d, %d\n",sender->head->number, sender->head->next->number, sender->head->next->next->number);
 	if (ra == 2)
 	{
 		if (sender->head->number == tab[4] \

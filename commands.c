@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:32:56 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/06 00:32:26 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:11:34 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ void	add_commands_start(t_write *write_, char *content)
 
 	if (!write_ || !content)
 		return ;
-	new_command = malloc(sizeof(t_commands));
+	new_command = NULL;
+	new_command = (t_commands *)malloc(sizeof(t_commands));
 	if (!new_command)
 		return ;
-	new_command->command = content;
 	new_command->previous = NULL;
+	new_command->command = content;
 	if (write_->tail == NULL)
 	{
 		new_command->next = NULL;
@@ -101,7 +102,7 @@ void	delete_useless(t_write **l)
 	t_commands	*del;
 
 	i = (*l)->head;
-	if (!l)
+	if (!l || !(*l)->head->next)
 		return ;
 	while (i)
 	{

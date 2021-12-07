@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 21:59:08 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 23:39:14 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/07 18:35:15 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ void	send_b_to_a(t_list *sender, t_list *receiver, long x)
 	}
 	else
 	{
-		while (above && is_next_from(receiver, above))
-			above--;
 		if (above)
 			recursive_sort(receiver, sender, above);
 	}
