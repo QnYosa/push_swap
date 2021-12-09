@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/07 18:34:58 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/08 16:00:57 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,12 @@ void	big_algo_maestro(t_list *stack_a)
 	stack_b = init_list();
 	stack_a->tab = create_tab(stack_a->length, stack_a);
 	ft_rev_int_tab(stack_a->tab, stack_a->length);
-	if (stack_a->length > 25)
-		stack_a->quarter = find_quarter(stack_a);
+	stack_a->quarter = find_quarter(stack_a);
 	stack_a->c = 'a';
 	stack_b->c = 'b';
+	//list_display(stack_a, stack_b);
+	while (++i < 2)
+		ra_list(stack_a, stack_a->c, stack_a->l_co);
 	recursive_sort(stack_a, stack_b, stack_a->length);
 	while (++i < 15)
 		delete_useless(&stack_a->l_co);

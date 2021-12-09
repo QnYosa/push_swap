@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:32:56 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/07 15:11:34 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/08 16:03:54 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	add_commands_start(t_write *write_, char *content)
 		return ;
 	new_command->previous = NULL;
 	new_command->command = content;
+	new_command->next = NULL;
 	if (write_->tail == NULL)
 	{
-		new_command->next = NULL;
 		write_->head = new_command;
 		write_->tail = new_command;
 	}
@@ -94,44 +94,4 @@ long	comp_max(char *s1, char *s2)
 		}
 	}
 	return (1);
-}
-
-void	delete_useless(t_write **l)
-{
-	t_commands	*i;
-	t_commands	*del;
-
-	i = (*l)->head;
-	if (!l || !(*l)->head->next)
-		return ;
-	while (i)
-	{
-		if (optimizer(&i, i->next))
-		{
-			del = i->next;
-			i->next = del->next;
-			del->next->previous = i;
-			free(del);
-		}
-		if (delete_c(&i, &i->next))
-		{
-			del = i;
-			del->previous->next = del->next;
-			del->next->previous = del->previous;
-			i = del->previous;
-			del = del->next;
-			del->previous->next = del->next;
-			del->next->previous = del->previous;
-			free(del);
-		}
-		if (rotate_b_killer(&i) || rotate_a_killer(&i) || rotate_ra_killer(&i) || rotate_rb_killer(&i))
-		{
-			del = i;
-			i = i->previous;
-			i->next = del->next;
-			del->next->previous = i;
-			free(del);
-		}
-		i = i->next;
-	}
 }

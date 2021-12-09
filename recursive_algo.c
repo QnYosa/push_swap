@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 19:15:56 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/07 18:14:48 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/08 15:32:52 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,24 @@ void	sort_three_non_empty(t_list *sender, t_list *receiver, char s, char r)
 		swap(receiver->head, receiver->head->next, r, receiver->l_co);
 }
 
+long	loop_sfne(t_list *sender, t_list *receiver, long *touched, long *tab)
+{
+	long	i;
+
+	i = -1;
+	while (++i < 4)
+	{
+		// if (receiver->head->number > receiver->head->next->number)
+		// 	swap(receiver->head, receiver->head->next, \
+		// 	receiver->c, receiver->l_co);
+		if (!cond_bottom(sender, receiver, tab, touched))
+		{
+			return (0);
+		}
+	}
+	return (1);
+}
+
 void	sort_four_non_empty(t_list *sender, t_list *receiver, long x)
 {
 	long		*tab;
@@ -48,65 +66,11 @@ void	sort_four_non_empty(t_list *sender, t_list *receiver, long x)
 	i = -1;
 	if (!tab)
 		return ;
-	if (is_next(receiver, sender))
-	{
-		push_first(sender, receiver);
-		sort_three_non_empty(sender, receiver, sender->c, receiver->c);
+	if (!out_is_sorted(sender, receiver, tab))
 		return ;
-	}
-	if (tab[3] == sender->head->next->number)
-	{
-		swap(sender->head, sender->head->next, sender->c, receiver->l_co);
-		push_first(sender, receiver);
-		sort_three_non_empty(sender, receiver, sender->c, receiver->c);
-		return ;
-	}
 	init_touched(touched, x);
-	while (++i < x)
-	{
-		if (receiver->head->number > receiver->head->next->number)
-			swap(receiver->head, receiver->head->next, receiver->c, receiver->l_co);
-		if (sender->head->number == tab[0])
-		{
-			push_first(sender, receiver);
-			ra_list(receiver, receiver->c, receiver->l_co);
-			touched[0] = 1;
-		}
-		else if (sender->head->number == tab[1])
-		{
-			if (is_next(receiver, sender) && touched[3] == 1)
-			{
-				push_first(sender, receiver);
-				if (touched[0] == 1)
-				{
-					rra_list(receiver, receiver->c, receiver->l_co);
-				}
-				else
-					push_first(sender, receiver);
-				free(tab);
-				free(touched);
-				return ;
-			}
-			else
-			{
-				push_first(sender, receiver);
-				ra_list(receiver, receiver->c, receiver->l_co);
-			}
-		}
-		else if (sender->head->number == tab[2])
-		{
-			push_first(sender, receiver);
-			touched[2] = 1;
-		}
-		else if (sender->head->number == tab[3])
-		{
-			push_first(sender, receiver);
-			touched[3] = 1;
-		}	
-		if (receiver->head->number > receiver->head->next->number)
-			swap(receiver->head, receiver->head->next, \
-			receiver->c, receiver->l_co);
-	}
+	if (!loop_sfne(sender, receiver, touched, tab))
+		return ;
 	rra_list(receiver, receiver->c, receiver->l_co);
 	rra_list(receiver, receiver->c, receiver->l_co);
 	if (receiver->head->number > receiver->head->next->number)
