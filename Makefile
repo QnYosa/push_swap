@@ -10,7 +10,7 @@ SRCS	= main.c errors.c c_list.c find.c norm_rec_alg.c\
 	recursive_algo.c stack_b_to_a.c op1.c op2.c \
 	big_3.c big_4.c big_5.c opti.c rotate.c  delete.c \
 	hundred.c best_m.c utils_hun.c set_moves_h.c str_move.c \
-	find_hundred.c
+	find_hundred.c free_ptm.c
 
 OBJS	= $(SRCS:.c=.o)
 
