@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/08 22:01:23 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/09 23:58:04 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ void	chose_algo(int argc, t_list *stack)
 		five_arg_maestro(stack);
 	else if (argc == 101)
 	{
-		hundred_arg(stack);
+		big_algo_maestro(stack);
+		//hundred_arg(stack);
+		//display_commands(stack->l_co);
 	}
 	else
 		big_algo_maestro(stack);

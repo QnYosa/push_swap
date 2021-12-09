@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 22:02:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/09 19:03:41 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/09 23:34:10 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	optimizer_push(t_list *a, t_list *b)
 	return ;
 }
 
-void	sort_all(t_list *a, t_list *b)
+void	sort_all(t_list *a, t_list *b)//sort.c
 {
 	int		optimizer;
 	t_move	*best_move;
@@ -42,7 +42,7 @@ void	sort_all(t_list *a, t_list *b)
 	while ((int)a->length > optimizer)
 	{
 		best_move = best_move_a_to_b(a, b);
-		exec_best_move(best_move, a, b);
+		exec_best_move(best_move, a, b);//exec_cmd.c
 		free_move(best_move);
 	}
 	optimizer_push(a, b);
