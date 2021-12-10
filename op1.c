@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:58 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 22:29:43 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/10 22:50:46 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ void	g_swap(t_node *first, t_node *second, char c)
 		write(1, "sa\n", 3);
 	else if (c == 'b')
 		write(1, "sb\n", 3);
+}
+
+void	g_double_swap(t_list *list_1, t_list *list_2)
+{
+	if (list_1->length > 1)
+		g_swap(list_1->head, list_1->head->next, 's');
+	if (list_2->length > 1)
+		g_swap(list_2->head, list_2->head->next, 's');
+	write(1, "ss\n", 3);
 }
 
 void	g_push_first(t_list *sender, t_list *receiver)

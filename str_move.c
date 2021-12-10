@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:22:11 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/09 18:32:56 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/10 21:25:00 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	move_in_a(t_move *move, int pos, t_list *a)
 {
 	int		len;
 
-	len = a->length;
+	len = pile_length(a);
 	if (pos >= len / 2)
 	{
 		move->move_in_a = len - pos;
@@ -51,7 +51,7 @@ void	move_in_b(t_move *move, int nb, t_list *b)
 	int		len;
 	int		pos;
 
-	len = b->length;
+	len = pile_length(b);
 	pos = find_place_in_pile_descending(nb, b);
 	if (pos >= len / 2)
 	{

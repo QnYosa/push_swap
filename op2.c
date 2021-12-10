@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/05 22:30:19 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/10 22:50:30 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ void	g_ra_list(t_list *list, char c)
 	else if (c == 'b')
 		write(1, "rb\n", 3);
 }
+void	g_rr_91(t_list *a, t_list *b)
+{
+	if (a->length > 1)
+		g_ra_list(a, 's');
+	if (b->length > 1)
+		g_ra_list(b, 's');
+	write(1, "rr\n", 3);
+}
 
 void	g_rra_list(t_list *list, char c)
 {
@@ -63,4 +71,13 @@ void	g_rra_list(t_list *list, char c)
 		write(1, "rra\n", 4);
 	else if (c == 'b')
 		write(1, "rrb\n", 4);
+}
+
+void	g_rrr(t_list *a, t_list *b)
+{
+	if (a->length > 1)
+		g_rra_list(a, 's');
+	if (b->length > 1)
+		g_rra_list(b, 's');
+	write(1, "rrr\n", 4);
 }

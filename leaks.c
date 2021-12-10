@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:37:33 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/08 16:22:16 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/10 17:27:32 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	free_commands(t_write **l)
 	t_commands	*tmp;
 	t_commands	*del;
 
+	if (!(*l) || !(*l)->head)
+		return ;
 	tmp = (*l)->head;
 	while (tmp)
 	{

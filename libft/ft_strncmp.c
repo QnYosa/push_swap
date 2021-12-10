@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 19:10:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/10 15:30:22 by dyoula           ###   ########.fr       */
+/*   Created: 2021/05/20 19:13:34 by dyoula            #+#    #+#             */
+/*   Updated: 2021/12/10 17:03:54 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(long n, int fd)
-{
-	long	number;
-	char	print;
+// int	ft_strncmp(const char *s1, const char *s2)
+// {
+// 	unsigned int	i;
 
-	number = n;
-	if (number < 0)
+// 	i = 0;
+// 	while (s1[i] && s1[i] == s2[i])
+// 		i++;
+// 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+// }
+
+int		ft_strncmp(const char *s1, const char *s2)
+{
+	int i;
+
+	i = 0;
+	while (*(s1 + i) != '\0' || *(s2 + i) != '\0')
 	{
-		number *= -1;
-		write(fd, "-", 1);
+		if (*(s1 + i) != *(s2 + i))
+		{
+			return ((unsigned char)*(s1 + i) - (unsigned char)*(s2 + i));
+		}
+		i++;
 	}
-	print = '0' + number;
-	if (number <= 9 && number >= 0)
-		write(fd, &print, 1);
-	else
-	{
-		ft_putnbr_fd(number / 10, fd);
-		ft_putnbr_fd(number % 10, fd);
-	}
+	return (0);
 }

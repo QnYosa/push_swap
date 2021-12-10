@@ -6,13 +6,13 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 01:06:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/09 23:09:48 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/10 23:03:04 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
-
+//sort_utils.c
 void	rotate_n_times(t_list *a, t_list *b, int pos)
 {
 	int		len;
@@ -39,6 +39,32 @@ void	rotate_n_times(t_list *a, t_list *b, int pos)
 	return ;
 }
 
+/*
+void	rotate_n_times(t_list *a, t_list *b, int pos)
+{
+	int		len;
+	(void)b;
+
+	len = pile_length(a);
+	if (pos <= len / 2)
+	{
+		while (pos != 0)
+		{
+			g_ra_list(a, a->c);
+			pos--;
+		}
+	}
+	else if (pos > len / 2)
+	{
+		while (pos != len)
+		{
+			g_rra_list(a, a->c);
+			pos++;
+		}
+	}
+	return ;
+}
+*/
 int	find_biggest_nb_pos(t_list *stack)
 {
 	t_node		*current;

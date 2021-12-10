@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/09 18:31:53 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/10 22:35:44 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ void			un_ra_list(t_list *stack, long x, char c, t_write *l_com);
 void			rr_91(t_list *a, t_list *b);
 void			rrr(t_list *a, t_list *b);
 void			double_swap(t_list *list_1, t_list *list_2);
-
+void			g_double_swap(t_list *list_1, t_list *list_2);
+void			g_rrr(t_list *a, t_list *b);
+void			g_rr_91(t_list *a, t_list *b);
 /*			LEAKS */
 void			delete_list(t_list **list);
 void			delete_d_tab(int argc, char **d_tab);
@@ -170,8 +172,9 @@ void			optimizer_push(t_list *a, t_list *b);
 void			sort_all(t_list *a, t_list *b);
 void			hundred_arg(t_list *a);
 int				find_place_in_pile_descending(int nb, t_list *stack);
-void			final_rotate(t_list *a, t_list *b);
+void			final_rotate(t_list *a);
 void			push_back_in_a(t_list *a, t_list *b);
 void			move_in_a(t_move *move, int pos, t_list *a);
 void			move_in_b(t_move *move, int nb, t_list *b);
+int				pile_length(t_list *stack);
 #endif

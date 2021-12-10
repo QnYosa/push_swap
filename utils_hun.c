@@ -6,15 +6,16 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 01:29:26 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/09 23:51:17 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/10 22:28:18 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
+//sort_utils_2.c
 
 int	find_place_in_pile_descending(int nb, t_list *stack)
-{//sort_utils_2.c
+{
 	t_node		*current;
 	int			pos;
 	int			previous_nb;
@@ -37,11 +38,11 @@ int	find_place_in_pile_descending(int nb, t_list *stack)
 	return (0);
 }
 
-int	find_place_in_pile_ascending(int nb, t_list *stack)
+long	find_place_in_pile_ascending(int nb, t_list *stack)
 {
 	t_node		*current;
-	int			pos;
-	int			previous_nb;
+	long		pos;
+	long		previous_nb;
 
 	pos = 0;
 	current = stack->head;
@@ -61,24 +62,23 @@ int	find_place_in_pile_ascending(int nb, t_list *stack)
 	return (0);
 }
 
-void	final_rotate(t_list *a, t_list *b)
+void	final_rotate(t_list *a)
 {
-	int		pos;
-	int		move;
+	long		pos;
+	long		move;
 
-	b->length += 0;
 	move = 0;
 	pos = find_smallest_nb_pos(a);
-	if (pos >= (int)a->length / 2)
-		move = (int)a->length - pos;
-	else if (pos < (int)a->length / 2)
+	if (pos >= pile_length(a) / 2)
+		move = pile_length(a) - pos;
+	else if (pos < pile_length(a) / 2)
 		move = pos;
 	while (move > 0)
 	{
-		if (pos >= (int)a->length / 2)
-			rra_list(a, a->c, a->l_co);
-		else if (pos < (int)a->length / 2)
-			ra_list(a, a->c, a->l_co);
+		if (pos >= pile_length(a) / 2)
+			g_rra_list(a, a->c);
+		else if (pos < pile_length(a) / 2)
+			g_ra_list(a, a->c);
 		move--;
 	}
 	return ;
@@ -86,26 +86,26 @@ void	final_rotate(t_list *a, t_list *b)
 
 void	push_back_in_a(t_list *a, t_list *b)
 {//sort_utils_2.c
-	int		pos;
-	int		move;
+	long		pos;
+	long		move;
 
-	while (b->length > 0)
+	while (pile_length(b) > 0)
 	{
 		pos = find_place_in_pile_ascending(b->head->number, a);
-		if (pos >= (int)a->length / 2)
-			move = (int)a->length - pos;
-		else if (pos < (int)a->length / 2)
+		if (pos >= pile_length(a) / 2)
+			move = pile_length(a) - pos;
+		else if (pos < pile_length(a) / 2)
 			move = pos;
 		while (move > 0)
 		{
-			if (pos >= (int)a->length / 2)
-				rra_list(a, a->c, a->l_co);
-			else if (pos < (int)a->length / 2)
-				ra_list(a, a->c, a->l_co);
+			if (pos >= pile_length(a) / 2)
+				g_rra_list(a, a->c);
+			else if (pos < pile_length(a) / 2)
+				g_ra_list(a, a->c);
 			move--;
 		}
-		push_first(b, a);
+		g_push_first(b, a);
 	}
-	final_rotate(a, b);
+	final_rotate(a);
 	return ;
 }

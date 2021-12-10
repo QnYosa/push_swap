@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:58 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/06 20:06:32 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/10 17:16:10 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ void	swap(t_node *first, t_node *second, char c, t_write *l_com)
 
 void	double_swap(t_list *list_1, t_list *list_2)
 {
-	swap(list_1->head, list_1->head->next, 's', list_1->l_co);
-	swap(list_2->head, list_2->head->next, 's', list_2->l_co);
+	if (list_1->length > 1)
+		swap(list_1->head, list_1->head->next, 's', list_1->l_co);
+	if (list_2->length > 1)
+		swap(list_2->head, list_2->head->next, 's', list_2->l_co);
 	add_commands_start(list_1->l_co, "ss\n");
 }
 
