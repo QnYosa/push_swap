@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/10 22:50:30 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/11 23:54:31 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	g_ra_list(t_list *list, char c)
 	else if (c == 'b')
 		write(1, "rb\n", 3);
 }
+
 void	g_rr_91(t_list *a, t_list *b)
 {
 	if (a->length > 1)

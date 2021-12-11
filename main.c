@@ -6,13 +6,12 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:02:18 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/10 16:03:52 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/11 23:54:53 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include "includes/libft.h"
-
 
 int	main(int argc, char **argv)
 {
@@ -31,6 +30,7 @@ int	main(int argc, char **argv)
 		if (!comp_max(argv[i], "2147483648") || ft_strlen(argv[i]) > 10)
 		{
 			write(1, "Error\n", 6);
+			free(list);
 			return (0);
 		}
 	}
@@ -39,7 +39,8 @@ int	main(int argc, char **argv)
 		delete_list(&list);
 		return (0);
 	}
-	list->l_co = init_write();
+	if (argc > 6)
+		list->l_co = init_write();
 	chose_algo(argc, list);
 	if (argc > 6)
 		free_commands(&list->l_co);

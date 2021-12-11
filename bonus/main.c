@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:16:31 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/10 17:31:40 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/12 00:09:12 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	translate(t_list *s_a, t_list *s_b, char *buffer)
 		swap(s_a->head, s_a->head->next, 'a', s_a->l_co);
 		return (0);
 	}
-	return translate_2(s_a, s_b, buffer);
+	return (translate_2(s_a, s_b, buffer));
 }
 
 int	checker(t_list *s_a, t_list *s_b)
@@ -87,11 +87,13 @@ int	checker(t_list *s_a, t_list *s_b)
 
 	buffer = 0;
 	state = get_next_line(0, &buffer);
-	while (state == 1) {
-		if (translate(s_a, s_b, buffer) == 1) {
+	while (state == 1)
+	{
+		if (translate(s_a, s_b, buffer) == 1)
+		{
 			get_next_line(-1, &buffer);
 			state = 1;
-			break;
+			break ;
 		}
 		free(buffer);
 		buffer = 0;
@@ -102,7 +104,7 @@ int	checker(t_list *s_a, t_list *s_b)
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_list	*s_a;
 	t_list	*s_b;

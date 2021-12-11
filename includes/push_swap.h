@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:17:16 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/10 22:35:44 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/11 23:56:11 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,8 @@ long			comp_max(char *s1, char *s2);
 void			s_t_t_n_e(t_list *stack, long *tab);
 void			s_f_t_n_e(t_list *sender, t_list *receiver, long *tab, long ra);
 long			ra_opt_stne(long ra, t_list *sender, long *tab, long x);
-long			cond_bottom(t_list *sender, t_list *receiver, long *tab, long *touched);
+long			cond_bottom(t_list *sender, \
+t_list *receiver, long *tab, long *touched);
 long			out_is_sorted(t_list *sender, t_list *receiver, long *tab);
 void			cond_del_u(t_commands **i, t_commands **del);
 void			cond_last(t_commands **i, t_commands **del);

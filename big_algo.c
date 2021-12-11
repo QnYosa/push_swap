@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:53:24 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/08 16:00:57 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/11 23:49:53 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,7 @@ void	recursive_sort(t_list *stack_a, t_list *stack_b, long len)
 	else
 		recursive_sort(stack_a, stack_b, len - x);
 	if (x <= 4)
-	{
 		find_algo_rec(stack_a, stack_b, x);
-	}
 	else
 		send_b_to_a(stack_b, stack_a, x);
 }
@@ -86,7 +84,6 @@ void	big_algo_maestro(t_list *stack_a)
 	stack_a->quarter = find_quarter(stack_a);
 	stack_a->c = 'a';
 	stack_b->c = 'b';
-	//list_display(stack_a, stack_b);
 	while (++i < 2)
 		ra_list(stack_a, stack_a->c, stack_a->l_co);
 	recursive_sort(stack_a, stack_b, stack_a->length);

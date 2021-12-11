@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:01:44 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/07 18:39:34 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/11 23:59:08 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	sort_three_top_non_empty(t_list *stack, long x)
 	tab = create_tab(x, stack);
 	if (stack->head->number == tab[0] && stack->head->next->number == tab[1] \
 		&& stack->head->next->next->number == tab[2])
+	{
+		free(tab);
 		return ;
+	}
 	else if (stack->head->number == tab[0] && stack->head->next->number \
 	== tab[2] && stack->head->next->next->number == tab[1])
 	{
@@ -86,10 +89,14 @@ void	sort_four_top_non_empty(t_list *sender, t_list *receiver, long x)
 	long	ra;
 
 	touched = malloc(sizeof(long) * x);
-	tab = malloc(sizeof(long) * x);
-	tab = create_tab(x, sender);
-	if (!touched || !tab)
+	if (!touched)
 		return ;
+	tab = create_tab(x, sender);
+	if (!tab)
+	{
+		free(tab);
+		return ;
+	}
 	touched = is_next_top_a(tab, touched, x, sender);
 	if (touched[3] == 1)
 	{
@@ -99,13 +106,18 @@ void	sort_four_top_non_empty(t_list *sender, t_list *receiver, long x)
 		return ;
 	}
 	else
-	{
 		ra = loop_sftne(sender, receiver, tab, x);
-	}
 	if (ra == 0)
+	{
+		free(touched);
+		free(tab);
 		return ;
+	}
 	s_f_t_n_e(sender, receiver, tab, ra);
-	free(tab);
+	if (tab)
+		free(tab);
+	if (touched)
+		free(touched);
 }
 
 void	find_algo_top_rec(t_list *stack_a, t_list *stack_b, long x)

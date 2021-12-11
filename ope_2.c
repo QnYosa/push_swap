@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 15:01:50 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/10 17:25:51 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/11 23:25:28 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ void	ra_list(t_list *list, char c, t_write *l_co)
 	else if (c == 'a')
 		add_commands_start(l_co, "ra\n");
 	else if (c == 'b')
-		add_commands_start(l_co, "rb\n");
+	{
+		if (list->length > 0)
+			add_commands_start(l_co, "rb\n");
+	}
 }
 
 void	rra_list(t_list *list, char c, t_write *l_co)
@@ -59,10 +62,15 @@ void	rra_list(t_list *list, char c, t_write *l_co)
 		i++;
 	}
 	list->head->number = value_tail;
+	if (c == 's')
+		return ;
 	if (c == 'a')
 		add_commands_start(l_co, "rra\n");
 	else
-		add_commands_start(l_co, "rrb\n");
+	{
+		if (list->length > 0)
+			add_commands_start(l_co, "rrb\n");
+	}
 }
 
 void	rr_91(t_list *a, t_list *b)

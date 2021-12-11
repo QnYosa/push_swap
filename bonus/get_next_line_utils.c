@@ -6,7 +6,7 @@
 /*   By: dyoula <dyoula@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:25:22 by dyoula            #+#    #+#             */
-/*   Updated: 2021/12/10 16:12:45 by dyoula           ###   ########.fr       */
+/*   Updated: 2021/12/12 00:06:37 by dyoula           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strdup(char *str)
 	char	*n_str;
 
 	i = 0;
-		while (str[i])
-			i++;
+	while (str[i])
+		i++;
 	n_str = malloc(sizeof(char) * (i + 1));
 	if (!n_str)
 		return (NULL);
@@ -37,10 +37,10 @@ char	*ft_strndup(char *str, int n)
 	char	*n_str;
 
 	i = 0;
-		while (str[i])
-			i++;
+	while (str[i])
+		i++;
 	if (i > n)
-		i = n; 
+		i = n;
 	n_str = malloc(sizeof(char) * (i + 1));
 	if (!n_str)
 		return (NULL);
@@ -76,9 +76,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	while (s2[++j])
 		str[i + j] = s2[j];
-	
 	return (str);
 }
+
 char	*ft_strchr(const char *str, int c)
 {
 	int	i;

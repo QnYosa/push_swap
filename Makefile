@@ -10,8 +10,7 @@ SRCS_SHARED = maestro.c errors.c c_list.c find.c norm_rec_alg.c\
 	3_arg.c 4_and_more.c 5_arg.c big_algo.c maths_part.c \
 	recursive_algo.c stack_b_to_a.c op1.c op2.c \
 	big_3.c big_4.c big_5.c opti.c rotate.c  delete.c \
-	hundred.c best_m.c utils_hun.c set_moves_h.c str_move.c \
-	find_hundred.c free_ptm.c norm_del_u.c
+	norm_del_u.c
 SRCS	= main.c $(SRCS_SHARED)
 SRCS_B	= bonus/main.c bonus/tester.c bonus/get_next_line.c bonus/get_next_line_utils.c \
 	 $(SRCS_SHARED)
@@ -19,7 +18,7 @@ SRCS_B	= bonus/main.c bonus/tester.c bonus/get_next_line.c bonus/get_next_line_u
 OBJS	= $(SRCS:.c=.o)
 OBJS_B	= $(SRCS_B:.c=.o)
 
-CFLAGS	= -Wall -Werror -Wextra -g
+CFLAGS	= -Wall -Werror -Wextra -g3 -fsanitize=address
 
 CC		= clang
 
